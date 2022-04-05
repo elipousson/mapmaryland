@@ -1,0 +1,16 @@
+Package: mapmaryland
+Type: Package
+Title: Easy Access to Maryland Spatial Data
+Version: 0.1.0
+Authors@R: 
+    person("Eli", "Pousson", , "eli.pousson@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-8280-1706"))
+Maintainer: The package maintainer <yourself@somewhere.net>
+Description: A small collection of data sources and utility functions for working with administrative and other data sources in Maryland.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Depends: 
+    R (>= 2.10)

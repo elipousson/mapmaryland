@@ -1,0 +1,43 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# mapmaryland
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of mapmaryland is to ease access to spatial data for Maryland at both the local, regional, and statewide level.
+
+## Installation
+
+You can install the development version of mapmaryland like so:
+
+``` r
+# devtools::install_github("elipousson/mapmaryland")
+```
+
+## Example
+
+```{r}
+library(mapmaryland)
+## basic example code
+```
+
+Currently, the only feature in this package is a basic index of Maryland ArcGIS services:
+
+```{r}
+md_arcgis_index
+```
+
