@@ -43,3 +43,9 @@ md_congressional_districts <-
   overedge::relocate_sf_col()
 
 usethis::use_data(md_congressional_districts, overwrite = TRUE)
+
+md_census_places <-
+  tigris::places(state = "MD") %>%
+  janitor::clean_names("snake")
+
+usethis::use_data(md_census_places, overwrite = TRUE)
