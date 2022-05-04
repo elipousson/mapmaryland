@@ -15,7 +15,28 @@ A data frame with 67 rows and 14 variables:
 \item{\code{state}}{character State name}
 \item{\code{state.abb}}{character State name abbreviation}
 \item{\code{geography}}{character Geographic scope; Options include
-citywide, countywide, regional (multicounty), statewide, or regional
+citywide, countywide, regional (multi-county), statewide, or regional
+(multistate).}
+\item{\code{source_type}}{character Source type}
+\item{\code{notes}}{character Notes}
+\item{\code{public}}{logical Public data indicator}
+\item{\code{services_url}}{character Services URL}
+\item{\code{hosting}}{character Hosting type; Currently used as an
+indicator for ArcGIS Online hosted data with other services assumed to be
+self-hosted by the source or operator.}
+}
+
+A data frame with 67 rows and 14 variables:
+\describe{
+\item{\code{name}}{character Source name}
+\item{\code{operator.abb}}{character Operator abbreviation}
+\item{\code{operator}}{character Operator name}
+\item{\code{city}}{character City name}
+\item{\code{county}}{character County name}
+\item{\code{state}}{character State name}
+\item{\code{state.abb}}{character State name abbreviation}
+\item{\code{geography}}{character Geographic scope; Options include
+citywide, countywide, regional (multi-county), statewide, or regional
 (multistate).}
 \item{\code{source_type}}{character Source type}
 \item{\code{notes}}{character Notes}
@@ -28,14 +49,27 @@ self-hosted by the source or operator.}
 }
 \usage{
 md_arcgis_index
+
+md_arcgis_index
 }
 \description{
 A non-comprehensive list of ArcGIS services maintained by public agencies,
-academic units, and nonprofit organizations in Maryland. Comments, additions,
-or corrections can be submitted using comments on this open Google Sheet:
-\url{https://docs.google.com/spreadsheets/d/1c829bZdNqvbpoizulBU_XE5jVeNNck2kHkS-smpQ52s/edit?usp=sharing}
+academic units, and nonprofit organizations in Maryland. Layers available at
+the service_url can be accessed using the \href{https://github.com/yonghah/esri2sf}{{esri2sf} package}.
+
+A non-comprehensive list of useful ArcGIS layers selected from services
+listed in \link{md_arcgis_index} by public agencies, academic units, and nonprofit
+organizations in Maryland. Access the data using the \code{layer_url} variable
+with \link[esri2sf:esri2sf]{esri2sf::esri2sf} or \link[overedge:get_esri_data]{overedge::get_esri_data} (which wraps the
+\href{https://github.com/yonghah/esri2sf}{{esri2sf}}) package).
 }
 \details{
-DETAILS
+Comments, additions,
+or corrections can be submitted using comments on this open Google Sheet:
+\url{https://docs.google.com/spreadsheets/d/1c829bZdNqvbpoizulBU_XE5jVeNNck2kHkS-smpQ52s/edit?usp=sharing}
+
+Comments, additions,
+or corrections can be submitted using comments on this open Google Sheet:
+\url{https://docs.google.com/spreadsheets/d/1c829bZdNqvbpoizulBU_XE5jVeNNck2kHkS-smpQ52s/edit?usp=sharing}
 }
 \keyword{datasets}
