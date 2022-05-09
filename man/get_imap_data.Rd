@@ -4,11 +4,14 @@
 \alias{get_imap_data}
 \alias{get_cama_data}
 \alias{get_parcel_data}
+\alias{get_mihp_data}
 \title{Get data from Maryland iMap}
 \usage{
 get_cama_data(location, type = "bldg", ...)
 
 get_parcel_data(location, ...)
+
+get_mihp_data(location, ...)
 }
 \arguments{
 \item{location}{A \code{sf}, \code{sfc}, or \code{bbox} object (or other object convertible with \link[overedge:as_sf]{overedge::as_bbox}. Required.}

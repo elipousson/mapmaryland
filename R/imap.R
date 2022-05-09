@@ -43,3 +43,15 @@ get_parcel_data <- function(location, ...) {
     ...
   )
 }
+
+#' @name get_mihp_data
+#' @rdname get_imap_data
+#' @export
+#' @importFrom overedge get_esri_data
+get_mihp_data <- function(location, ...) {
+  overedge::get_esri_data(
+    location = location,
+    url = "https://geodata.md.gov/imap/rest/services/Historic/MD_InventoryHistoricProperties/FeatureServer/0",
+    ...
+  )
+}
