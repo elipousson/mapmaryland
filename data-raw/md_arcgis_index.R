@@ -5,8 +5,7 @@ md_arcgis_index <-
   googlesheets4::read_sheet(
     ss = "https://docs.google.com/spreadsheets/d/1c829bZdNqvbpoizulBU_XE5jVeNNck2kHkS-smpQ52s/edit?usp=sharing",
     sheet = "services"
-  ) %>%
-  dplyr::select(-services_url_linked)
+  )
 
 usethis::use_data(md_arcgis_index, overwrite = TRUE)
 
