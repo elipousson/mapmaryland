@@ -145,3 +145,19 @@
 #' @source \url{https://geodata.md.gov/imap/rest/services/Hydrology/MD_Waterbodies/FeatureServer/0}
 "md_streams"
 
+
+#' @title  Maryland Real Property Assessments: Fields Reference
+#'
+#' @format A data frame with 223 rows and 6 variables:
+#' \describe{
+#'   \item{\code{field_order}}{Field order}
+#'   \item{\code{field_name}}{Field name}
+#'   \item{\code{data_type}}{Data type}
+#'   \item{\code{mdp_field_name}}{Maryland Department of Planning (MDP) Field name}
+#'   \item{\code{api_field_name}}{Maryland Open Data portal API field name}
+#'   \item{\code{sdat_field_number}}{State Department of Assessments and Taxation (SDAT) field number}
+#'}
+#' @source \url{https://opendata.maryland.gov/Business-and-Economy/Maryland-Real-Property-Assessments-Fields-Referenc/w8th-47fz/data}
+"real_property_cols"
+
+
