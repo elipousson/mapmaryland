@@ -10,6 +10,7 @@ Description: A small collection of data sources and utility functions for workin
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+LazyDataCompression:xz
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Depends: 
