@@ -35,9 +35,9 @@ library(mapmaryland)
 ## basic example code
 ```
 
-Currently, the only feature in this package is a basic index of Maryland ArcGIS services:
+Currently, the package has a limited number of data access functions, prepackaged datasets, and reference data with an index of Maryland ArcGIS services.
 
 ```{r}
-md_arcgis_index
+dplyr::glimpse(md_arcgis_index)
 ```
 
