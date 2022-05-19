@@ -120,7 +120,7 @@
 #'   \item{\code{countyfp}}{character County FIPS}
 #'   \item{\code{county}}{character County name}
 #'   \item{\code{geometry}}{list Multipolygon geometry}
-#'}
+#' }
 #' @source \url{https://geodata.md.gov/imap/rest/services/Hydrology/MD_Waterbodies/FeatureServer/2}
 "md_streams_detailed"
 
@@ -141,7 +141,7 @@
 #'   \item{\code{countyfp}}{County FIPS}
 #'   \item{\code{county}}{County name}
 #'   \item{\code{geometry}}{Multipolygon geometry}
-#'}
+#' }
 #' @source \url{https://geodata.md.gov/imap/rest/services/Hydrology/MD_Waterbodies/FeatureServer/0}
 "md_streams"
 
@@ -156,8 +156,30 @@
 #'   \item{\code{mdp_field_name}}{Maryland Department of Planning (MDP) Field name}
 #'   \item{\code{api_field_name}}{Maryland Open Data portal API field name}
 #'   \item{\code{sdat_field_number}}{State Department of Assessments and Taxation (SDAT) field number}
-#'}
+#' }
 #' @source \url{https://opendata.maryland.gov/Business-and-Economy/Maryland-Real-Property-Assessments-Fields-Referenc/w8th-47fz/data}
 "real_property_cols"
 
-
+#' Maryland iMap Folder/Service Index
+#'
+#' Created using esriIndex function (in process of being developed for esri2sf
+#' package).
+#'
+#' @format A data frame with 2691 rows and 14 variables:
+#' \describe{
+#'   \item{\code{name}}{character Name}
+#'   \item{\code{nm}}{character Name with snake case}
+#'   \item{\code{index}}{character Index type}
+#'   \item{\code{type}}{character Service type}
+#'   \item{\code{url}}{character Folder/service/layer URL}
+#'   \item{\code{parent}}{character Parent folder/service/layer}
+#'   \item{\code{id}}{integer Layer ID number}
+#'   \item{\code{parentLayerId}}{integer Parent layer ID number}
+#'   \item{\code{defaultVisibility}}{logical Layer default visibility}
+#'   \item{\code{minScale}}{double Minimum scale}
+#'   \item{\code{maxScale}}{integer Maximum scale}
+#'   \item{\code{geometryType}}{character Geometry type}
+#'   \item{\code{subLayerIds}}{list Sublayer ID numbers}
+#'   \item{\code{supportsDynamicLegends}}{logical Supports dynamic legends}
+#'}
+"md_imap_index"
