@@ -1,5 +1,7 @@
 #' Create an index of folders, services, layers, and tables for an ArcGIS Server
 #' @noRd
+#' @importFrom dplyr bind_cols bind_rows mutate if_else case_when
+#' @importFrom purrr map2_dfr
 esriIndex <- function(url, parent = NULL, recurse = FALSE, ...) {
   esriResp <- esriCatalog(url, ...)
 
@@ -112,6 +114,7 @@ esriIndex <- function(url, parent = NULL, recurse = FALSE, ...) {
 
 #' Create an index of layers and tables from an ArcGIS Service
 #' @noRd
+#' @importFrom dplyr bind_cols bind_rows
 esriLayers <- function(url, parent = NULL, ...) {
   esriResp <- esriCatalog(url, ...)
 
@@ -162,10 +165,13 @@ esriLayers <- function(url, parent = NULL, ...) {
 
 #' Get a catalog of folders, services, tables, and layers
 #' @noRd
-esriCatalog <- function(url, format = "json", option = NULL, outSR = NULL, ...) {
+#' @importFrom httr2 request req_url_query req_perform resp_body_json resp_body_xml
+#' @importFrom xml2 as_list
+#' @importFrom dplyr bind_rows
+esriCatalog <- function(url, format = "json", token = "", option = NULL, outSR = NULL, ...) {
   format <- match.arg(format, c("json", "html", "kmz", "sitemap", "geositemap"))
   req <- httr2::request(url)
-  req <- httr2::req_url_query(req = req, f = format)
+  req <- httr2::req_url_query(.req = req, f = format, token = token)
 
   resp <- httr2::req_perform(req = req)
 
