@@ -49,3 +49,19 @@ md_census_places <-
   janitor::clean_names("snake")
 
 usethis::use_data(md_census_places, overwrite = TRUE)
+
+us_states <-
+  tigris::states() %>%
+  sf::st_transform(crs = 3857) %>%
+  janitor::clean_names("snake")
+
+us_states_near_md <-
+  overedge::get_location_data(
+    location = md_counties,
+    data = us_states,
+    asp = 1,
+    crop = FALSE
+  )
+
+usethis::use_data(us_states_near_md, compress = "xz", overwrite = TRUE)
+

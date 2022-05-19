@@ -90,6 +90,30 @@
 #' }
 "md_congressional_districts"
 
+#' U.S. States (near Maryland)
+#'
+#' U.S. states bordering Maryland or in close proximity.
+#'
+#' @format A data frame with 7 rows and 15 variables:
+#' \describe{
+#'   \item{\code{region}}{character Region ID}
+#'   \item{\code{division}}{character Division ID}
+#'   \item{\code{statefp}}{2-character state FIPS code}
+#'   \item{\code{statens}}{character State National Standard (NS) identifier using U.S. Geological Survey’s Geographic Names Information System (GNIS) code}
+#'   \item{\code{geoid}}{character GeoID}
+#'   \item{\code{stusps}}{character State U.S. Postal Service abbreviation}
+#'   \item{\code{name}}{character State name}
+#'   \item{\code{lsad}}{Legal/statistical area description (LSAD)}
+#'   \item{\code{mtfcc}}{MAF/TIGER Feature Class Code (MTFCC)}
+#'   \item{\code{funcstat}}{functional status}
+#'   \item{\code{aland}}{land area (square meters)}
+#'   \item{\code{awater}}{water area (square meters)}
+#'   \item{\code{intptlat}}{latitude of the internal point}
+#'   \item{\code{intptlon}}{longitude of the internal point}
+#'   \item{\code{geometry}}{list Geometry}
+#'}
+"us_states_near_md"
+
 #' Maryland Water (area)
 #'
 #' Detailed multipolygon data for streams, lakes, and other water in the state

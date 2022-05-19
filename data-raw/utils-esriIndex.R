@@ -171,7 +171,7 @@ esriLayers <- function(url, parent = NULL, ...) {
 esriCatalog <- function(url, format = "json", token = "", option = NULL, outSR = NULL, ...) {
   format <- match.arg(format, c("json", "html", "kmz", "sitemap", "geositemap"))
   req <- httr2::request(url)
-  req <- httr2::req_url_query(.req = req, f = format, token = token)
+  req <- httr2::req_url_query(req = req, f = format, token = token)
 
   resp <- httr2::req_perform(req = req)
 
