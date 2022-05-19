@@ -7,6 +7,8 @@
 \alias{get_mihp_data}
 \title{Get data from Maryland iMap}
 \usage{
+get_imap_data(location, nm = NULL, ...)
+
 get_cama_data(location, type = "bldg", ...)
 
 get_parcel_data(location, ...)
@@ -16,9 +18,9 @@ get_mihp_data(location, ...)
 \arguments{
 \item{location}{A \code{sf}, \code{sfc}, or \code{bbox} object (or other object convertible with \link[overedge:as_sf]{overedge::as_bbox}. Required.}
 
-\item{type}{For \link{get_cama_data}, type of data to return, Default: 'bldg'; options include "bldg", "core", "land", "subarea".}
-
 \item{...}{Additional parameters passed to \link[overedge:get_esri_data]{overedge::get_esri_data}}
+
+\item{type}{For \link{get_cama_data}, type of data to return, Default: 'bldg'; options include "bldg", "core", "land", "subarea".}
 }
 \description{
 Get Computer Assisted Mass Appraisal (CAMA) and parcel data.
