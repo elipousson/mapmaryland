@@ -29,8 +29,7 @@
 #' @importFrom overedge is_same_crs st_erase
 #' @importFrom sf st_transform
 get_md_tigris <- function(name = NULL, type = "counties", crs = 3857, erase_water = FALSE, ...) {
-
-  pkg_data <-  c("counties", "census places", "congressional districts", "legislative districts", "water")
+  pkg_data <- c("counties", "census places", "congressional districts", "legislative districts", "water")
   api_data <- c("senate district", "tracts", "block groups", "blocks", "pumas", "voting districts")
 
   type <-
@@ -43,18 +42,18 @@ get_md_tigris <- function(name = NULL, type = "counties", crs = 3857, erase_wate
 
   data <-
     switch(type,
-           "county" = mapmaryland::md_counties,
-           "counties" = mapmaryland::md_counties,
-           "census places" = mapmaryland::md_census_places,
-           "congressional districts" = mapmaryland::md_congressional_districts,
-           "legislative districts" = mapmaryland::md_legislative_districts,
-           "water" = mapmaryland::md_water,
-           "senate districts" = tigris::state_legislative_districts(state = state, house = "upper", ...),
-           "county subdivisions" = tigris::county_subdivisions(state = state, ...),
-           "block groups" = tigris::block_groups(state = state, ...),
-           "blocks" = tigris::blocks(state = state, ...),
-           "pumas" = tigris::pumas(state = state, ...),
-           "voting districts" = tigris::voting_districts(state = state, ...)
+      "county" = mapmaryland::md_counties,
+      "counties" = mapmaryland::md_counties,
+      "census places" = mapmaryland::md_census_places,
+      "congressional districts" = mapmaryland::md_congressional_districts,
+      "legislative districts" = mapmaryland::md_legislative_districts,
+      "water" = mapmaryland::md_water,
+      "senate districts" = tigris::state_legislative_districts(state = state, house = "upper", ...),
+      "county subdivisions" = tigris::county_subdivisions(state = state, ...),
+      "block groups" = tigris::block_groups(state = state, ...),
+      "blocks" = tigris::blocks(state = state, ...),
+      "pumas" = tigris::pumas(state = state, ...),
+      "voting districts" = tigris::voting_districts(state = state, ...)
     )
 
   if (type %in% api_data) {

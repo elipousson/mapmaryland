@@ -16,11 +16,30 @@ md_imap_index <-
   )
 
 md_imap_index <-
+  dplyr::arrange(md_imap_index, url) %>%
+  dplyr::distinct(url, .keep_all = TRUE) %>%
   dplyr::mutate(
-    md_imap_index,
-    nm = janitor::make_clean_names(name),
+    server_type = dplyr::case_when(
+      stringr::str_detect(url, "FeatureServer") ~ "FeatureServer",
+      stringr::str_detect(url, "MapServer") ~ "MapServer",
+      stringr::str_detect(url, "ImageServer") ~ "ImageServer",
+      stringr::str_detect(url, "GeocodeServer") ~ "GeocodeServer",
+      stringr::str_detect(url, "GeometryServer") ~ "GeometryServer",
+      stringr::str_detect(url, "GPServer") ~ "GPServer"
+    ),
+    .after = "type"
+  ) %>%
+  dplyr::mutate(
+    nm = dplyr::case_when(
+      (server_type == "FeatureServer") & !is.na(geometryType) ~ janitor::make_clean_names(name),
+      (server_type == "MapServer") & !is.na(geometryType) ~ janitor::make_clean_names(glue::glue("{name} map")),
+      !is.na(geometryType) ~ janitor::make_clean_names(glue::glue("{name} {server_type}")),
+      index == "service" ~ janitor::make_clean_names(glue::glue("{name} {type}")),
+      TRUE ~ janitor::make_clean_names(glue::glue("{name} {index}"))
+    ),
+    nm = stringr::str_remove(nm, "_2$"),
     .after = "name"
-    )
+  )
 
 usethis::use_data(md_imap_index, overwrite = TRUE)
 

@@ -75,11 +75,40 @@
 #'   \item{\code{statefp}}{State FIPS code for Maryland}
 #'   \item{\code{countyfp}}{County FIPS code}
 #'   \item{\code{name}}{County name}
-#'   \item{\code{geoid}}{Unique county FIPS code (concatenation of state and county FIPS codes)}
+#'   \item{\code{geoid}}{Unique county GeoID (concatenation of state and county FIPS codes)}
 #'   \item{\code{namelsad}}{Concatenated variable length geographic area name and legal/statistical area description (LSAD)}
 #'   \item{\code{geometry}}{Multipolygon with the county boundary}
-#'}
+#' }
 "md_counties_detailed"
+
+
+#' Maryland Census-designated places
+#'
+#' Census Designated Places (CDPs) in the state of Maryland downloaded using the
+#' [tigris::places] function.
+#'
+#' @format A data frame with 536 rows and 17 variables:
+#' \describe{
+#'   \item{\code{statefp}}{State FIPS code for Maryland}
+#'   \item{\code{countyfp}}{County FIPS code}
+#'   \item{\code{placefp}}{CDP FIPS code}
+#'   \item{\code{placens}}{CDP GNIS code}
+#'   \item{\code{geoid}}{Unique CDP GeoID}
+#'   \item{\code{name}}{Place name}
+#'   \item{\code{namelsad}}{Place Legal/statistical area description (LSAD)}
+#'   \item{\code{lsad}}{Legal/statistical area description (LSAD)}
+#'   \item{\code{classfp}}{Class FIPS code}
+#'   \item{\code{pcicbsa}}{Current metropolitan/micropolitan statistical area principal city indicator}
+#'   \item{\code{mtfcc}}{MAF/TIGER Feature Class Code (MTFCC)}
+#'   \item{\code{funcstat}}{Functional status}
+#'   \item{\code{aland}}{Land area (square meters)}
+#'   \item{\code{awater}}{Water area (square meters)}
+#'   \item{\code{intptlat}}{Latitude of the internal point}
+#'   \item{\code{intptlon}}{Longitude of the internal point}
+#'   \item{\code{geometry}}{list COLUMN_DESCRIPTION}
+#' }
+"md_census_places"
+
 
 #' U.S. Congressional Districts for Maryland
 #'
@@ -106,30 +135,7 @@
 #' }
 "md_congressional_districts"
 
-#' Maryland State Senate Districts
-#'
-#' Maryland State Senate Districts boundaries downloaded from the U.S. Census Bureau with the
-#' [tigris::state_legislative_districts] function.
-#'
-#' @format A data frame with 48 rows and 13 variables:
-#' \describe{
-#'   \item{\code{statefp}}{2-character state FIPS code}
-#'   \item{\code{sldust}}{State Legislative District Upper Chamber}
-#'   \item{\code{geoid}}{GeoID}
-#'   \item{\code{namelsad}}{concatenated variable with geographic area name and legal/statistical area description (LSAD)}
-#'   \item{\code{lsad}}{Legal/statistical area description (LSAD)}
-#'   \item{\code{lsy}}{Legislative session year}
-#'   \item{\code{mtfcc}}{MAF/TIGER Feature Class Code (MTFCC)}
-#'   \item{\code{funcstat}}{functional status}
-#'   \item{\code{aland}}{land area (square meters)}
-#'   \item{\code{awater}}{water area (square meters)}
-#'   \item{\code{intptlat}}{latitude of the internal point}
-#'   \item{\code{intptlon}}{longitude of the internal point}
-#'   \item{\code{geometry}}{Multipolygon with district boundary}
-#'}
-"md_senate_districts"
-
-#' Maryland State Legislative Districts
+#' Maryland State Legislative Districts (lower house)
 #'
 #' Maryland State Legislative Districts boundaries downloaded from the U.S. Census Bureau with the
 #' [tigris::state_legislative_districts] function with `house = "lower"`.
@@ -149,7 +155,7 @@
 #'   \item{\code{intptlat}}{latitude of the internal point}
 #'   \item{\code{intptlon}}{longitude of the internal point}
 #'   \item{\code{geometry}}{Multipolygon with district boundary}
-#'}
+#' }
 "md_legislative_districts"
 
 #' U.S. States (near Maryland)
@@ -173,7 +179,7 @@
 #'   \item{\code{intptlat}}{latitude of the internal point}
 #'   \item{\code{intptlon}}{longitude of the internal point}
 #'   \item{\code{geometry}}{list Geometry}
-#'}
+#' }
 "us_states_near_md"
 
 #' Maryland Water (area)
@@ -216,12 +222,13 @@
 #' Created using esriIndex function (in process of being developed for esri2sf
 #' package).
 #'
-#' @format A data frame with 2691 rows and 14 variables:
+#' @format A data frame with 1477 rows and 15 variables:
 #' \describe{
 #'   \item{\code{name}}{character Name}
 #'   \item{\code{nm}}{character Name with snake case}
 #'   \item{\code{index}}{character Index type}
-#'   \item{\code{type}}{character Service type}
+#'   \item{\code{type}}{character Service/layer type}
+#'   \item{\code{server_type}}{character Server type}
 #'   \item{\code{url}}{character Folder/service/layer URL}
 #'   \item{\code{parent}}{character Parent folder/service/layer}
 #'   \item{\code{id}}{integer Layer ID number}
@@ -232,7 +239,7 @@
 #'   \item{\code{geometryType}}{character Geometry type}
 #'   \item{\code{subLayerIds}}{list Sublayer ID numbers}
 #'   \item{\code{supportsDynamicLegends}}{logical Supports dynamic legends}
-#'}
+#' }
 "md_imap_index"
 
 #' Maryland Open Data Portal Index
@@ -253,6 +260,5 @@
 #'   \item{\code{identifier}}{API identifier}
 #'   \item{\code{theme}}{Data theme}
 #'   \item{\code{license}}{Data license}
-#'}
+#' }
 "md_open_data_index"
-

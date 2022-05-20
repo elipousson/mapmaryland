@@ -48,7 +48,14 @@ usethis::use_data(md_congressional_districts, overwrite = TRUE)
 
 md_census_places <-
   tigris::places(state = pkg_state_abb) %>%
+  sf::st_transform(crs = pkg_crs) %>%
   janitor::clean_names("snake")
+
+md_census_places <- md_census_places %>%
+  sf::st_join(dplyr::select(md_counties, countyfp, county = namelsad)) %>%
+  dplyr::relocate(countyfp, .after = "statefp") %>%
+  dplyr::relocate(county, .after = "intptlon") %>%
+  dplyr::select(-pcinecta)
 
 usethis::use_data(md_census_places, overwrite = TRUE)
 
@@ -82,6 +89,3 @@ md_legislative_districts <-
   janitor::clean_names("snake")
 
 usethis::use_data(md_legislative_districts, overwrite = TRUE)
-
-
-
