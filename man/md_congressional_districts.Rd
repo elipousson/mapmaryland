@@ -10,7 +10,7 @@ A data frame with 8 rows and 13 variables:
 \item{\code{statefp}}{2-character state FIPS code}
 \item{\code{cd116fp}}{116th congressional district FIPS code}
 \item{\code{geoid}}{GeoID}
-\item{\code{namelsad}}{concatenated variable length geographic area name and legal/statistical area description (LSAD)}
+\item{\code{namelsad}}{concatenated variable with geographic area name and legal/statistical area description (LSAD)}
 \item{\code{lsad}}{Legal/statistical area description (LSAD)}
 \item{\code{cdsessn}}{Congressional session code}
 \item{\code{mtfcc}}{MAF/TIGER Feature Class Code (MTFCC)}
@@ -21,7 +21,7 @@ A data frame with 8 rows and 13 variables:
 \item{\code{intptlon}}{longitude of the internal point}
 \item{\code{label}}{Congressional District label}
 \item{\code{name}}{Congressional District name}
-\item{\code{geometry}}{Multipolygon with Congressional district boundary}
+\item{\code{geometry}}{Multipolygon with district boundary}
 }
 }
 \usage{

@@ -1,6 +1,8 @@
 library(dplyr)
 state_fips <- 24
 pkg_crs <- 3857
+pkg_state_abb <- "MD"
+pkg_state_name <- "Maryland"
 
 md_counties <-
   tigris::counties(state = state_fips) %>%
@@ -11,7 +13,7 @@ usethis::use_data(md_counties, overwrite = TRUE)
 
 md_water <- md_counties$countyfp %>%
   purrr::map_dfr(
-    ~ tigris::area_water(state = "MD", county = .x)
+    ~ tigris::area_water(state = pkg_state_abb, county = .x)
   ) %>%
   sf::st_simplify(dTolerance = 1) %>%
   sf::st_transform(pkg_crs) %>%
@@ -45,14 +47,14 @@ md_congressional_districts <-
 usethis::use_data(md_congressional_districts, overwrite = TRUE)
 
 md_census_places <-
-  tigris::places(state = "MD") %>%
+  tigris::places(state = pkg_state_abb) %>%
   janitor::clean_names("snake")
 
 usethis::use_data(md_census_places, overwrite = TRUE)
 
 us_states <-
   tigris::states() %>%
-  sf::st_transform(crs = 3857) %>%
+  sf::st_transform(crs = pkg_crs) %>%
   janitor::clean_names("snake")
 
 us_states_near_md <-
@@ -63,5 +65,23 @@ us_states_near_md <-
     crop = FALSE
   )
 
-usethis::use_data(us_states_near_md, compress = "xz", overwrite = TRUE)
+usethis::use_data(us_states_near_md, overwrite = TRUE)
+
+
+md_senate_districts <-
+  tigris::state_legislative_districts(state = pkg_state_abb) %>%
+  sf::st_transform(crs = pkg_crs) %>%
+  janitor::clean_names("snake")
+
+usethis::use_data(md_senate_districts, overwrite = TRUE)
+
+
+md_legislative_districts <-
+  tigris::state_legislative_districts(state = pkg_state_abb, house = "lower") %>%
+  sf::st_transform(crs = pkg_crs) %>%
+  janitor::clean_names("snake")
+
+usethis::use_data(md_legislative_districts, overwrite = TRUE)
+
+
 
