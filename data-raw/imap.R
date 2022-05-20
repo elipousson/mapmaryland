@@ -22,10 +22,7 @@ md_streams_detailed <-
   sf::st_join(dplyr::select(md_counties, countyfp, county = name), largest = TRUE) %>%
   rename_sf_col()
 
-usethis::use_data(
-  md_streams_detailed,
-  overwrite = TRUE
-)
+# NOTE: md_streams_detailed is no longer being exported
 
 url <-
   get_imap_url("rivers_and_streams_generalized")
@@ -36,10 +33,7 @@ md_streams <-
   sf::st_join(dplyr::select(md_counties, countyfp, county = name), largest = TRUE) %>%
   rename_sf_col()
 
-usethis::use_data(
-  md_streams,
-  overwrite = TRUE
-)
+# NOTE: md_streams is no longer being exported
 
 url <-
   get_imap_url("county_boundaries_detailed")

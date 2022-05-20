@@ -197,38 +197,6 @@
 #' @source \url{https://data.imap.maryland.gov/datasets/maryland-waterbodies-rivers-and-streams-detailed}
 "md_water"
 
-#' Maryland Rivers and Streams (detailed)
-#'
-#' @format A data frame with 95507 rows and 4 variables:
-#' \describe{
-#'   \item{\code{type}}{character Type}
-#'   \item{\code{countyfp}}{character County FIPS}
-#'   \item{\code{county}}{character County name}
-#'   \item{\code{geometry}}{list Multipolygon geometry}
-#' }
-#' @source \url{https://geodata.md.gov/imap/rest/services/Hydrology/MD_Waterbodies/FeatureServer/2}
-"md_streams_detailed"
-
-#' Maryland Rivers and Streams
-#'
-#' @format A data frame with 347 rows and 12 variables:
-#' \describe{
-#'   \item{\code{objectid}}{integer GIS Object ID}
-#'   \item{\code{huc}}{character Hydrologic Unit}
-#'   \item{\code{lev}}{double Stream Level}
-#'   \item{\code{pname}}{character Name}
-#'   \item{\code{owname}}{character Open Water Name}
-#'   \item{\code{edaname}}{character Estuarine Coastal Drainage Area Name}
-#'   \item{\code{huc2}}{double HUC 2 Digit}
-#'   \item{\code{huc4}}{double HUC 4 Digit}
-#'   \item{\code{huc6}}{double HUC 6 Digit}
-#'   \item{\code{countyfp}}{County FIPS}
-#'   \item{\code{county}}{County name}
-#'   \item{\code{geometry}}{Multipolygon geometry}
-#' }
-#' @source \url{https://geodata.md.gov/imap/rest/services/Hydrology/MD_Waterbodies/FeatureServer/0}
-"md_streams"
-
 #' @title  Maryland Real Property Assessments: Fields Reference
 #'
 #' @format A data frame with 223 rows and 6 variables:
