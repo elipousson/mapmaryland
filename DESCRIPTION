@@ -3,21 +3,26 @@ Type: Package
 Title: Easy Access to Maryland Spatial Data
 Version: 0.1.0
 Authors@R: 
-    person("Eli", "Pousson", , "eli.pousson@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0001-8280-1706"))
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: A small collection of data sources and utility functions for working with administrative and other data sources in Maryland.
+    person(
+    given = "Eli", family = "Pousson", email = "eli.pousson@gmail.com",
+    role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0001-8280-1706"))
+Description: A small collection of data sources and utility functions for working with state and county data sources in Maryland.
+URL: https://github.com/elipousson/mapmaryland, https://elipousson.github.io/mapmaryland/
+BugReports: https://github.com/elipousson/mapmaryland/issues
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-LazyDataCompression:bzip2
+LazyDataCompression: bzip2
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Depends: 
     R (>= 2.10)
 Imports: 
+    janitor,
     magrittr,
-    overedge
+    overedge,
+    sf,
+    tigris
 Remotes:
     elipousson/overedge
 Suggests: 
