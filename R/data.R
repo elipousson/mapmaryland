@@ -65,6 +65,22 @@
 #' @source \url{https://www.census.gov/geo/maps-data/data/tiger-line.html}
 "md_counties"
 
+
+#' Maryland Counties (detailed boundaries)
+#'
+#' Detailed boundaries for Maryland counties from Maryland iMap.
+#'
+#' @format A data frame with 24 rows and 6 variables:
+#' \describe{
+#'   \item{\code{statefp}}{State FIPS code for Maryland}
+#'   \item{\code{countyfp}}{County FIPS code}
+#'   \item{\code{name}}{County name}
+#'   \item{\code{geoid}}{Unique county FIPS code (concatenation of state and county FIPS codes)}
+#'   \item{\code{namelsad}}{Concatenated variable length geographic area name and legal/statistical area description (LSAD)}
+#'   \item{\code{geometry}}{Multipolygon with the county boundary}
+#'}
+"md_counties_detailed"
+
 #' U.S. Congressional Districts for Maryland
 #'
 #' U.S. Congressional Districts boundaries downloaded from the U.S. Census Bureau with the
@@ -181,7 +197,6 @@
 #' @source \url{https://data.imap.maryland.gov/datasets/maryland-waterbodies-rivers-and-streams-detailed}
 "md_water"
 
-
 #' Maryland Rivers and Streams (detailed)
 #'
 #' @format A data frame with 95507 rows and 4 variables:
@@ -193,7 +208,6 @@
 #' }
 #' @source \url{https://geodata.md.gov/imap/rest/services/Hydrology/MD_Waterbodies/FeatureServer/2}
 "md_streams_detailed"
-
 
 #' Maryland Rivers and Streams
 #'
@@ -214,7 +228,6 @@
 #' }
 #' @source \url{https://geodata.md.gov/imap/rest/services/Hydrology/MD_Waterbodies/FeatureServer/0}
 "md_streams"
-
 
 #' @title  Maryland Real Property Assessments: Fields Reference
 #'
@@ -253,3 +266,25 @@
 #'   \item{\code{supportsDynamicLegends}}{logical Supports dynamic legends}
 #'}
 "md_imap_index"
+
+#' Maryland Open Data Portal Index
+#'
+#' Public resources from the Maryland Open Data Portal excluding resources
+#' cross-listed from Maryland iMap.
+#'
+#' @format A data frame with 737 rows and 11 variables:
+#' \describe{
+#'   \item{\code{name}}{Resource name}
+#'   \item{\code{nm}}{Resource name (snake case)}
+#'   \item{\code{resource}}{Resource identifier}
+#'   \item{\code{description}}{Description}
+#'   \item{\code{url}}{Resource URL}
+#'   \item{\code{issued}}{Date issued}
+#'   \item{\code{modified}}{Date modified}
+#'   \item{\code{keyword}}{list of keywords}
+#'   \item{\code{identifier}}{API identifier}
+#'   \item{\code{theme}}{Data theme}
+#'   \item{\code{license}}{Data license}
+#'}
+"md_open_data_index"
+
