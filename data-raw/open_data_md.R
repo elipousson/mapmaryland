@@ -13,11 +13,11 @@ usethis::use_data(
 )
 
 md_open_data_index <-
-overedge::get_socrata_data(
-  data = "list",
-  source_url = "https://opendata.maryland.gov",
-  token = "DKHfqsI1offbLTfYpi9rmSQQl"
-)
+  overedge::get_socrata_data(
+    data = "list",
+    source_url = "https://opendata.maryland.gov",
+    token = "DKHfqsI1offbLTfYpi9rmSQQl"
+  )
 
 md_open_data_index <- md_open_data_index %>%
   dplyr::rename(
@@ -49,4 +49,3 @@ usethis::use_data(
   md_open_data_index,
   overwrite = TRUE
 )
-

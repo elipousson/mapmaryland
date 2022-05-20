@@ -1,5 +1,4 @@
 test_that("get_imap_data works", {
-
   location <- md_census_places[1, ]
 
   imap_test <-
@@ -23,5 +22,4 @@ test_that("get_imap_data works", {
     )
 
   expect_s3_class(parcel_test, "sf")
-
 })

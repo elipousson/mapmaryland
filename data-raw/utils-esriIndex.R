@@ -176,9 +176,7 @@ esriCatalog <- function(url, format = "json", token = "", option = NULL, outSR =
   resp <- httr2::req_perform(req = req)
 
   if (format == "json") {
-
     if (!is.null(option) && (option == "footprints")) {
-
       req <- httr2::req_url_query(req = req, option = option)
 
       if (!is.null(outSR)) {

@@ -72,13 +72,12 @@ get_cama_data <- function(location, type = "core", crs = 3857, ...) {
 #' @export
 #' @importFrom overedge get_esri_data
 get_parcel_data <- function(location, type = "boundaries", crs = 3857, ...) {
-
   type <- match.arg(type, c("boundaries", "points"))
 
   nm <-
     switch(type,
-           "boundaries" = "parcel_boundaries_map",
-           "points" = "parcel_points_map"
+      "boundaries" = "parcel_boundaries_map",
+      "points" = "parcel_points_map"
     )
 
   get_imap_data(
@@ -93,14 +92,13 @@ get_parcel_data <- function(location, type = "boundaries", crs = 3857, ...) {
 #' @rdname get_imap_data
 #' @export
 get_mht_data <- function(location, type = "mihp", crs = 3857, ...) {
-
   type <- match.arg(type, c("mihp", "nr", "easements"))
 
   nm <-
     switch(type,
-           "mihp" = "maryland_inventory_of_historic_properties",
-           "nr" = "national_register_historic_places",
-           "easements" = "preservation_easements"
+      "mihp" = "maryland_inventory_of_historic_properties",
+      "nr" = "national_register_historic_places",
+      "easements" = "preservation_easements"
     )
 
   get_imap_data(

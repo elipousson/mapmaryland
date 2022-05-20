@@ -51,9 +51,10 @@ md_counties_detailed <-
     name = county
   ) %>%
   dplyr::left_join(
-      dplyr::select(
-        sf::st_drop_geometry(md_counties),
-        countyfp, geoid, namelsad),
+    dplyr::select(
+      sf::st_drop_geometry(md_counties),
+      countyfp, geoid, namelsad
+    ),
     by = "countyfp"
   )
 
@@ -61,5 +62,3 @@ usethis::use_data(
   md_counties_detailed,
   overwrite = TRUE
 )
-
-
