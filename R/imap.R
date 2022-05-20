@@ -22,16 +22,14 @@ get_imap_data <- function(location, nm = NULL, ...) {
 #' @export
 #' @importFrom overedge get_esri_data
 get_cama_data <- function(location, type = "bldg", ...) {
-  service_url <- "https://geodata.md.gov/imap/rest/services/PlanningCadastre/MD_ComputerAssistedMassAppraisal/MapServer"
-
   type <- match.arg(type, c("bldg", "core", "land", "subarea"))
 
   url <-
     switch(type,
-      "bldg" = paste0(service_url, "/0"),
-      "core" = paste0(service_url, "/1"),
-      "land" = paste0(service_url, "/2"),
-      "subarea" = paste0(service_url, "/3")
+      "bldg" = get_imap_url("cama_detailed_building_characteristics"),
+      "core" = get_imap_url("cama_core"),
+      "land" = get_imap_url("cama_land"),
+      "subarea" = get_imap_url("cama_building_subarea")
     )
 
   overedge::get_esri_data(
