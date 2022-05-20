@@ -5,12 +5,13 @@
 \alias{md_imap_index}
 \title{Maryland iMap Folder/Service Index}
 \format{
-A data frame with 2691 rows and 14 variables:
+A data frame with 1477 rows and 15 variables:
 \describe{
 \item{\code{name}}{character Name}
 \item{\code{nm}}{character Name with snake case}
 \item{\code{index}}{character Index type}
-\item{\code{type}}{character Service type}
+\item{\code{type}}{character Service/layer type}
+\item{\code{server_type}}{character Server type}
 \item{\code{url}}{character Folder/service/layer URL}
 \item{\code{parent}}{character Parent folder/service/layer}
 \item{\code{id}}{integer Layer ID number}

@@ -10,7 +10,7 @@ A data frame with 24 rows and 6 variables:
 \item{\code{statefp}}{State FIPS code for Maryland}
 \item{\code{countyfp}}{County FIPS code}
 \item{\code{name}}{County name}
-\item{\code{geoid}}{Unique county FIPS code (concatenation of state and county FIPS codes)}
+\item{\code{geoid}}{Unique county GeoID (concatenation of state and county FIPS codes)}
 \item{\code{namelsad}}{Concatenated variable length geographic area name and legal/statistical area description (LSAD)}
 \item{\code{geometry}}{Multipolygon with the county boundary}
 }

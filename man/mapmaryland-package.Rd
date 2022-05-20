@@ -6,10 +6,19 @@
 \alias{mapmaryland-package}
 \title{mapmaryland: Easy Access to Maryland Spatial Data}
 \description{
-A small collection of data sources and utility functions for working with administrative and other data sources in Maryland.
+A small collection of data sources and utility functions for working with state and county data sources in Maryland.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/elipousson/mapmaryland}
+  \item \url{https://elipousson.github.io/mapmaryland/}
+  \item Report bugs at \url{https://github.com/elipousson/mapmaryland/issues}
+}
+
 }
 \author{
-\strong{Maintainer}: Eli Pousson \email{eli.pousson@gmail.com} (\href{https://orcid.org/0000-0001-8280-1706}{ORCID})
+\strong{Maintainer}: Eli Pousson \email{eli.pousson@gmail.com} (\href{https://orcid.org/0000-0001-8280-1706}{ORCID}) [copyright holder]
 
 }
 \keyword{internal}

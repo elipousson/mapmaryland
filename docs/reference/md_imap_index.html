@@ -26,7 +26,13 @@ package)."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/m
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/elipousson/mapmaryland/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -34,7 +40,7 @@ package)."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/m
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Maryland iMap Folder/Service Index</h1>
-      
+      <small class="dont-index">Source: <a href="https://github.com/elipousson/mapmaryland/blob/HEAD/R/data.R" class="external-link"><code>R/data.R</code></a></small>
       <div class="d-none name"><code>md_imap_index.Rd</code></div>
     </div>
 
@@ -50,7 +56,7 @@ package).</p>
 
     <div class="section level2">
     <h2 id="format">Format<a class="anchor" aria-label="anchor" href="#format"></a></h2>
-    <p>A data frame with 2691 rows and 14 variables:</p><dl><dt><code>name</code></dt>
+    <p>A data frame with 1477 rows and 15 variables:</p><dl><dt><code>name</code></dt>
 <dd><p>character Name</p></dd>
 
 <dt><code>nm</code></dt>
@@ -60,7 +66,10 @@ package).</p>
 <dd><p>character Index type</p></dd>
 
 <dt><code>type</code></dt>
-<dd><p>character Service type</p></dd>
+<dd><p>character Service/layer type</p></dd>
+
+<dt><code>server_type</code></dt>
+<dd><p>character Server type</p></dd>
 
 <dt><code>url</code></dt>
 <dd><p>character Folder/service/layer URL</p></dd>

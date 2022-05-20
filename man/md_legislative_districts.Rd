@@ -3,7 +3,7 @@
 \docType{data}
 \name{md_legislative_districts}
 \alias{md_legislative_districts}
-\title{Maryland State Legislative Districts}
+\title{Maryland State Legislative Districts (lower house)}
 \format{
 A data frame with 68 rows and 13 variables:
 \describe{

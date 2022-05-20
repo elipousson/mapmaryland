@@ -4,29 +4,32 @@
 \alias{get_imap_data}
 \alias{get_cama_data}
 \alias{get_parcel_data}
-\alias{get_mihp_data}
+\alias{get_mht_data}
 \alias{get_water_data}
 \title{Get data from Maryland iMap}
 \usage{
 get_imap_data(location, nm = NULL, crs = 3857, ...)
 
-get_cama_data(location, type = "bldg", ...)
+get_cama_data(location, type = "core", crs = 3857, ...)
 
-get_parcel_data(location, ...)
+get_parcel_data(location, type = "boundaries", crs = 3857, ...)
 
-get_mihp_data(location, ...)
+get_mht_data(location, type = "mihp", crs = 3857, ...)
 
-get_water_data(location, type = "streams", ...)
+get_water_data(location, type = "streams", crs = 3857, ...)
 }
 \arguments{
 \item{location}{A \code{sf}, \code{sfc}, or \code{bbox} object (or other object convertible
 with \link[overedge:as_sf]{overedge::as_bbox}. Required.}
 
+\item{nm}{Layer name identifier used to retrieve url from \link{md_imap_index}
+based on the snakecase "nm" column; Default: NULL.}
+
 \item{crs}{Coordinate reference system to return.}
 
 \item{...}{Additional parameters passed to \link[overedge:get_esri_data]{overedge::get_esri_data}}
 
-\item{type}{See details.}
+\item{type}{Default and supported options vary by function. See details.}
 }
 \description{
 Get data from Maryland iMap including Computer Assisted Mass Appraisal
@@ -36,10 +39,16 @@ variety of water data.
 \details{
 Options for type parameter:
 \itemize{
-\item For \link{get_cama_data}, Default: 'bldg'; options include "bldg", "core",
-"land", "subarea".
-\item For \link{get_water_data}, Default: "streams", options include "streams",
-"streams detailed", "federal watersheds", "8 digit watersheds", "12 digit
-watersheds", "navigable waterways", "ponds"
+\item \link{get_cama_data}: Default: "core"; options: "bldg" (detailed building
+characteristics), "core", "land", "subarea" (building subarea).
+\item \link{get_water_data}: Default: "streams", options: "streams" (Rivers and
+streams generalized), "streams detailed" (Rivers and streams generalized),
+"federal watersheds", "8 digit watersheds", "12 digit watersheds", "navigable
+waterways", "ponds" (Lakes and ponds)
+\item \link{get_parcel_data}: Default "boundaries", options: "boundaries" (Parcel
+boundaries), "points" (Parcel points)
+\item \link{get_mht_data}: Default: "mihp"; options: "mihp" (Maryland Inventory of
+Historic Properties), "nr" (National Register of Historic Places),
+"easements" (Preservation Easements held by the Maryland Historical Trust)
 }
 }
