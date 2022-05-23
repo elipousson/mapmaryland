@@ -262,3 +262,29 @@
 #'   \item{\code{license}}{Data license}
 #' }
 "md_open_data_index"
+
+#' Maryland Zoning District information
+#'
+#' An incomplete index of zoning district names and categories for Maryland
+#' counties and local jurisdictions. Updated based on this Google Sheet:
+#' <https://docs.google.com/spreadsheets/d/1qu8s3W9tvtMPvqLNpzrxqybqPSnl67aBBItSWRgbdto/edit?usp=sharing>
+#'
+#' @format A data frame with 112 rows and 15 variables:
+#' \describe{
+#'   \item{\code{zoning}}{Zoning (no hyphenation)}
+#'   \item{\code{zoning_alt}}{Zoning (hyphenation)}
+#'   \item{\code{name}}{Zoning district name}
+#'   \item{\code{category}}{Zoning district category}
+#'   \item{\code{district_type}}{Zoning district type}
+#'   \item{\code{jurisdiction}}{Zoning jurisdiction}
+#'   \item{\code{county}}{County}
+#'   \item{\code{description}}{Description}
+#'   \item{\code{year}}{Year active}
+#'   \item{\code{lot_size_restriction}}{Numeric value of lot size restriction (if provided)}
+#'   \item{\code{lot_size_units}}{Units for lot size restriction value}
+#'   \item{\code{article}}{Article (for reference to code or ordinance)}
+#'   \item{\code{page_num}}{Page number (for reference to code or ordinance)}
+#'   \item{\code{overlay}}{Overlay district}
+#'   \item{\code{repealed}}{Repealed zoning district name/type}
+#'}
+"md_zoning_info"
