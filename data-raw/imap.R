@@ -62,3 +62,32 @@ usethis::use_data(
   md_counties_detailed,
   overwrite = TRUE
 )
+
+md_mpos <-
+  get_imap_data(
+  location = NULL,
+  nm = "metropolitan_planning_organizations_boundaries",
+  crs = 3857
+)
+
+md_mpos <-
+  md_mpos %>%
+  overedge::rename_with_xwalk(
+    xwalk =  list ("id" = "mpo_id",
+                       "name" = "mpo_name",
+                       "abb" = "acronym",
+                       "url" = "mpo_url")
+  ) %>%
+  dplyr::rowwise() %>%
+  dplyr::mutate(
+    states = paste0(c(state, state_2, state_3), collapse = ";"),
+    states = stringr::str_remove_all(states, ";N/A")
+  ) %>%
+  dplyr::select(
+    name, abb, geoid = id, url, states, geometry
+  ) %>%
+  dplyr::ungroup()
+
+md_mpos <- sf::st_transform(as_sf(dplyr::ungroup(md_mpos)), crs = 3857)
+
+usethis::use_data(md_mpos, overwrite = TRUE)

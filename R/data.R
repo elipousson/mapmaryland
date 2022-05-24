@@ -288,3 +288,19 @@
 #'   \item{\code{repealed}}{Repealed zoning district name/type}
 #'}
 "md_zoning_info"
+
+#' Maryland Metropolitan Planning Organizations (boundaries)
+#'
+#' Data from <https://geodata.md.gov/imap/rest/services/BusinessEconomy/MD_IncentiveZones/FeatureServer/14>
+#'
+#' @format A data frame with 7 rows and 6 variables:
+#' \describe{
+#'   \item{\code{geoid}}{GeoID}
+#'   \item{\code{name}}{MPO Name}
+#'   \item{\code{abb}}{MPO abbreviation or acronym}
+#'   \item{\code{url}}{MPO website url}
+#'   \item{\code{states}}{States (multiple states separated by semi-colons)}
+#'   \item{\code{geometry}}{MULTIPOLYGON geometry for boundaries}
+#'}
+"md_mpos"
+
