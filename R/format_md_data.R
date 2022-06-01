@@ -15,7 +15,7 @@
 #' @export
 #' @importFrom overedge is_sf is_same_crs st_erase rename_sf_col
 #' @importFrom sf st_transform st_is_valid st_make_valid
-format_md_sf <- function(data, crs = 3857, erase_water = FALSE, clean_names = TRUE, sf_col = "geometry") {
+format_md_sf <- function(data, crs = getOption("mapmaryland.crs", default = 3857), erase_water = FALSE, clean_names = TRUE, sf_col = "geometry") {
   stopifnot(
     overedge::is_sf(data)
   )
