@@ -3,6 +3,7 @@
 #' @param type Type of data to return. Supported options: "crashes", "road closures", "bay pollution reduction"
 #' @inheritParams overedge::get_open_data
 #' @export
+#' @importFrom overedge get_access_token get_open_data
 get_md_open_data <- function(resource = NULL,
                              type = NULL,
                              crs = getOption("mapmaryland.crs", default = 3857),
@@ -39,9 +40,19 @@ get_md_open_data <- function(resource = NULL,
 
 #' @rdname get_md_open_data
 #' @name get_md_crash_data
+#' @examples
+#' \dontrun{
+#' if (interactive()) {
+#'   get_md_crash_data(
+#'     where = "(year = '2020') AND (quarter = 'Q2')",
+#'     name_col = "county_desc",
+#'     name = "Cecil"
+#'   )
+#' }
+#' }
 #' @export
 get_md_crash_data <- function(...) {
-  get_md_open_data(name = "maryland_statewide_vehicle_crashes", ...)
+  get_md_open_data(resource = "maryland_statewide_vehicle_crashes", ...)
 }
 
 #' Get URL from Maryland Open Data Index
