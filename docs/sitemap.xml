@@ -19,13 +19,10 @@
     <loc>/reference/format_md_sf.html</loc>
   </url>
   <url>
-    <loc>/reference/get_cama_data.html</loc>
-  </url>
-  <url>
     <loc>/reference/get_imap_data.html</loc>
   </url>
   <url>
-    <loc>/reference/get_md_boundary.html</loc>
+    <loc>/reference/get_md_open_data.html</loc>
   </url>
   <url>
     <loc>/reference/get_md_tigris.html</loc>
@@ -58,22 +55,22 @@
     <loc>/reference/md_legislative_districts.html</loc>
   </url>
   <url>
+    <loc>/reference/md_mpos.html</loc>
+  </url>
+  <url>
     <loc>/reference/md_open_data_index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/md_senate_districts.html</loc>
-  </url>
-  <url>
-    <loc>/reference/md_streams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/md_streams_detailed.html</loc>
   </url>
   <url>
     <loc>/reference/md_water.html</loc>
   </url>
   <url>
+    <loc>/reference/md_zoning_info.html</loc>
+  </url>
+  <url>
     <loc>/reference/real_property_cols.html</loc>
+  </url>
+  <url>
+    <loc>/reference/set_mapmaryland_option.html</loc>
   </url>
   <url>
     <loc>/reference/us_states_near_md.html</loc>

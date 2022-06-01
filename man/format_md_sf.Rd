@@ -6,7 +6,7 @@
 \usage{
 format_md_sf(
   data,
-  crs = 3857,
+  crs = getOption("mapmaryland.crs", default = 3857),
   erase_water = FALSE,
   clean_names = TRUE,
   sf_col = "geometry"

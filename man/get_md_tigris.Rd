@@ -7,7 +7,7 @@
 get_md_tigris(
   name = NULL,
   type = "counties",
-  crs = 3857,
+  crs = getOption("mapmaryland.crs", default = 3857),
   erase_water = FALSE,
   ...
 )

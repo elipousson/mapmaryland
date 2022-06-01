@@ -8,15 +8,40 @@
 \alias{get_water_data}
 \title{Get data from Maryland iMap}
 \usage{
-get_imap_data(location, nm = NULL, crs = 3857, ...)
+get_imap_data(
+  location,
+  nm = NULL,
+  crs = getOption("mapmaryland.crs", default = 3857),
+  ...
+)
 
-get_cama_data(location, type = "core", crs = 3857, ...)
+get_cama_data(
+  location,
+  type = "core",
+  crs = getOption("mapmaryland.crs", default = 3857),
+  ...
+)
 
-get_parcel_data(location, type = "boundaries", crs = 3857, ...)
+get_parcel_data(
+  location,
+  type = "boundaries",
+  crs = getOption("mapmaryland.crs", default = 3857),
+  ...
+)
 
-get_mht_data(location, type = "mihp", crs = 3857, ...)
+get_mht_data(
+  location,
+  type = "mihp",
+  crs = getOption("mapmaryland.crs", default = 3857),
+  ...
+)
 
-get_water_data(location, type = "streams", crs = 3857, ...)
+get_water_data(
+  location,
+  type = "streams",
+  crs = getOption("mapmaryland.crs", default = 3857),
+  ...
+)
 }
 \arguments{
 \item{location}{A \code{sf}, \code{sfc}, or \code{bbox} object (or other object convertible
