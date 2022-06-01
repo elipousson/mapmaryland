@@ -28,7 +28,7 @@
 #' @name get_imap_data
 #' @export
 #' @importFrom overedge get_esri_data rename_sf_col
-get_imap_data <- function(location, nm = NULL, crs = 3857, ...) {
+get_imap_data <- function(location, nm = NULL, crs = getOption("mapmaryland.crs", default = 3857), ...) {
   url <- get_imap_url(nm)
 
   data <-
@@ -48,15 +48,11 @@ get_imap_data <- function(location, nm = NULL, crs = 3857, ...) {
 #' @rdname get_imap_data
 #' @export
 #' @importFrom overedge get_esri_data
-get_cama_data <- function(location, type = "core", crs = 3857, ...) {
-  type <- match.arg(type, c("core", "bldg", "land", "subarea"))
-
+get_cama_data <- function(location, type = "core", crs = getOption("mapmaryland.crs", default = 3857), ...) {
   nm <-
-    switch(type,
-      "core" = "cama_core_map",
-      "bldg" = "cama_detailed_building_characteristics_map",
-      "land" = "cama_land_map",
-      "subarea" = "cama_building_subarea_map"
+    type2nm(
+      type = type,
+      index = "imap_cama"
     )
 
   get_imap_data(
@@ -71,13 +67,11 @@ get_cama_data <- function(location, type = "core", crs = 3857, ...) {
 #' @rdname get_imap_data
 #' @export
 #' @importFrom overedge get_esri_data
-get_parcel_data <- function(location, type = "boundaries", crs = 3857, ...) {
-  type <- match.arg(type, c("boundaries", "points"))
-
+get_parcel_data <- function(location, type = "boundaries", crs = getOption("mapmaryland.crs", default = 3857), ...) {
   nm <-
-    switch(type,
-      "boundaries" = "parcel_boundaries_map",
-      "points" = "parcel_points_map"
+    type2nm(
+      type = type,
+      index = "imap_parcel"
     )
 
   get_imap_data(
@@ -91,15 +85,12 @@ get_parcel_data <- function(location, type = "boundaries", crs = 3857, ...) {
 #' @name get_mht_data
 #' @rdname get_imap_data
 #' @export
-get_mht_data <- function(location, type = "mihp", crs = 3857, ...) {
-  type <- match.arg(type, c("mihp", "nr", "easements"))
-
+get_mht_data <- function(location, type = "mihp", crs = getOption("mapmaryland.crs", default = 3857), ...) {
   nm <-
-    switch(type,
-      "mihp" = "maryland_inventory_of_historic_properties",
-      "nr" = "national_register_historic_places",
-      "easements" = "preservation_easements"
-    )
+    type2nm(
+      type = type,
+      index = "imap_mht"
+      )
 
   get_imap_data(
     location = location,
@@ -112,18 +103,12 @@ get_mht_data <- function(location, type = "mihp", crs = 3857, ...) {
 #' @name get_water_data
 #' @rdname get_imap_data
 #' @export
-get_water_data <- function(location, type = "streams", crs = 3857, ...) {
-  type <- match.arg(type, c("streams", "streams detailed", "federal watersheds", "8 digit watersheds", "12 digit watersheds", "navigable waterways", "ponds"))
+get_water_data <- function(location, type = "streams", crs = getOption("mapmaryland.crs", default = 3857), ...) {
   nm <-
-    switch(type,
-      "streams detailed" = "rivers_and_streams_detailed",
-      "streams" = "rivers_and_streams_generalized",
-      "federal watersheds" = "federal_watersheds_huc_11",
-      "8 digit watersheds" = "x8_digit_watersheds",
-      "12 digit watersheds" = "x12_digit_watersheds",
-      "navigable waterways" = "navigable_waterways",
-      "ponds" = "large_rivers_lakes_and_ponds"
-    )
+    type2nm(
+      type = type,
+      index = "imap_water"
+      )
 
   get_imap_data(
     location = location,
@@ -135,5 +120,7 @@ get_water_data <- function(location, type = "streams", crs = 3857, ...) {
 
 #' @noRd
 get_imap_url <- function(nm = NULL) {
-  md_imap_index[md_imap_index[["nm"]] == nm, ][["url"]]
+  get_index_var(nm = nm, index = md_imap_index, var = "url")
 }
+
+
