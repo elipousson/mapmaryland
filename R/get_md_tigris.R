@@ -28,7 +28,7 @@
 #' @importFrom janitor clean_names
 #' @importFrom overedge is_same_crs st_erase
 #' @importFrom sf st_transform
-get_md_tigris <- function(name = NULL, type = "counties", crs = 3857, erase_water = FALSE, ...) {
+get_md_tigris <- function(name = NULL, type = "counties", crs = getOption("mapmaryland.crs", default = 3857), erase_water = FALSE, ...) {
   pkg_data <- c("counties", "census places", "congressional districts", "legislative districts", "water")
   api_data <- c("senate district", "tracts", "block groups", "blocks", "pumas", "voting districts")
 
@@ -60,9 +60,21 @@ get_md_tigris <- function(name = NULL, type = "counties", crs = 3857, erase_wate
     data <- janitor::clean_names(data)
   }
 
-  data <- data[(data[["name"]] %in% name) | (data[["namelsad"]] %in% name) | (data[["geoid"]] %in% name), ]
+  data <- data[lookup_tigris_name(name, data), ]
 
   data <- format_md_sf(data, crs = crs, erase_water = erase_water, clean_names = FALSE)
 
   return(data)
+}
+
+#' @noRd
+lookup_tigris_name <- function(name, data = NULL) {
+
+  name <-
+    tolower(name)
+
+  lookup <-
+    ((tolower(data[["name"]]) %in% name) | (tolower(data[["namelsad"]]) %in% name) | (data[["geoid"]] %in% name))
+
+  return(lookup)
 }
