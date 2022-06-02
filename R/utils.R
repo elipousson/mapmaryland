@@ -4,7 +4,10 @@ utils::globalVariables(
     "md_counties",
     "md_imap_index",
     "md_open_data_index",
-    "type_nm_index"
+    "type_nm_index",
+    # Variables for format_md_crash_data
+    "acc_date", "acc_time", "crash_date", "dotw",
+    "harm_event_desc1", "harm_event_desc2", "report_type", "year"
   ),
   package = "mapmaryland"
 )
