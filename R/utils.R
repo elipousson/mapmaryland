@@ -12,7 +12,11 @@ utils::globalVariables(
 #' Get nm from type
 #'
 #' @noRd
-type2nm <- function(type, index = NULL) {
+type2nm <- function(type = NULL, index = NULL, null.ok = TRUE) {
+  if (is.null(type) & !null.ok) {
+    stop("type is NULL and null.ok is FALSE.")
+  }
+
   type <-
     match.arg(type, names(type_nm_index[[index]]))
 
@@ -50,25 +54,29 @@ get_index_var <- function(nm = NULL, index = NULL, var = NULL, id = "nm") {
 #'
 #' Currently only used for mapmaryland.crs
 #'
-#' @param ... options to set, e.g. "crs = 2804" to set "mapmaryland.crs" to 2804.
+#' @param crs Coordinate reference system to set, e.g. "crs = 2804" to set "mapmaryland.crs" to 2804.
 #' @param overwrite If `TRUE`, overwrite any existing option value.
 #' @export
-#' @importFrom rlang list2
 #' @importFrom cli cli_alert_success cli_warn
-set_mapmaryland_option <- function(..., overwrite = TRUE) {
-  option <- rlang::list2(...)
+set_mapmaryland_options <- function(crs = NULL, overwrite = TRUE) {
+  pkg <- "mapmaryland"
 
-  nm_option <- paste0("mapmaryland.", names(option))
-  existing_option <- getOption(nm_option)
+  option <-
+    list(
+      "crs" = crs
+    )
+
+  option_nm <- paste0(pkg, ".", names(option))
+  existing_option <- getOption(option_nm)
 
   if (is.null(existing_option) | overwrite) {
-    options(nm_option = option)
     cli::cli_alert_success(
-      "{.var {nm_option}} set to {.val {as.character(option)}}."
+      "{.var {option_nm}} set to {.val {as.character(option)}}."
     )
+    options(option)
   } else if (!overwrite) {
     cli::cli_warn(
-      "The option {.var {nm_option}} is {.val {existing_option}}.
+      "The option {.var {option_nm}} is already set to {.val {existing_option}}.
     Set {.arg overwrite} to {.val TRUE} to replace with {.val {as.character(option)}}."
     )
   }
