@@ -1,15 +1,19 @@
+.onLoad <- function(libname, pkgname) {
+  utils::data(
+    list = c(
+      "md_counties", "md_arcgis_index",
+      "md_imap_index", "md_open_data_index"
+    ),
+    package = pkgname,
+    envir = parent.env(environment())
+  )
+}
+
 utils::globalVariables(
-  c(
-    "md_arcgis_index",
-    "md_counties",
-    "md_imap_index",
-    "md_open_data_index",
-    "type_nm_index",
-    # Variables for format_md_crash_data
+  c( # Variables for format_md_crash_data
     "acc_date", "acc_time", "crash_date", "dotw",
     "harm_event_desc1", "harm_event_desc2", "report_type", "year"
-  ),
-  package = "mapmaryland"
+  )
 )
 
 #' Get nm from type
