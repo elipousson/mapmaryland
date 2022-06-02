@@ -2,6 +2,7 @@
 % Please edit documentation in R/format_md_data.R
 \name{format_md_sf}
 \alias{format_md_sf}
+\alias{format_md_crash_data}
 \title{Format Maryland simple feature data}
 \usage{
 format_md_sf(
@@ -11,9 +12,11 @@ format_md_sf(
   clean_names = TRUE,
   sf_col = "geometry"
 )
+
+format_md_crash_data(data, drop_code = TRUE)
 }
 \arguments{
-\item{data}{A \code{sf} object.}
+\item{data}{Data frame with Maryland vehicular crash data; typically from \code{get_md_crash_data}}
 
 \item{crs}{Coordinate reference system passed to \link[sf:st_transform]{sf::st_transform}, Default: 3857}
 
@@ -22,6 +25,8 @@ format_md_sf(
 \item{clean_names}{If \code{TRUE}, use \link[janitor:clean_names]{janitor::clean_names}; Default: \code{TRUE}}
 
 \item{sf_col}{Name to use for the sf column after renaming; defaults to "geometry".}
+
+\item{drop_code}{If TRUE, drop all columns that end with "code"}
 }
 \value{
 A modified version of the input simple feature data.
@@ -29,7 +34,8 @@ A modified version of the input simple feature data.
 \description{
 Convert the coordinate reference system, convert invalid geometry to valid
 geometry with \link[sf:valid]{sf::st_make_valid}, and, optionally, erase water, and clean
-names with \link[janitor:clean_names]{janitor::clean_names}.
+names with \link[janitor:clean_names]{janitor::clean_names}. \code{format_md_crash_data} works with a data
+frame of crash data from \link{get_md_crash_data}
 }
 \seealso{
 \link[overedge:format_data]{overedge::format_data}

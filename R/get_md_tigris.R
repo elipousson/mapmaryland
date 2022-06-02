@@ -17,8 +17,8 @@
 #'
 #' @param name Name matching a value in the namelsad, namelsad, or geoid columns
 #'   of [md_counties], [md_census_places], [md_congressional_districts],
-#'   [md_legislative_districts], or [md_senate_districts],
-#'   Default: NULL
+#'   [md_legislative_districts], or one of the data sets available for download
+#'   with {tigris}; Default: `NULL`
 #' @param type Type of data to return, Default: "counties"; See details for supported options.
 #' @param ... Additional parameters passed on to {tigris} functions.
 #' @return A simple feature object matching the type provided.
@@ -69,7 +69,6 @@ get_md_tigris <- function(name = NULL, type = "counties", crs = getOption("mapma
 
 #' @noRd
 lookup_tigris_name <- function(name, data = NULL) {
-
   name <-
     tolower(name)
 

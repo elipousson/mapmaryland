@@ -15,8 +15,8 @@ get_md_tigris(
 \arguments{
 \item{name}{Name matching a value in the namelsad, namelsad, or geoid columns
 of \link{md_counties}, \link{md_census_places}, \link{md_congressional_districts},
-\link{md_legislative_districts}, or \link{md_senate_districts},
-Default: NULL}
+\link{md_legislative_districts}, or one of the data sets available for download
+with {tigris}; Default: \code{NULL}}
 
 \item{type}{Type of data to return, Default: "counties"; See details for supported options.}
 
