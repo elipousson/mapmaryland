@@ -18,7 +18,14 @@ of \link{md_counties}, \link{md_census_places}, \link{md_congressional_districts
 \link{md_legislative_districts}, or one of the data sets available for download
 with {tigris}; Default: \code{NULL}}
 
-\item{type}{Type of data to return, Default: "counties"; See details for supported options.}
+\item{type}{Type of data to return, Default: "counties"; See details for
+supported options.}
+
+\item{crs}{Coordinate reference system passed to \link[sf:st_transform]{sf::st_transform}, Default:
+3857 or option "mapmaryland.crs" if set. Set crs using
+\link{set_mapmaryland_options}.}
+
+\item{erase_water}{If \code{TRUE}, use \link[overedge:st_erase]{overedge::st_erase} to erase any geometry intersecting with \link{md_water}; Default: \code{FALSE}}
 
 \item{...}{Additional parameters passed on to {tigris} functions.}
 }

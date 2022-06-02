@@ -1,7 +1,11 @@
 #' Get data from the Maryland Open Data Portal
 #'
+#' Wrap [overedge::get_open_data] to access the Maryland Open Data portal.
+#'
+#' @param resource Resource identifier code passed to "data" parameter of [overedge::get_open_data]
 #' @param type Type of data to return. Supported options: "crashes", "road closures", "bay pollution reduction"
 #' @inheritParams overedge::get_open_data
+#' @param ... Additional parameters passed to [overedge::get_open_data]
 #' @export
 #' @importFrom overedge get_access_token get_open_data
 get_md_open_data <- function(resource = NULL,

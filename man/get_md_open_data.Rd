@@ -17,6 +17,8 @@ get_md_open_data(
 get_md_crash_data(...)
 }
 \arguments{
+\item{resource}{Resource identifier code passed to "data" parameter of \link[overedge:get_open_data]{overedge::get_open_data}}
+
 \item{type}{Type of data to return. Supported options: "crashes", "road closures", "bay pollution reduction"}
 
 \item{crs}{Coordinate reference system to return.}
@@ -25,9 +27,11 @@ get_md_crash_data(...)
 \code{\link[=sf]{sf()}} object. Default \code{FALSE}.}
 
 \item{token}{Access token or API Key; required to access data from Socrata.}
+
+\item{...}{Additional parameters passed to \link[overedge:get_open_data]{overedge::get_open_data}}
 }
 \description{
-Get data from the Maryland Open Data Portal
+Wrap \link[overedge:get_open_data]{overedge::get_open_data} to access the Maryland Open Data portal.
 }
 \examples{
 \dontrun{

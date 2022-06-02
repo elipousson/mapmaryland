@@ -2,11 +2,13 @@
 #'
 #' Convert the coordinate reference system, convert invalid geometry to valid
 #' geometry with [sf::st_make_valid], and, optionally, erase water, and clean
-#' names with [janitor::clean_names]. `format_md_crash_data` works with a data
+#' names with [janitor::clean_names]. [format_md_crash_data] works with a data
 #' frame of crash data from [get_md_crash_data]
 #'
-#' @param data A `sf` object or data frame object.
-#' @param crs Coordinate reference system passed to [sf::st_transform], Default: 3857
+#' @param data A `sf` object or data frame object ([format_md_crash_data] only) .
+#' @param crs Coordinate reference system passed to [sf::st_transform], Default:
+#'   3857 or option "mapmaryland.crs" if set. Set crs using
+#'   [set_mapmaryland_options].
 #' @param erase_water If `TRUE`, use [overedge::st_erase] to erase any geometry intersecting with [md_water]; Default: `FALSE`
 #' @param clean_names If `TRUE`, use [janitor::clean_names]; Default: `TRUE`
 #' @inheritParams overedge::format_data

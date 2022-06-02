@@ -19,7 +19,9 @@
 #'   of [md_counties], [md_census_places], [md_congressional_districts],
 #'   [md_legislative_districts], or one of the data sets available for download
 #'   with {tigris}; Default: `NULL`
-#' @param type Type of data to return, Default: "counties"; See details for supported options.
+#' @param type Type of data to return, Default: "counties"; See details for
+#'   supported options.
+#' @inheritParams format_md_sf
 #' @param ... Additional parameters passed on to {tigris} functions.
 #' @return A simple feature object matching the type provided.
 #' @rdname get_md_tigris

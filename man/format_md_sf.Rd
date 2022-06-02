@@ -18,7 +18,9 @@ format_md_crash_data(data, drop_code = TRUE)
 \arguments{
 \item{data}{Data frame with Maryland vehicular crash data; typically from \code{get_md_crash_data}}
 
-\item{crs}{Coordinate reference system passed to \link[sf:st_transform]{sf::st_transform}, Default: 3857}
+\item{crs}{Coordinate reference system passed to \link[sf:st_transform]{sf::st_transform}, Default:
+3857 or option "mapmaryland.crs" if set. Set crs using
+\link{set_mapmaryland_options}.}
 
 \item{erase_water}{If \code{TRUE}, use \link[overedge:st_erase]{overedge::st_erase} to erase any geometry intersecting with \link{md_water}; Default: \code{FALSE}}
 
@@ -34,7 +36,7 @@ A modified version of the input simple feature data.
 \description{
 Convert the coordinate reference system, convert invalid geometry to valid
 geometry with \link[sf:valid]{sf::st_make_valid}, and, optionally, erase water, and clean
-names with \link[janitor:clean_names]{janitor::clean_names}. \code{format_md_crash_data} works with a data
+names with \link[janitor:clean_names]{janitor::clean_names}. \link{format_md_crash_data} works with a data
 frame of crash data from \link{get_md_crash_data}
 }
 \seealso{

@@ -8,6 +8,7 @@
 A data frame with 536 rows and 17 variables:
 \describe{
 \item{\code{statefp}}{State FIPS code for Maryland}
+\item{\code{county}}{County name}
 \item{\code{countyfp}}{County FIPS code}
 \item{\code{placefp}}{CDP FIPS code}
 \item{\code{placens}}{CDP GNIS code}

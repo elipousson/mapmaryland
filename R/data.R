@@ -90,6 +90,7 @@
 #' @format A data frame with 536 rows and 17 variables:
 #' \describe{
 #'   \item{\code{statefp}}{State FIPS code for Maryland}
+#'   \item{\code{county}}{County name}
 #'   \item{\code{countyfp}}{County FIPS code}
 #'   \item{\code{placefp}}{CDP FIPS code}
 #'   \item{\code{placens}}{CDP GNIS code}
@@ -286,7 +287,7 @@
 #'   \item{\code{page_num}}{Page number (for reference to code or ordinance)}
 #'   \item{\code{overlay}}{Overlay district}
 #'   \item{\code{repealed}}{Repealed zoning district name/type}
-#'}
+#' }
 "md_zoning_info"
 
 #' Maryland Metropolitan Planning Organizations (boundaries)
@@ -301,6 +302,5 @@
 #'   \item{\code{url}}{MPO website url}
 #'   \item{\code{states}}{States (multiple states separated by semi-colons)}
 #'   \item{\code{geometry}}{MULTIPOLYGON geometry for boundaries}
-#'}
+#' }
 "md_mpos"
-
