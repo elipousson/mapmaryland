@@ -12,7 +12,7 @@ get_md_open_data <- function(resource = NULL,
                              ...) {
   if (!is.null(type) & is.null(resource)) {
     resource <-
-      type_2_nm[[type]]
+      type2nm(type, index = "md_open_data")
   }
 
   if (grepl(pattern = "_", x = resource)) {
@@ -22,11 +22,17 @@ get_md_open_data <- function(resource = NULL,
       )
   }
 
-  token_type <- "MARYLAND_OPEN_DATA_API_KEY"
+  token <-
+    overedge::get_access_token(
+      token = token,
+      type = "MARYLAND_OPEN_DATA_API_KEY"
+    )
 
-  token <- overedge::get_access_token(token = token, type = token_type)
-
-  source_url <- "https://opendata.maryland.gov"
+  source_url <-
+    getOption(
+      "mapmaryland.open_data_source_url",
+      default = "https://opendata.maryland.gov"
+    )
 
   overedge::get_open_data(
     data = resource,
