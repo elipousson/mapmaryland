@@ -18,10 +18,11 @@ Imports:
     janitor,
     magrittr,
     overedge,
-    rlang,
     sf,
     tigris
 Suggests: 
+    dplyr,
+    lubridate,
     testthat (>= 3.0.0)
 Remotes:
     elipousson/overedge
