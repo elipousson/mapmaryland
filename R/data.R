@@ -111,7 +111,7 @@
 "md_census_places"
 
 
-#' U.S. Congressional Districts for Maryland
+#' Maryland U.S. Congressional Districts
 #'
 #' U.S. Congressional Districts boundaries downloaded from the U.S. Census Bureau with the
 #' [tigris::congressional_districts] function.
@@ -135,29 +135,6 @@
 #'   \item{\code{geometry}}{Multipolygon with district boundary}
 #' }
 "md_congressional_districts"
-
-#' Maryland State Legislative Districts (lower house)
-#'
-#' Maryland State Legislative Districts boundaries downloaded from the U.S. Census Bureau with the
-#' [tigris::state_legislative_districts] function with `house = "lower"`.
-#'
-#' @format A data frame with 68 rows and 13 variables:
-#' \describe{
-#'   \item{\code{statefp}}{2-character state FIPS code}
-#'   \item{\code{sldlst}}{State Legislative District Lower Chamber}
-#'   \item{\code{geoid}}{GeoID}
-#'   \item{\code{namelsad}}{concatenated variable with geographic area name and legal/statistical area description (LSAD)}
-#'   \item{\code{lsad}}{Legal/statistical area description (LSAD)}
-#'   \item{\code{lsy}}{Legislative session year}
-#'   \item{\code{mtfcc}}{MAF/TIGER Feature Class Code (MTFCC)}
-#'   \item{\code{funcstat}}{functional status}
-#'   \item{\code{aland}}{land area (square meters)}
-#'   \item{\code{awater}}{water area (square meters)}
-#'   \item{\code{intptlat}}{latitude of the internal point}
-#'   \item{\code{intptlon}}{longitude of the internal point}
-#'   \item{\code{geometry}}{Multipolygon with district boundary}
-#' }
-"md_legislative_districts"
 
 #' U.S. States (near Maryland)
 #'
@@ -189,7 +166,7 @@
 #' of Maryland downloaded from the U.S. Census Bureau with the
 #' [tigris::area_water] function.
 #'
-#' @format A data frame with 14970 rows and 9 variables:
+#' @format A data frame with 14,970 rows and 9 variables:
 #' \describe{
 #'   \item{\code{ansicode}}{character ANSI code}
 #'   \item{\code{hydroid}}{character Hydroid}
@@ -204,7 +181,7 @@
 #' @source \url{https://data.imap.maryland.gov/datasets/maryland-waterbodies-rivers-and-streams-detailed}
 "md_water"
 
-#' @title  Maryland Real Property Assessments: Fields Reference
+#' Maryland Real Property Assessments (fields reference)
 #'
 #' @format A data frame with 223 rows and 6 variables:
 #' \describe{
@@ -304,3 +281,54 @@
 #'   \item{\code{geometry}}{MULTIPOLYGON geometry for boundaries}
 #' }
 "md_mpos"
+
+#' Maryland Public School Enrollment (SY 2003-2022)
+#'
+#' Enrollment data from the Maryland State Department of Education
+#'  (MSDE). Raw CSV data files with the full state enrollment data are available
+#'  in the \code{inst/extdata} folder. The number of enrolled students includes
+#'  ungraded special education and pre-kindergarten students.
+#'  Variable definitions are based on the \href{https://reportcard.msde.maryland.gov/Definitions/Index}{definitions from the MSDE website}.
+#'
+#' @format A data frame with 224,002 rows and 9 variables:
+#' \describe{
+#'  \item{\code{year}}{School or academic year for enrollment count, e.g.
+#'    2019 data is from the start of the 2019-2020 school year.}
+#'  \item{\code{school_number}}{School number as integer (0 indicates all schools)}
+#'  \item{\code{school_name}}{School name}
+#'  \item{\code{enrolled_count}}{Number of students registered to attend the school at the start of the year in the grade or grade range. Typically enrollment count is as of September 30.}
+#'  \item{\code{grade}}{Grades from Prekindergarden (PK) to Grade 12}
+#'  \item{\code{grade_range}}{all elementary school Grades, all middle school grades, all high school grades, or
+#'    all grades (total enrollment). May also be used as a label for grade.}
+#'   \item{\code{race}}{Race/ethnicity. Enrollment by race/ethnicity is only available for years since 2020.}
+#'   \item{\code{lss_number}}{Local school system number (previously known as a LEA Number).}
+#'   \item{\code{lss_name}}{Local school system name (previously known as a LEA Name).}
+#'  }
+#' @source \href{https://reportcard.msde.maryland.gov/Graphs/#/DataDownloads/datadownload}{MSDE Data Downloads}
+"msde_enrollment"
+
+#' Maryland Public Schools
+#'
+#' Combined iMap FeatureLayer for traditional public schools and charter
+#' schools. The school number very incomplete due to the iMap data using a
+#' different school name than the MSDE data for a little less than half of
+#' schools in the state.
+#'
+#' @format A data frame with 1,427 rows and 14 variables:
+#' \describe{
+#'   \item{\code{school_name}}{School name}
+#'   \item{\code{address}}{Street address}
+#'   \item{\code{city}}{City name}
+#'   \item{\code{state}}{State}
+#'   \item{\code{zip}}{Zip code}
+#'   \item{\code{grades}}{Grades}
+#'   \item{\code{school_type}}{School type}
+#'   \item{\code{grade_band}}{Grade band}
+#'   \item{\code{lss_number}}{Local school system number}
+#'   \item{\code{psc_number}}{PSC number}
+#'   \item{\code{county}}{County name}
+#'   \item{\code{management_type}}{Management type}
+#'   \item{\code{school_number}}{School number (incomplete)}
+#'   \item{\code{geometry}}{POINT geometry}
+#' }
+"md_schools"

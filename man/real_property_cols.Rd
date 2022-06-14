@@ -3,7 +3,7 @@
 \docType{data}
 \name{real_property_cols}
 \alias{real_property_cols}
-\title{Maryland Real Property Assessments: Fields Reference}
+\title{Maryland Real Property Assessments (fields reference)}
 \format{
 A data frame with 223 rows and 6 variables:
 \describe{
@@ -22,6 +22,6 @@ A data frame with 223 rows and 6 variables:
 real_property_cols
 }
 \description{
-Maryland Real Property Assessments: Fields Reference
+Maryland Real Property Assessments (fields reference)
 }
 \keyword{datasets}

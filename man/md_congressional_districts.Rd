@@ -3,7 +3,7 @@
 \docType{data}
 \name{md_congressional_districts}
 \alias{md_congressional_districts}
-\title{U.S. Congressional Districts for Maryland}
+\title{Maryland U.S. Congressional Districts}
 \format{
 A data frame with 8 rows and 13 variables:
 \describe{

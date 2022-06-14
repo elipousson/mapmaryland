@@ -5,7 +5,7 @@
 \alias{md_water}
 \title{Maryland Water (area)}
 \format{
-A data frame with 14970 rows and 9 variables:
+A data frame with 14,970 rows and 9 variables:
 \describe{
 \item{\code{ansicode}}{character ANSI code}
 \item{\code{hydroid}}{character Hydroid}
