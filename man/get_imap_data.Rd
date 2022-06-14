@@ -9,7 +9,7 @@
 \title{Get data from Maryland iMap}
 \usage{
 get_imap_data(
-  location,
+  location = NULL,
   nm = NULL,
   crs = getOption("mapmaryland.crs", default = 3857),
   ...

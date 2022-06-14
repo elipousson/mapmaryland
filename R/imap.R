@@ -28,7 +28,7 @@
 #' @name get_imap_data
 #' @export
 #' @importFrom overedge get_esri_data rename_sf_col
-get_imap_data <- function(location, nm = NULL, crs = getOption("mapmaryland.crs", default = 3857), ...) {
+get_imap_data <- function(location = NULL, nm = NULL, crs = getOption("mapmaryland.crs", default = 3857), ...) {
   url <- get_imap_url(nm)
 
   data <-
@@ -90,7 +90,7 @@ get_mht_data <- function(location, type = "mihp", crs = getOption("mapmaryland.c
     type2nm(
       type = type,
       index = "imap_mht"
-      )
+    )
 
   get_imap_data(
     location = location,
@@ -108,7 +108,7 @@ get_water_data <- function(location, type = "streams", crs = getOption("mapmaryl
     type2nm(
       type = type,
       index = "imap_water"
-      )
+    )
 
   get_imap_data(
     location = location,
@@ -122,5 +122,3 @@ get_water_data <- function(location, type = "streams", crs = getOption("mapmaryl
 get_imap_url <- function(nm = NULL) {
   get_index_var(nm = nm, index = md_imap_index, var = "url")
 }
-
-
