@@ -22,7 +22,8 @@ format_md_crash_data(data, drop_code = TRUE)
 3857 or option "mapmaryland.crs" if set. Set crs using
 \link{set_mapmaryland_options}.}
 
-\item{erase_water}{If \code{TRUE}, use \link[overedge:st_erase]{overedge::st_erase} to erase any geometry intersecting with \link{md_water}; Default: \code{FALSE}}
+\item{erase_water}{If \code{TRUE}, use \link[overedge:st_erase]{overedge::st_erase} to erase any geometry
+intersecting with \link{md_water}; Default: \code{FALSE}}
 
 \item{clean_names}{If \code{TRUE}, use \link[janitor:clean_names]{janitor::clean_names}; Default: \code{TRUE}}
 

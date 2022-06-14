@@ -51,7 +51,7 @@ frame of crash data from get_md_crash_data"><!-- mathjax --><script src="https:/
     <div class="ref-description section level2">
     <p>Convert the coordinate reference system, convert invalid geometry to valid
 geometry with <a href="https://r-spatial.github.io/sf/reference/valid.html" class="external-link">sf::st_make_valid</a>, and, optionally, erase water, and clean
-names with <a href="https://rdrr.io/pkg/janitor/man/clean_names.html" class="external-link">janitor::clean_names</a>. <code>format_md_crash_data</code> works with a data
+names with <a href="https://rdrr.io/pkg/janitor/man/clean_names.html" class="external-link">janitor::clean_names</a>. format_md_crash_data works with a data
 frame of crash data from <a href="get_md_open_data.html">get_md_crash_data</a></p>
     </div>
 
@@ -73,9 +73,12 @@ frame of crash data from <a href="get_md_open_data.html">get_md_crash_data</a></
     <dl><dt>data</dt>
 <dd><p>Data frame with Maryland vehicular crash data; typically from <code>get_md_crash_data</code></p></dd>
 <dt>crs</dt>
-<dd><p>Coordinate reference system passed to <a href="https://r-spatial.github.io/sf/reference/st_transform.html" class="external-link">sf::st_transform</a>, Default: 3857</p></dd>
+<dd><p>Coordinate reference system passed to <a href="https://r-spatial.github.io/sf/reference/st_transform.html" class="external-link">sf::st_transform</a>, Default:
+3857 or option "mapmaryland.crs" if set. Set crs using
+<a href="set_mapmaryland_options.html">set_mapmaryland_options</a>.</p></dd>
 <dt>erase_water</dt>
-<dd><p>If <code>TRUE</code>, use <a href="https://elipousson.github.io/overedge/reference/st_erase.html" class="external-link">overedge::st_erase</a> to erase any geometry intersecting with <a href="md_water.html">md_water</a>; Default: <code>FALSE</code></p></dd>
+<dd><p>If <code>TRUE</code>, use <a href="https://elipousson.github.io/overedge/reference/st_erase.html" class="external-link">overedge::st_erase</a> to erase any geometry
+intersecting with <a href="md_water.html">md_water</a>; Default: <code>FALSE</code></p></dd>
 <dt>clean_names</dt>
 <dd><p>If <code>TRUE</code>, use <a href="https://rdrr.io/pkg/janitor/man/clean_names.html" class="external-link">janitor::clean_names</a>; Default: <code>TRUE</code></p></dd>
 <dt>sf_col</dt>

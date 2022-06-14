@@ -1,3 +1,4 @@
+#' @description mapmaryland helps you get open spatial data for Maryland.
 #' @keywords internal
 "_PACKAGE"
 
@@ -5,3 +6,5 @@
 #' @importFrom magrittr %>%
 ## usethis namespace: end
 NULL
+
+

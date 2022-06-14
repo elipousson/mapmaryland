@@ -6,7 +6,7 @@
 \alias{mapmaryland-package}
 \title{mapmaryland: Easy Access to Maryland Spatial Data}
 \description{
-A small collection of data sources and utility functions for working with state and county data sources in Maryland.
+mapmaryland helps you get open spatial data for Maryland.
 }
 \seealso{
 Useful links:
