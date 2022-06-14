@@ -14,9 +14,8 @@ get_md_tigris(
 }
 \arguments{
 \item{name}{Name matching a value in the namelsad, namelsad, or geoid columns
-of \link{md_counties}, \link{md_census_places}, \link{md_congressional_districts},
-\link{md_legislative_districts}, or one of the data sets available for download
-with {tigris}; Default: \code{NULL}}
+of \link{md_counties}, \link{md_census_places}, \link{md_congressional_districts}, or one
+of the data sets available for download with {tigris}; Default: \code{NULL}}
 
 \item{type}{Type of data to return, Default: "counties"; See details for
 supported options.}
@@ -25,7 +24,8 @@ supported options.}
 3857 or option "mapmaryland.crs" if set. Set crs using
 \link{set_mapmaryland_options}.}
 
-\item{erase_water}{If \code{TRUE}, use \link[overedge:st_erase]{overedge::st_erase} to erase any geometry intersecting with \link{md_water}; Default: \code{FALSE}}
+\item{erase_water}{If \code{TRUE}, use \link[overedge:st_erase]{overedge::st_erase} to erase any geometry
+intersecting with \link{md_water}; Default: \code{FALSE}}
 
 \item{...}{Additional parameters passed on to {tigris} functions.}
 }
@@ -33,19 +33,25 @@ supported options.}
 A simple feature object matching the type provided.
 }
 \description{
-Get package data with Maryland counties, U.S. Congressional District, or Census designated
-places by name or GeoID or use the tigris package to download state data.
+Get package data with Maryland counties, U.S. Congressional District, or
+Census designated places by name or GeoID or use the tigris package to
+download state data.
 }
 \details{
-Use {mapmaryland} packaged data or use tigris U.S. Census Bureau API:
+Use {mapmaryland} packaged data or use tigris U.S. Census Bureau
+API:
 
 Supported options that access data included with the {mapmaryland} package
-include "counties", "census places", "congressional districts", "legislative
-districts", and "water".
+include "counties", "census places", "congressional districts",
+"legislative districts", and "water".
 
 Options that access data by calling one of several tigris functions for
 downloading data from the U.S. Census Bureau API include "senate district",
-"tracts", "block groups", "blocks", "pumas", "voting districts". tigris
-functions that do not use a "state" parameter (e.g. \link[tigris:zctas]{tigris::zctas})  are not
-supported by this function.
+"tracts", "block groups", "blocks", "pumas", "voting districts", "zctas",
+"roads", "primary secondary roads", "area water",  "linear water", and
+"landmarks".
+
+tigris functions that do not use a "state" parameter (e.g.
+\link[tigris:coastline]{tigris::coastline} or \link[tigris:rails]{tigris::rails})  are not supported by this
+function.
 }
