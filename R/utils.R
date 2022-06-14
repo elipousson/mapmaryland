@@ -1,8 +1,9 @@
 .onLoad <- function(libname, pkgname) {
+
   utils::data(
     list = c(
-      "md_counties", "md_arcgis_index",
-      "md_imap_index", "md_open_data_index"
+      "md_counties", "md_census_places", "md_congressional_districts", "md_water",
+      "md_arcgis_index", "md_imap_index", "md_open_data_index"
     ),
     package = pkgname,
     envir = parent.env(environment())
