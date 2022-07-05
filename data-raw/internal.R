@@ -48,10 +48,12 @@ names(pkg_data) <-
     "Maryland U.S. Congressional Districts",
     "Maryland Counties (detailed boundaries)",
     "Maryland Counties (boundaries)",
+    "Maryland House of Delegates Districts (2022)",
     "Maryland iMap Folder/Service Index",
     "Maryland Metropolitan Planning Organizations (boundaries)",
     "Maryland Open Data Portal Index",
     "Maryland Public Schools",
+    "Maryland Senate Districts (2022)",
     "Maryland Water (area)",
     "Maryland Zoning District information",
     "Maryland Public School Enrollment (SY 2003-2022)",
@@ -68,8 +70,10 @@ pkg_data_index <-
 pkg_data_index <-
   dplyr::bind_cols(
     pkg_data_index,
-    "date_updated" = c("2022-06-02", "2022-05-20", "2022-05-19", "2022-05-19", "2022-05-19", "2022-05-20",
-                       "2022-05-23", "2022-05-19", "2022-06-13", "2022-05-19", "2022-05-20", "2022-06-13", "2022-05-19", "2022-05-19")
+    "date_updated" = c(
+      "2022-06-02", "2022-05-20", "2022-05-19", "2022-05-19", "2022-05-19", "2022-07-05", "2022-05-20",
+      "2022-05-23", "2022-05-19", "2022-06-13",  "2022-07-05", "2022-05-19", "2022-05-20", "2022-06-13", "2022-05-19", "2022-05-19"
+    )
   )
 
 usethis::use_data(type_nm_index, pkg_data_index, internal = TRUE, overwrite = TRUE)
