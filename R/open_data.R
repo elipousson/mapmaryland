@@ -1,13 +1,20 @@
 #' Get data from the Maryland Open Data Portal
 #'
-#' Wrap [overedge::get_open_data] to access the Maryland Open Data portal.
+#' Wrap [getdata::get_open_data] to access the Maryland Open Data portal. The
+#' source url can be set with an option named "mapmaryland.open_data_source_url"
+#' but it defaults to the statewide open data portal
+#' <https://opendata.maryland.gov> The token type can be set with an option
+#' named "mapmaryland.open_data_token_type" but it defaults to
+#' "MARYLAND_OPEN_DATA_API_KEY".
 #'
-#' @param resource Resource identifier code passed to "data" parameter of [overedge::get_open_data]
-#' @param type Type of data to return. Supported options: "crashes", "road closures", "bay pollution reduction"
-#' @inheritParams overedge::get_open_data
-#' @param ... Additional parameters passed to [overedge::get_open_data]
+#' @param resource Resource identifier code passed to "data" parameter of
+#'   [getdata::get_open_data]
+#' @param type Type of data to return. Supported options: "crashes", "road
+#'   closures", "bay pollution reduction"
+#' @inheritParams getdata::get_open_data
+#' @inheritDotParams getdata::get_open_data
 #' @export
-#' @importFrom overedge get_access_token get_open_data
+#' @importFrom getdata get_access_token get_open_data
 get_md_open_data <- function(resource = NULL,
                              type = NULL,
                              crs = getOption("mapmaryland.crs", default = 3857),
@@ -26,10 +33,10 @@ get_md_open_data <- function(resource = NULL,
       )
   }
 
-  token <-
-    overedge::get_access_token(
-      token = token,
-      type = "MARYLAND_OPEN_DATA_API_KEY"
+  token_type <-
+    getOption(
+      "mapmaryland.open_data_token_type",
+      default = "MARYLAND_OPEN_DATA_API_KEY"
     )
 
   source_url <-
@@ -38,12 +45,13 @@ get_md_open_data <- function(resource = NULL,
       default = "https://opendata.maryland.gov"
     )
 
-  overedge::get_open_data(
+  getdata::get_open_data(
     data = resource,
     source_url = source_url,
     geometry = geometry,
     crs = crs,
     token = token,
+    type = token_type,
     ...
   )
 }
