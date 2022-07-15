@@ -9,8 +9,12 @@ format_md_sf(
   data,
   crs = getOption("mapmaryland.crs", default = 3857),
   erase_water = FALSE,
+  erase_data = NULL,
   clean_names = TRUE,
-  sf_col = "geometry"
+  dTolerance = NULL,
+  smooth = FALSE,
+  sf_col = "geometry",
+  ...
 )
 
 format_md_crash_data(data, drop_code = TRUE)
@@ -18,16 +22,29 @@ format_md_crash_data(data, drop_code = TRUE)
 \arguments{
 \item{data}{Data frame with Maryland vehicular crash data; typically from \code{get_md_crash_data}}
 
-\item{crs}{Coordinate reference system passed to \link[sf:st_transform]{sf::st_transform}, Default:
-3857 or option "mapmaryland.crs" if set. Set crs using
+\item{crs}{coordinate reference system. Defaults to
+getOption("mapmaryland.crs", default = 3857). This option can be set with
 \link{set_mapmaryland_options}.}
 
-\item{erase_water}{If \code{TRUE}, use \link[overedge:st_erase]{overedge::st_erase} to erase any geometry
-intersecting with \link{md_water}; Default: \code{FALSE}}
+\item{erase_water}{If \code{TRUE}, erase any geometry intersecting with
+\link{md_water}; Default: \code{FALSE}. If TRUE, and erase_data is not \code{NULL}, \link{md_water}
+is combined and unioned with erase_data.}
 
-\item{clean_names}{If \code{TRUE}, use \link[janitor:clean_names]{janitor::clean_names}; Default: \code{TRUE}}
+\item{erase_data}{A \code{sf}, \code{sfc}, or \code{bbox} object with geometry that should be erased
+from the data, Default: \code{NULL}}
 
-\item{sf_col}{Name to use for the sf column after renaming; defaults to "geometry".}
+\item{dTolerance}{numeric; tolerance parameter, specified for all or for each
+feature geometry. If you run \code{st_simplify}, the input data is
+specified with long-lat coordinates and \code{sf_use_s2()} returns
+\code{TRUE}, then the value of \code{dTolerance} must be specified in
+meters.}
+
+\item{smooth}{If \code{TRUE}, smooth data with \link[smoothr:smooth]{smoothr::smooth} using default
+method and parameters, Default: \code{FALSE}.}
+
+\item{sf_col}{Name to use for output \code{sf} column, Default: 'geometry'.}
+
+\item{...}{Additional parameters passed to \code{format_data}}
 
 \item{drop_code}{If TRUE, drop all columns that end with "code"}
 }
@@ -41,5 +58,5 @@ names with \link[janitor:clean_names]{janitor::clean_names}. \link{format_md_cra
 frame of crash data from \link{get_md_crash_data}
 }
 \seealso{
-\link[overedge:format_data]{overedge::format_data}
+\link[getdata:format_sf_data]{getdata::format_sf_data}
 }
