@@ -19,35 +19,33 @@
 #' "easements" (Preservation Easements held by the Maryland Historical Trust)
 #'
 #' @param location A `sf`, `sfc`, or `bbox` object (or other object convertible
-#'   with [overedge::as_bbox]. Required.
+#'   with [sfext::as_bbox]. Required.
 #' @param nm Layer name identifier used to retrieve url from [md_imap_index]
 #'   based on the snakecase "nm" column; Default: NULL.
 #' @param type Default and supported options vary by function. See details.
 #' @param crs Coordinate reference system to return.
-#' @param ... Additional parameters passed to [overedge::get_esri_data]
+#' @param ... Additional parameters passed to [getdata::get_esri_data]
 #' @name get_imap_data
 #' @export
-#' @importFrom overedge get_esri_data rename_sf_col
+#' @importFrom getdata get_esri_data
+#' @importFrom sfext rename_sf_col
 get_imap_data <- function(location = NULL, nm = NULL, crs = getOption("mapmaryland.crs", default = 3857), ...) {
   url <- get_imap_url(nm)
 
   data <-
-    overedge::get_esri_data(
+    getdata::get_esri_data(
       location = location,
       url = url,
       crs = crs,
       ...
     )
 
-  data <- overedge::rename_sf_col(data)
-
-  return(data)
+  sfext::rename_sf_col(data)
 }
 
 #' @name get_cama_data
 #' @rdname get_imap_data
 #' @export
-#' @importFrom overedge get_esri_data
 get_cama_data <- function(location, type = "core", crs = getOption("mapmaryland.crs", default = 3857), ...) {
   nm <-
     type2nm(
@@ -66,7 +64,6 @@ get_cama_data <- function(location, type = "core", crs = getOption("mapmaryland.
 #' @name get_parcel_data
 #' @rdname get_imap_data
 #' @export
-#' @importFrom overedge get_esri_data
 get_parcel_data <- function(location, type = "boundaries", crs = getOption("mapmaryland.crs", default = 3857), ...) {
   nm <-
     type2nm(

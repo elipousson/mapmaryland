@@ -45,14 +45,14 @@ get_water_data(
 }
 \arguments{
 \item{location}{A \code{sf}, \code{sfc}, or \code{bbox} object (or other object convertible
-with \link[overedge:as_sf]{overedge::as_bbox}. Required.}
+with \link[sfext:as_sf]{sfext::as_bbox}. Required.}
 
 \item{nm}{Layer name identifier used to retrieve url from \link{md_imap_index}
 based on the snakecase "nm" column; Default: NULL.}
 
 \item{crs}{Coordinate reference system to return.}
 
-\item{...}{Additional parameters passed to \link[overedge:get_esri_data]{overedge::get_esri_data}}
+\item{...}{Additional parameters passed to \link[getdata:get_esri_data]{getdata::get_esri_data}}
 
 \item{type}{Default and supported options vary by function. See details.}
 }
