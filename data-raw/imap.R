@@ -65,18 +65,20 @@ usethis::use_data(
 
 md_mpos <-
   get_imap_data(
-  location = NULL,
-  nm = "metropolitan_planning_organizations_boundaries",
-  crs = 3857
-)
+    location = NULL,
+    nm = "metropolitan_planning_organizations_boundaries",
+    crs = 3857
+  )
 
 md_mpos <-
   md_mpos %>%
-  overedge::rename_with_xwalk(
-    xwalk =  list ("id" = "mpo_id",
-                       "name" = "mpo_name",
-                       "abb" = "acronym",
-                       "url" = "mpo_url")
+  getdata::rename_with_xwalk(
+    xwalk = list(
+      "id" = "mpo_id",
+      "name" = "mpo_name",
+      "abb" = "acronym",
+      "url" = "mpo_url"
+    )
   ) %>%
   dplyr::rowwise() %>%
   dplyr::mutate(
@@ -84,7 +86,8 @@ md_mpos <-
     states = stringr::str_remove_all(states, ";N/A")
   ) %>%
   dplyr::select(
-    name, abb, geoid = id, url, states, geometry
+    name, abb,
+    geoid = id, url, states, geometry
   ) %>%
   dplyr::ungroup()
 

@@ -96,14 +96,14 @@ public_schools <-
   rename(
     address = street
   ) %>%
-  overedge::relocate_sf_col() %>%
+  sfext::relocate_sf_col() %>%
   select(-objectid)
 
 charter_schools_imap <-
   get_imap_data(nm = "k_thru_12_education_charter_schools", crs = 3857)
 
 charter_schools <- charter_schools_imap %>%
-  overedge::rename_with_xwalk(
+  getdata::rename_with_xwalk(
     list(
       "school_name" = "school_nam",
       "management_type" = "type"

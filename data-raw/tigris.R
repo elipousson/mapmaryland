@@ -42,7 +42,7 @@ congressional_district_labels <-
 md_congressional_districts <-
   md_congressional_districts %>%
   dplyr::left_join(congressional_district_labels, by = "cd116fp") %>%
-  overedge::relocate_sf_col()
+  sfext::relocate_sf_col()
 
 usethis::use_data(md_congressional_districts, overwrite = TRUE)
 
@@ -65,7 +65,7 @@ us_states <-
   janitor::clean_names("snake")
 
 us_states_near_md <-
-  overedge::get_location_data(
+  getdata::get_location_data(
     location = md_counties,
     data = us_states,
     asp = 1,

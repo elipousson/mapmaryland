@@ -1,7 +1,6 @@
 
-
 real_property_cols <-
-  overedge::get_socrata_data(
+  getdata::get_socrata_data(
     data = "w8th-47fz",
     source_url = "https://opendata.maryland.gov",
     token = "DKHfqsI1offbLTfYpi9rmSQQl"
@@ -13,7 +12,7 @@ usethis::use_data(
 )
 
 md_open_data_index <-
-  overedge::get_socrata_data(
+  getdata::get_socrata_data(
     data = "list",
     source_url = "https://opendata.maryland.gov",
     token = "DKHfqsI1offbLTfYpi9rmSQQl"

@@ -16,7 +16,7 @@ frame of crash data from get_md_crash_data"><!-- mathjax --><script src="https:/
     
     <a class="navbar-brand me-2" href="../index.html">mapmaryland</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,6 +26,9 @@ frame of crash data from get_md_crash_data"><!-- mathjax --><script src="https:/
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -61,8 +64,12 @@ frame of crash data from <a href="get_md_open_data.html">get_md_crash_data</a></
   <span class="va">data</span>,
   crs <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"mapmaryland.crs"</span>, default <span class="op">=</span> <span class="fl">3857</span><span class="op">)</span>,
   erase_water <span class="op">=</span> <span class="cn">FALSE</span>,
+  erase_data <span class="op">=</span> <span class="cn">NULL</span>,
   clean_names <span class="op">=</span> <span class="cn">TRUE</span>,
-  sf_col <span class="op">=</span> <span class="st">"geometry"</span>
+  dTolerance <span class="op">=</span> <span class="cn">NULL</span>,
+  smooth <span class="op">=</span> <span class="cn">FALSE</span>,
+  sf_col <span class="op">=</span> <span class="st">"geometry"</span>,
+  <span class="va">...</span>
 <span class="op">)</span>
 
 <span class="fu">format_md_crash_data</span><span class="op">(</span><span class="va">data</span>, drop_code <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
@@ -73,16 +80,29 @@ frame of crash data from <a href="get_md_open_data.html">get_md_crash_data</a></
     <dl><dt>data</dt>
 <dd><p>Data frame with Maryland vehicular crash data; typically from <code>get_md_crash_data</code></p></dd>
 <dt>crs</dt>
-<dd><p>Coordinate reference system passed to <a href="https://r-spatial.github.io/sf/reference/st_transform.html" class="external-link">sf::st_transform</a>, Default:
-3857 or option "mapmaryland.crs" if set. Set crs using
+<dd><p>coordinate reference system. Defaults to
+getOption("mapmaryland.crs", default = 3857). This option can be set with
 <a href="set_mapmaryland_options.html">set_mapmaryland_options</a>.</p></dd>
 <dt>erase_water</dt>
-<dd><p>If <code>TRUE</code>, use <a href="https://elipousson.github.io/overedge/reference/st_erase.html" class="external-link">overedge::st_erase</a> to erase any geometry
-intersecting with <a href="md_water.html">md_water</a>; Default: <code>FALSE</code></p></dd>
-<dt>clean_names</dt>
-<dd><p>If <code>TRUE</code>, use <a href="https://rdrr.io/pkg/janitor/man/clean_names.html" class="external-link">janitor::clean_names</a>; Default: <code>TRUE</code></p></dd>
+<dd><p>If <code>TRUE</code>, erase any geometry intersecting with
+<a href="md_water.html">md_water</a>; Default: <code>FALSE</code>. If TRUE, and erase_data is not <code>NULL</code>, <a href="md_water.html">md_water</a>
+is combined and unioned with erase_data.</p></dd>
+<dt>erase_data</dt>
+<dd><p>A <code>sf</code>, <code>sfc</code>, or <code>bbox</code> object with geometry that should be erased
+from the data, Default: <code>NULL</code></p></dd>
+<dt>dTolerance</dt>
+<dd><p>numeric; tolerance parameter, specified for all or for each
+feature geometry. If you run <code>st_simplify</code>, the input data is
+specified with long-lat coordinates and <code>sf_use_s2()</code> returns
+<code>TRUE</code>, then the value of <code>dTolerance</code> must be specified in
+meters.</p></dd>
+<dt>smooth</dt>
+<dd><p>If <code>TRUE</code>, smooth data with <a href="https://strimas.com/smoothr/reference/smooth.html" class="external-link">smoothr::smooth</a> using default
+method and parameters, Default: <code>FALSE</code>.</p></dd>
 <dt>sf_col</dt>
-<dd><p>Name to use for the sf column after renaming; defaults to "geometry".</p></dd>
+<dd><p>Name to use for output <code>sf</code> column, Default: 'geometry'.</p></dd>
+<dt>...</dt>
+<dd><p>Additional parameters passed to <code>format_data</code></p></dd>
 <dt>drop_code</dt>
 <dd><p>If TRUE, drop all columns that end with "code"</p></dd>
 </dl></div>
@@ -92,7 +112,7 @@ intersecting with <a href="md_water.html">md_water</a>; Default: <code>FALSE</co
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p><a href="https://elipousson.github.io/overedge/reference/format_data.html" class="external-link">overedge::format_data</a></p></div>
+    <div class="dont-index"><p><a href="https://elipousson.github.io/getdata/reference/format_sf_data.html" class="external-link">getdata::format_sf_data</a></p></div>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

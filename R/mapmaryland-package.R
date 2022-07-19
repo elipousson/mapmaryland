@@ -6,5 +6,3 @@
 #' @importFrom magrittr %>%
 ## usethis namespace: end
 NULL
-
-

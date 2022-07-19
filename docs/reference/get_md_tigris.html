@@ -14,7 +14,7 @@ download state data."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/
     
     <a class="navbar-brand me-2" href="../index.html">mapmaryland</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0.9000</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,6 +24,9 @@ download state data."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -73,12 +76,13 @@ of the data sets available for download with tigris; Default: <code>NULL</code><
 <dd><p>Type of data to return, Default: "counties"; See details for
 supported options.</p></dd>
 <dt>crs</dt>
-<dd><p>Coordinate reference system passed to <a href="https://r-spatial.github.io/sf/reference/st_transform.html" class="external-link">sf::st_transform</a>, Default:
-3857 or option "mapmaryland.crs" if set. Set crs using
+<dd><p>coordinate reference system. Defaults to
+getOption("mapmaryland.crs", default = 3857). This option can be set with
 <a href="set_mapmaryland_options.html">set_mapmaryland_options</a>.</p></dd>
 <dt>erase_water</dt>
-<dd><p>If <code>TRUE</code>, use <a href="https://elipousson.github.io/overedge/reference/st_erase.html" class="external-link">overedge::st_erase</a> to erase any geometry
-intersecting with <a href="md_water.html">md_water</a>; Default: <code>FALSE</code></p></dd>
+<dd><p>If <code>TRUE</code>, erase any geometry intersecting with
+<a href="md_water.html">md_water</a>; Default: <code>FALSE</code>. If TRUE, and erase_data is not <code>NULL</code>, <a href="md_water.html">md_water</a>
+is combined and unioned with erase_data.</p></dd>
 <dt>...</dt>
 <dd><p>Additional parameters passed on to tigris functions.</p></dd>
 </dl></div>
