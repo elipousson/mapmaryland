@@ -332,3 +332,42 @@
 #'   \item{\code{geometry}}{POINT geometry}
 #' }
 "md_schools"
+
+#' Maryland Senate Districts (2022)
+#'
+#' From the [Maryland Department of Planning](https://planning.maryland.gov/Redistricting/Pages/2020/legiDist.aspx): "The Maryland General Assembly,
+#' under the Maryland Constitution, adopted new state legislative districts on
+#' February 1, 2022, based on the changes in population reported in the 2020
+#' U.S. Census and adjusted in accordance with Maryland's *No Representation
+#' Without Population Act* of 2010."
+#'
+#' @format A data frame with 47 rows and 5 variables:
+#' \describe{
+#'   \item{\code{name}}{District name}
+#'   \item{\code{id}}{District number}
+#'   \item{\code{label}}{District label}
+#'   \item{\code{pop}}{Population from 2020 U.S. Census}
+#'   \item{\code{geometry}}{District boundary geometry}
+#' }
+#' @source \href{https://planning.maryland.gov/Redistricting/Pages/2020/legiDist.aspx}{2022 Maryland Legislative Districts}
+"md_senate_districts_2022"
+
+#' Maryland House of Delegates Districts (2022)
+#'
+#' From the [Maryland Department of Planning](https://planning.maryland.gov/Redistricting/Pages/2020/legiDist.aspx): "The Maryland General Assembly,
+#' under the Maryland Constitution, adopted new state legislative districts on
+#' February 1, 2022, based on the changes in population reported in the 2020
+#' U.S. Census and adjusted in accordance with Maryland's *No Representation
+#' Without Population Act* of 2010."
+#'
+#' @format A data frame with 71 rows and 6 variables:
+#' \describe{
+#'   \item{\code{name}}{District name}
+#'   \item{\code{id}}{District number}
+#'   \item{\code{label}}{District label}
+#'   \item{\code{members}}{Number of Delegates for district}
+#'   \item{\code{pop}}{Population from 2020 U.S. Census}
+#'   \item{\code{geometry}}{District boundary geometry}
+#' }
+#' @source \href{https://planning.maryland.gov/Redistricting/Pages/2020/legiDist.aspx}{2022 Maryland Legislative Districts}
+"md_house_districts_2022"

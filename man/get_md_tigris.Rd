@@ -20,12 +20,13 @@ of the data sets available for download with {tigris}; Default: \code{NULL}}
 \item{type}{Type of data to return, Default: "counties"; See details for
 supported options.}
 
-\item{crs}{Coordinate reference system passed to \link[sf:st_transform]{sf::st_transform}, Default:
-3857 or option "mapmaryland.crs" if set. Set crs using
+\item{crs}{coordinate reference system. Defaults to
+getOption("mapmaryland.crs", default = 3857). This option can be set with
 \link{set_mapmaryland_options}.}
 
-\item{erase_water}{If \code{TRUE}, use \link[overedge:st_erase]{overedge::st_erase} to erase any geometry
-intersecting with \link{md_water}; Default: \code{FALSE}}
+\item{erase_water}{If \code{TRUE}, erase any geometry intersecting with
+\link{md_water}; Default: \code{FALSE}. If TRUE, and erase_data is not \code{NULL}, \link{md_water}
+is combined and unioned with erase_data.}
 
 \item{...}{Additional parameters passed on to {tigris} functions.}
 }
