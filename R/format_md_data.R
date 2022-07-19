@@ -42,7 +42,7 @@ format_md_sf <- function(data,
   }
 
   getdata::format_sf_data(
-    data = data,
+    data,
     crs = crs,
     erase_data = erase_data,
     clean_names = clean_names,
@@ -50,7 +50,7 @@ format_md_sf <- function(data,
     smooth = smooth,
     sf_col = sf_col,
     ...
-    )
+  )
 }
 
 #' @name format_md_crash_data
