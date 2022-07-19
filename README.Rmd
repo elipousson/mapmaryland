@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # mapmaryland
 
 <!-- badges: start -->
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 <!-- badges: end -->
 
 The goal of mapmaryland is to ease access to spatial data for Maryland at both the local, regional, and statewide level.
@@ -25,14 +27,13 @@ The goal of mapmaryland is to ease access to spatial data for Maryland at both t
 You can install the development version of mapmaryland like so:
 
 ``` r
-# devtools::install_github("elipousson/mapmaryland")
+# pak::pkg_install("elipousson/mapmaryland")
 ```
 
 ## Example
 
 ```{r}
 library(mapmaryland)
-## basic example code
 ```
 
 Currently, the package has a limited number of data access functions, prepackaged datasets, and reference data with an index of Maryland ArcGIS services.
@@ -41,3 +42,23 @@ Currently, the package has a limited number of data access functions, prepackage
 dplyr::glimpse(md_arcgis_index)
 ```
 
+
+```{r get_md_tigris}
+location <-
+  get_md_tigris(
+    name = "Hyattsville",
+    type = "census places"
+  )
+
+location
+```
+
+```{r get_imap_data}
+streams <-
+  get_water_data(
+    location = location,
+    type = "streams"
+  )
+
+plot(streams, max.plot = 1)
+```
