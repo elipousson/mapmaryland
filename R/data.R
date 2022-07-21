@@ -39,7 +39,8 @@
 #' Carroll County, Anne Arundel County, Howard County, Queen Anne's County, and
 #' Harford County. Counties in the DC-VA-MD-WV Metropolitan Statistical Area
 #' (MSA) include Montgomery, Frederick, Prince George's, Charles, and Calvert
-#' counties.
+#' counties. Regions are based on this resource from Visit Maryland
+#' <https://www.visitmaryland.org/info/maryland-regions>
 #'
 #' @format A data frame with 24 rows and 18 variables:
 #' \describe{
@@ -60,6 +61,7 @@
 #'   \item{\code{awater}}{Water area (square meters)}
 #'   \item{\code{intptlat}}{Latitude of the internal point}
 #'   \item{\code{intptlon}}{Longitude of the internal point}
+#'   \item{\code{region}}{Region of the state}
 #'   \item{\code{geometry}}{Multipolygon with the county boundary}
 #' }
 #' @source \url{https://www.census.gov/geo/maps-data/data/tiger-line.html}

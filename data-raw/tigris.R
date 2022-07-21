@@ -4,9 +4,39 @@ pkg_crs <- 3857
 pkg_state_abb <- "MD"
 pkg_state_name <- "Maryland"
 
+region_county_xwalk <-
+  tibble::tribble(
+    ~region,                   ~namelsad,
+    "Western Maryland",          "Garrett County",
+    "Western Maryland",         "Allegany County",
+    "Western Maryland",       "Washington County",
+    "Capital Region",        "Frederick County",
+    "Capital Region",       "Montgomery County",
+    "Capital Region",  "Prince George's County",
+    "Central Maryland",     "Anne Arundel County",
+    "Central Maryland",          "Baltimore city",
+    "Central Maryland",        "Baltimore County",
+    "Central Maryland",          "Carroll County",
+    "Central Maryland",          "Harford County",
+    "Central Maryland",           "Howard County",
+    "Southern Maryland",          "Calvert County",
+    "Southern Maryland",          "Charles County",
+    "Southern Maryland",       "St. Mary's County",
+    "Eastern Shore",             "Kent County",
+    "Eastern Shore",     "Queen Anne's County",
+    "Eastern Shore",           "Talbot County",
+    "Eastern Shore",         "Caroline County",
+    "Eastern Shore",       "Dorchester County",
+    "Eastern Shore",         "Wicomico County",
+    "Eastern Shore",         "Somerset County",
+    "Eastern Shore",        "Worcester County",
+    "Eastern Shore",            "Cecil County"
+  )
+
 md_counties <-
   tigris::counties(state = state_fips) %>%
   janitor::clean_names("snake") %>%
+  left_join(region_county_xwalk) %>%
   sf::st_transform(pkg_crs)
 
 usethis::use_data(md_counties, overwrite = TRUE)
