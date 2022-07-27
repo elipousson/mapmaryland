@@ -174,5 +174,9 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "180308.788KB"
+  "fileSize": "186086.368KB",
+  "releaseNotes": "https://github.com/elipousson/mapmaryland/blob/master/NEWS.md",
+  "readme": "https://github.com/elipousson/mapmaryland/blob/main/README.md",
+  "developmentStatus": "https://www.repostatus.org/#active",
+  "keywords": ["maryland", "rspatial", "r-package"]
 }
