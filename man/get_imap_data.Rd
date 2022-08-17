@@ -26,6 +26,7 @@ get_parcel_data(
   location,
   type = "boundaries",
   crs = getOption("mapmaryland.crs", default = 3857),
+  block = FALSE,
   ...
 )
 
@@ -55,6 +56,9 @@ based on the snakecase "nm" column; Default: NULL.}
 \item{...}{Additional parameters passed to \link[getdata:get_esri_data]{getdata::get_esri_data}}
 
 \item{type}{Default and supported options vary by function. See details.}
+
+\item{block}{If block is \code{TRUE}, pass parcel data to
+\code{\link[getdata:format_address_data]{getdata::bind_block_col()}}. Defaults to \code{FALSE}.}
 }
 \description{
 Get data from Maryland iMap including Computer Assisted Mass Appraisal

@@ -63,19 +63,39 @@ get_cama_data <- function(location, type = "core", crs = getOption("mapmaryland.
 
 #' @name get_parcel_data
 #' @rdname get_imap_data
+#' @param block If block is `TRUE`, pass parcel data to
+#'   [getdata::bind_block_col()]. Defaults to `FALSE`.
 #' @export
-get_parcel_data <- function(location, type = "boundaries", crs = getOption("mapmaryland.crs", default = 3857), ...) {
+#' @importFrom getdata bind_block_col
+get_parcel_data <- function(location,
+                            type = "boundaries",
+                            crs = getOption("mapmaryland.crs", default = 3857),
+                            block = FALSE,
+                            ...) {
   nm <-
     type2nm(
       type = type,
       index = "imap_parcel"
     )
 
-  get_imap_data(
+  data <-
+    get_imap_data(
     location = location,
     nm = nm,
     crs = crs,
     ...
+  )
+
+  if (!block | !all(rlang::has_name(data, c("strtnum", "strtdir", "strtnam", "strttyp")))) {
+    return(data)
+  }
+
+  getdata::bind_block_col(
+    data,
+    bldg_num = "strtnum",
+    street_dir_prefix = "strtdir",
+    street_name = "strtnam",
+    street_suffix = "strttyp"
   )
 }
 
