@@ -33,17 +33,21 @@ closures", "bay pollution reduction"}
   \describe{
     \item{\code{data}}{A data set identifier (known as a resource for Socrata) or a url
 for an individual dataset. If data is set to "list" and a valid source_url
-is provided, the function returns a list of all available resources. If data is a url, source_url must be null.}
+is provided, the function returns a list of all available resources. If
+data is a url, source_url must be NULL. \link[getdata]{get_socrata_metadata} requires the
+data parameter.}
     \item{\code{source_url}}{A data source url. For Socrata, this should the base url
 for the open data portal.}
     \item{\code{source_type}}{Data source type; defaults to "socrata" which is currently
 the only supported option.}
-    \item{\code{select}}{SODA $select parameter. Set of columns to be returned, similar
+    \item{\code{select}}{SODA $select parameter. Set of columns to be returned, equivalent
 to a SELECT in SQL. \url{https://dev.socrata.com/docs/queries/select.html}}
-    \item{\code{where}}{SODA $where parameter. Filters the rows to be returned, similar
-to WHERE. \url{https://dev.socrata.com/docs/queries/where.html}}
+    \item{\code{where}}{SODA $where parameter. Filters the rows to be returned, equivalent
+to WHERE in SQL. \url{https://dev.socrata.com/docs/queries/where.html}}
     \item{\code{query}}{SODA $query parameter. A full SoQL query string, all as one
 parameter. \url{https://dev.socrata.com/docs/queries/query.html}}
+    \item{\code{location}}{sf object. If multiple areas are provided, they are unioned
+into a single sf object using \link[sf:geos_combine]{sf::st_union}}
     \item{\code{dist}}{buffer distance in units. Optional.}
     \item{\code{diag_ratio}}{ratio of diagonal distance of area's bounding box used as
 buffer distance. e.g. if the diagonal distance is 3000 meters and the
@@ -56,17 +60,20 @@ to units matching GDAL units for x; defaults to "meter"}
     \item{\code{asp}}{Aspect ratio of width to height as a numeric value (e.g. 0.33) or
 character (e.g. "1:3"). If numeric, \code{\link[sfext:get_asp]{get_asp()}} returns the same value
 without modification.}
-    \item{\code{name,name_col}}{name of column in Socrata data resource with
+    \item{\code{name,name_col}}{Name of column in Socrata data resource with
 location names (e.g. County) and name of location to return.}
+    \item{\code{location_col}}{Name of a "location" or "point" type column in a Socrata dataset.}
     \item{\code{coords}}{Coordinate columns for input dataframe or output sf object (if
 geometry is 'centroid' or 'point') Default: c("lon", "lat").}
     \item{\code{token,type}}{Access token or API Key and token type (name used to store
 token in .Renvironment). A token may be required to access data from
 Socrata and other open data portals but can be stored as an environment
 variable with \link[getdata]{set_access_token}.}
-    \item{\code{from_crs}}{For \link[sfext]{df_to_sf}, coordinate reference system used by
-coordinates or well known text in data frame.}
-    \item{\code{clean_names}}{If \code{TRUE}, pass data frame to \link[janitor:clean_names]{janitor::clean_names}; defaults to \code{TRUE}.}
+    \item{\code{from_crs}}{Coordinate reference system used to match the location CRS to
+the source data.}
+    \item{\code{clean_names}}{If \code{TRUE}, clean names provided to nm or created based on
+value of col using \link[janitor:clean_names]{janitor::clean_names}. If \code{FALSE}, use names as
+provided.}
   }}
 }
 \description{
