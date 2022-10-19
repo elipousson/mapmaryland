@@ -40,6 +40,10 @@ get_imap_data <- function(location = NULL, nm = NULL, crs = getOption("mapmaryla
       ...
     )
 
+  if (!inherits(data, "sf")) {
+    return(data)
+  }
+
   sfext::rename_sf_col(data)
 }
 
@@ -90,12 +94,21 @@ get_parcel_data <- function(location,
     return(data)
   }
 
+  imap_addr_cols <-
+    list(
+      bldg_num = "strtnum",
+      street_dir_prefix = "strtdir",
+      street_name = "strtnam",
+      street_suffix = "strttyp"
+    )
+
   getdata::bind_block_col(
     data,
-    bldg_num = "strtnum",
-    street_dir_prefix = "strtdir",
-    street_name = "strtnam",
-    street_suffix = "strttyp"
+    bldg_num = imap_addr_cols$bldg_num,
+    street_dir_prefix = imap_addr_cols$street_dir_prefix,
+    street_name = imap_addr_cols$street_name,
+    street_suffix = imap_addr_cols$street_suffix,
+    case = "upper"
   )
 }
 
