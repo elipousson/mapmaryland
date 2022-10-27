@@ -1,8 +1,11 @@
 library(dplyr)
+
 state_fips <- 24
 pkg_crs <- 3857
 pkg_state_abb <- "MD"
 pkg_state_name <- "Maryland"
+
+options(tigris_use_cache = TRUE)
 
 region_county_xwalk <-
   tibble::tribble(
@@ -119,3 +122,15 @@ md_legislative_districts <-
   janitor::clean_names("snake")
 
 usethis::use_data(md_legislative_districts, overwrite = TRUE)
+
+md_zctas <-
+  tigris::zctas() %>%
+  sf::st_transform(crs = pkg_crs) %>%
+  janitor::clean_names("snake") %>%
+  sf::st_filter(
+    md_counties %>%
+      sfext::st_buffer_ext(dist = -500, unit = "m")
+    )
+
+usethis::use_data(md_zctas, overwrite = TRUE)
+

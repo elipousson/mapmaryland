@@ -373,3 +373,26 @@
 #' }
 #' @source \href{https://planning.maryland.gov/Redistricting/Pages/2020/legiDist.aspx}{2022 Maryland Legislative Districts}
 "md_house_districts_2022"
+
+
+#' Maryland Zip Code Tabulation Areas (ZCTA) - 2020
+#'
+#' ZIP Code Tabulation Areas (ZCTAs) are generalized areal representations of
+#' United States Postal Service (USPS) ZIP Code service areas downloaded using
+#' the [tigris::zctas()] function.
+#'
+#' @format A data frame with 478 rows and 10 variables:
+#' \describe{
+#'   \item{\code{zcta5ce20}}{ZCTA identifier}
+#'   \item{\code{geoid20}}{ZCTA GeoID}
+#'   \item{\code{classfp20}}{FIPS class code}
+#'   \item{\code{mtfcc20}}{MAF/TIGER Feature Class Code (MTFCC)}
+#'   \item{\code{funcstat20}}{Functional status}
+#'   \item{\code{aland20}}{Land area (square meters)}
+#'   \item{\code{awater20}}{Water area (square meters)}
+#'   \item{\code{intptlat20}}{Latitude of the internal point}
+#'   \item{\code{intptlon20}}{Longitude of the internal point}
+#'   \item{\code{geometry}}{Multipolygon with the ZCTA boundary}
+#'}
+#' @source \href{https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html}
+"md_zctas"
