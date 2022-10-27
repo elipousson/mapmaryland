@@ -1,8 +1,8 @@
-pandoc: 2.14.2
+pandoc: 2.19.2
 pkgdown: 2.0.6
 pkgdown_sha: ~
 articles: {}
-last_built: 2022-10-19T16:52Z
+last_built: 2022-10-27T03:45Z
 urls:
   reference: https://elipousson.github.io/mapmaryland/reference
   article: https://elipousson.github.io/mapmaryland/articles
