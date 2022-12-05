@@ -1,3 +1,5 @@
+library(tidyverse)
+
 msde_enrollment <-
   tibble(path = list.files("inst/extdata/msde", full.names = TRUE)) %>%
   filter(str_detect(path, "Enrollment_")) %>%
@@ -17,6 +19,13 @@ msde_enrollment <-
     grade = coalesce(grade, grade_title)
   ) %>%
   mutate(
+    lss_name = case_when(
+      # FIXME: Document recoding of lss_name values
+      lss_name == "Baltimore City - Edison" ~ "Baltimore City",
+      lss_name == "Seed School LEA" ~ "SEED",
+      lss_name == "All Public Schools" ~ "State",
+      TRUE ~ lss_name
+    ),
     school_number = case_when(
       school_number == "A" ~ 0L,
       TRUE ~ as.integer(school_number)
@@ -39,7 +48,10 @@ msde_enrollment <-
     ),
     grade = case_when(
       str_detect(grade, "Grade[:space:]") ~ str_remove(grade, "Grade[:space:]"),
-      grade %in% c("Prekindergarten", "All Prekindergarten", "Prekindergarten Age 4") ~ "PK",
+      grade %in% c("Prekindergarten", "All Prekindergarten") ~ "PK",
+      # FIXME: Document how the Prekindergarten Age 4 data is collapsed into PK
+      # category
+      grade ==  "Prekindergarten Age 4" ~ "PK",
       grade %in% c("Kindergarten", "All Kindergarten") ~ "K",
       TRUE ~ "*"
     )
