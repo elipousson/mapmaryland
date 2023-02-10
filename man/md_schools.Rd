@@ -5,7 +5,7 @@
 \alias{md_schools}
 \title{Maryland Public Schools}
 \format{
-A data frame with 1,427 rows and 14 variables:
+A data frame with 1,427 rows and 13 variables:
 \describe{
 \item{\code{school_name}}{School name}
 \item{\code{address}}{Street address}
@@ -15,11 +15,10 @@ A data frame with 1,427 rows and 14 variables:
 \item{\code{grades}}{Grades}
 \item{\code{school_type}}{School type}
 \item{\code{grade_band}}{Grade band}
-\item{\code{lss_number}}{Local school system number}
 \item{\code{psc_number}}{PSC number}
+\item{\code{lss_number}}{Local school system number as integer}
 \item{\code{county}}{County name}
 \item{\code{management_type}}{Management type}
-\item{\code{school_number}}{School number (incomplete)}
 \item{\code{geometry}}{POINT geometry}
 }
 }
@@ -28,8 +27,11 @@ md_schools
 }
 \description{
 Combined iMap FeatureLayer for traditional public schools and charter
-schools. The school number very incomplete due to the iMap data using a
-different school name than the MSDE data for a little less than half of
-schools in the state.
+schools. The school number previously included in this dataset was incomplete
+due to the iMap data using a different school name than the MSDE data for a
+little less than half of schools in the state. As of February 2023, the
+school number column has been removed to ensure the data is accurate and to
+avoid confusion. For charter schools, the school_type column has been added
+based on the grade range. Data based on iMap data as of 2023 February 10.
 }
 \keyword{datasets}

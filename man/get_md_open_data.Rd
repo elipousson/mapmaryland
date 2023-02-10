@@ -23,7 +23,8 @@ get_md_crash_data(...)
 \item{type}{Type of data to return. Supported options: "crashes", "road
 closures", "bay pollution reduction"}
 
-\item{crs}{Coordinate reference system of bounding box to return}
+\item{crs}{Coordinate reference system of bounding box to return; defaults to
+\code{NULL} which maintains the crs of the input object.}
 
 \item{geometry}{If \code{TRUE} and coords are provided, return a
 \code{sf} object. Default \code{FALSE}.}
@@ -47,7 +48,7 @@ to WHERE in SQL. \url{https://dev.socrata.com/docs/queries/where.html}}
     \item{\code{query}}{SODA $query parameter. A full SoQL query string, all as one
 parameter. \url{https://dev.socrata.com/docs/queries/query.html}}
     \item{\code{location}}{sf object. If multiple areas are provided, they are unioned
-into a single sf object using \link[sf:geos_combine]{sf::st_union}}
+into a single sf object using \code{\link[sf:geos_combine]{sf::st_union()}}}
     \item{\code{dist}}{buffer distance in units. Optional.}
     \item{\code{diag_ratio}}{ratio of diagonal distance of area's bounding box used as
 buffer distance. e.g. if the diagonal distance is 3000 meters and the
@@ -63,7 +64,7 @@ without modification.}
     \item{\code{name,name_col}}{Name of column in Socrata data resource with
 location names (e.g. County) and name of location to return.}
     \item{\code{location_col}}{Name of a "location" or "point" type column in a Socrata dataset.}
-    \item{\code{coords}}{Coordinate columns for input dataframe or output sf object (if
+    \item{\code{coords}}{Coordinate columns for input data.frame or output sf object (if
 geometry is 'centroid' or 'point') Default: c("lon", "lat").}
     \item{\code{token,type}}{Access token or API Key and token type (name used to store
 token in .Renvironment). A token may be required to access data from

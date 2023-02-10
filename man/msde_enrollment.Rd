@@ -5,19 +5,28 @@
 \alias{msde_enrollment}
 \title{Maryland Public School Enrollment (SY 2003-2022)}
 \format{
-A data frame with 224,002 rows and 9 variables:
+A data frame with 219,741 rows and 10 variables:
 \describe{
 \item{\code{year}}{School or academic year for enrollment count, e.g.
 2019 data is from the start of the 2019-2020 school year.}
-\item{\code{school_number}}{School number as integer (0 indicates all schools)}
+\item{\code{school_number}}{School number as integer (0 indicates all
+schools)}
 \item{\code{school_name}}{School name}
-\item{\code{enrolled_count}}{Number of students registered to attend the school at the start of the year in the grade or grade range. Typically enrollment count is as of September 30.}
+\item{\code{enrolled_count}}{Number of students registered to attend the
+school at the start of the year in the grade or grade range as integer.
+Typically enrollment count is as of September 30.}
 \item{\code{grade}}{Grades from Prekindergarden (PK) to Grade 12}
-\item{\code{grade_range}}{all elementary school Grades, all middle school grades, all high school grades, or
-all grades (total enrollment). May also be used as a label for grade.}
-\item{\code{race}}{Race/ethnicity. Enrollment by race/ethnicity is only available for years since 2020.}
-\item{\code{lss_number}}{Local school system number (previously known as a LEA Number).}
-\item{\code{lss_name}}{Local school system name (previously known as a LEA Name).}
+\item{\code{grade_range}}{all elementary school Grades, all middle school
+grades, all high school grades, or all grades (total enrollment). May also
+be used as a label for grade.}
+\item{\code{race}}{Race/ethnicity. Enrollment by race/ethnicity is only
+available across all grades for years since 2020. "All" is used for data
+prior to 2020.}
+\item{\code{county}}{County name}
+\item{\code{lss_number}}{Local school system number (previously known as a
+LEA Number) as an integer. \code{NA} values are used for statewide data.}
+\item{\code{lss_name}}{Local school system name (previously known as a LEA
+Name). A value of "State" is used for statewide data.}
 }
 }
 \source{
@@ -27,10 +36,14 @@ all grades (total enrollment). May also be used as a label for grade.}
 msde_enrollment
 }
 \description{
-Enrollment data from the Maryland State Department of Education
-(MSDE). Raw CSV data files with the full state enrollment data are available
-in the \code{inst/extdata} folder. The number of enrolled students includes
-ungraded special education and pre-kindergarten students.
+Enrollment data from the Maryland State Department of Education (MSDE). Raw
+CSV data files with the full state enrollment data are available in the
+\code{inst/extdata} folder. The number of enrolled students includes ungraded
+special education and pre-kindergarten students. Grades coded as
+"Prekindergarten Age 4" in the MSDE data have been re-coded as
+"Prekindergarten" to facilitate comparison across years. LEA Names coded as
+"Baltimore City - Edison" have been re-coded as "Baltimore City", "Seed
+School LEA" as "SEED", and "All Public Schools" as "State".
 Variable definitions are based on the \href{https://reportcard.msde.maryland.gov/Definitions/Index}{definitions from the MSDE website}.
 }
 \keyword{datasets}

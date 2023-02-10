@@ -3,29 +3,31 @@
 #' A non-comprehensive list of ArcGIS services maintained by public agencies,
 #' academic units, and nonprofit organizations in Maryland. Layers available at
 #' the service_url can be accessed using the [{esri2sf}
-#' package](https://github.com/yonghah/esri2sf).
+#' package](https://github.com/elipousson/esri2sf).
 #'
 #' Comments, additions,
 #' or corrections can be submitted using comments on this open Google Sheet:
 #' <https://docs.google.com/spreadsheets/d/1c829bZdNqvbpoizulBU_XE5jVeNNck2kHkS-smpQ52s/edit?usp=sharing>
 #'
-#' @format A data frame with 67 rows and 14 variables:
+#' Data last updated from Google Sheet on February 10, 2023.
+#'
+#' @format A data frame with 84 rows and 13 variables:
 #' \describe{
-#'   \item{\code{name}}{character Source name}
-#'   \item{\code{operator.abb}}{character Operator abbreviation}
-#'   \item{\code{operator}}{character Operator name}
-#'   \item{\code{city}}{character City name}
-#'   \item{\code{county}}{character County name}
-#'   \item{\code{state}}{character State name}
-#'   \item{\code{state.abb}}{character State name abbreviation}
-#'   \item{\code{geography}}{character Geographic scope; Options include
+#'   \item{`name`}{character Source name}
+#'   \item{`operator.abb`}{character Operator abbreviation}
+#'   \item{`operator`}{character Operator name}
+#'   \item{`city`}{character City name}
+#'   \item{`county`}{character County name}
+#'   \item{`state`}{character State name}
+#'   \item{`state.abb`}{character State name abbreviation}
+#'   \item{`geography`}{character Geographic scope; Options include
 #'   citywide, countywide, regional (multi-county), statewide, or regional
 #'   (multistate).}
-#'   \item{\code{source_type}}{character Source type}
-#'   \item{\code{notes}}{character Notes}
-#'   \item{\code{public}}{logical Public data indicator}
-#'   \item{\code{services_url}}{character Services URL}
-#'   \item{\code{hosting}}{character Hosting type; Currently used as an
+#'   \item{`source_type`}{character Source type}
+#'   \item{`notes`}{character Notes}
+#'   \item{`public`}{logical Public data indicator}
+#'   \item{`services_url`}{character Services URL}
+#'   \item{`hosting`}{character Hosting type; Currently used as an
 #'   indicator for ArcGIS Online hosted data with other services assumed to be
 #'   self-hosted by the source or operator.}
 #' }
@@ -44,27 +46,27 @@
 #'
 #' @format A data frame with 24 rows and 18 variables:
 #' \describe{
-#'   \item{\code{statefp}}{State FIPS code for Maryland}
-#'   \item{\code{countyfp}}{County FIPS code}
-#'   \item{\code{countyns}}{County GNIS code}
-#'   \item{\code{geoid}}{Unique county FIPS code (concatenation of state and county FIPS codes)}
-#'   \item{\code{name}}{County name}
-#'   \item{\code{namelsad}}{Concatenated variable length geographic area name and legal/statistical area description (LSAD)}
-#'   \item{\code{lsad}}{Legal/statistical area description (LSAD)}
-#'   \item{\code{classfp}}{FIPS class code}
-#'   \item{\code{mtfcc}}{MAF/TIGER Feature Class Code (MTFCC)}
-#'   \item{\code{csafp}}{Combined statistical area code}
-#'   \item{\code{cbsafp}}{Metropolitan statistical area/micropolitan statistical area code}
-#'   \item{\code{metdivfp}}{Metropolitan division code}
-#'   \item{\code{funcstat}}{Functional status}
-#'   \item{\code{aland}}{Land area (square meters)}
-#'   \item{\code{awater}}{Water area (square meters)}
-#'   \item{\code{intptlat}}{Latitude of the internal point}
-#'   \item{\code{intptlon}}{Longitude of the internal point}
-#'   \item{\code{region}}{Region of the state}
-#'   \item{\code{geometry}}{Multipolygon with the county boundary}
+#'   \item{`statefp`}{State FIPS code for Maryland}
+#'   \item{`countyfp`}{County FIPS code}
+#'   \item{`countyns`}{County GNIS code}
+#'   \item{`geoid`}{Unique county FIPS code (concatenation of state and county FIPS codes)}
+#'   \item{`name`}{County name}
+#'   \item{`namelsad`}{Concatenated variable length geographic area name and legal/statistical area description (LSAD)}
+#'   \item{`lsad`}{Legal/statistical area description (LSAD)}
+#'   \item{`classfp`}{FIPS class code}
+#'   \item{`mtfcc`}{MAF/TIGER Feature Class Code (MTFCC)}
+#'   \item{`csafp`}{Combined statistical area code}
+#'   \item{`cbsafp`}{Metropolitan statistical area/micropolitan statistical area code}
+#'   \item{`metdivfp`}{Metropolitan division code}
+#'   \item{`funcstat`}{Functional status}
+#'   \item{`aland`}{Land area (square meters)}
+#'   \item{`awater`}{Water area (square meters)}
+#'   \item{`intptlat`}{Latitude of the internal point}
+#'   \item{`intptlon`}{Longitude of the internal point}
+#'   \item{`region`}{Region of the state}
+#'   \item{`geometry`}{Multipolygon with the county boundary}
 #' }
-#' @source \url{https://www.census.gov/geo/maps-data/data/tiger-line.html}
+#' @source <https://www.census.gov/geo/maps-data/data/tiger-line.html>
 "md_counties"
 
 
@@ -74,12 +76,12 @@
 #'
 #' @format A data frame with 24 rows and 6 variables:
 #' \describe{
-#'   \item{\code{statefp}}{State FIPS code for Maryland}
-#'   \item{\code{countyfp}}{County FIPS code}
-#'   \item{\code{name}}{County name}
-#'   \item{\code{geoid}}{Unique county GeoID (concatenation of state and county FIPS codes)}
-#'   \item{\code{namelsad}}{Concatenated variable length geographic area name and legal/statistical area description (LSAD)}
-#'   \item{\code{geometry}}{Multipolygon with the county boundary}
+#'   \item{`statefp`}{State FIPS code for Maryland}
+#'   \item{`countyfp`}{County FIPS code}
+#'   \item{`name`}{County name}
+#'   \item{`geoid`}{Unique county GeoID (concatenation of state and county FIPS codes)}
+#'   \item{`namelsad`}{Concatenated variable length geographic area name and legal/statistical area description (LSAD)}
+#'   \item{`geometry`}{Multipolygon with the county boundary}
 #' }
 "md_counties_detailed"
 
@@ -91,24 +93,24 @@
 #'
 #' @format A data frame with 536 rows and 17 variables:
 #' \describe{
-#'   \item{\code{statefp}}{State FIPS code for Maryland}
-#'   \item{\code{county}}{County name}
-#'   \item{\code{countyfp}}{County FIPS code}
-#'   \item{\code{placefp}}{CDP FIPS code}
-#'   \item{\code{placens}}{CDP GNIS code}
-#'   \item{\code{geoid}}{Unique CDP GeoID}
-#'   \item{\code{name}}{Place name}
-#'   \item{\code{namelsad}}{Place Legal/statistical area description (LSAD)}
-#'   \item{\code{lsad}}{Legal/statistical area description (LSAD)}
-#'   \item{\code{classfp}}{Class FIPS code}
-#'   \item{\code{pcicbsa}}{Current metropolitan/micropolitan statistical area principal city indicator}
-#'   \item{\code{mtfcc}}{MAF/TIGER Feature Class Code (MTFCC)}
-#'   \item{\code{funcstat}}{Functional status}
-#'   \item{\code{aland}}{Land area (square meters)}
-#'   \item{\code{awater}}{Water area (square meters)}
-#'   \item{\code{intptlat}}{Latitude of the internal point}
-#'   \item{\code{intptlon}}{Longitude of the internal point}
-#'   \item{\code{geometry}}{list COLUMN_DESCRIPTION}
+#'   \item{`statefp`}{State FIPS code for Maryland}
+#'   \item{`county`}{County name}
+#'   \item{`countyfp`}{County FIPS code}
+#'   \item{`placefp`}{CDP FIPS code}
+#'   \item{`placens`}{CDP GNIS code}
+#'   \item{`geoid`}{Unique CDP GeoID}
+#'   \item{`name`}{Place name}
+#'   \item{`namelsad`}{Place Legal/statistical area description (LSAD)}
+#'   \item{`lsad`}{Legal/statistical area description (LSAD)}
+#'   \item{`classfp`}{Class FIPS code}
+#'   \item{`pcicbsa`}{Current metropolitan/micropolitan statistical area principal city indicator}
+#'   \item{`mtfcc`}{MAF/TIGER Feature Class Code (MTFCC)}
+#'   \item{`funcstat`}{Functional status}
+#'   \item{`aland`}{Land area (square meters)}
+#'   \item{`awater`}{Water area (square meters)}
+#'   \item{`intptlat`}{Latitude of the internal point}
+#'   \item{`intptlon`}{Longitude of the internal point}
+#'   \item{`geometry`}{list COLUMN_DESCRIPTION}
 #' }
 "md_census_places"
 
@@ -120,21 +122,21 @@
 #'
 #' @format A data frame with 8 rows and 13 variables:
 #' \describe{
-#'   \item{\code{statefp}}{2-character state FIPS code}
-#'   \item{\code{cd116fp}}{116th congressional district FIPS code}
-#'   \item{\code{geoid}}{GeoID}
-#'   \item{\code{namelsad}}{concatenated variable with geographic area name and legal/statistical area description (LSAD)}
-#'   \item{\code{lsad}}{Legal/statistical area description (LSAD)}
-#'   \item{\code{cdsessn}}{Congressional session code}
-#'   \item{\code{mtfcc}}{MAF/TIGER Feature Class Code (MTFCC)}
-#'   \item{\code{funcstat}}{functional status}
-#'   \item{\code{aland}}{land area (square meters)}
-#'   \item{\code{awater}}{water area (square meters)}
-#'   \item{\code{intptlat}}{latitude of the internal point}
-#'   \item{\code{intptlon}}{longitude of the internal point}
-#'   \item{\code{label}}{Congressional District label}
-#'   \item{\code{name}}{Congressional District name}
-#'   \item{\code{geometry}}{Multipolygon with district boundary}
+#'   \item{`statefp`}{2-character state FIPS code}
+#'   \item{`cd116fp`}{116th congressional district FIPS code}
+#'   \item{`geoid`}{GeoID}
+#'   \item{`namelsad`}{concatenated variable with geographic area name and legal/statistical area description (LSAD)}
+#'   \item{`lsad`}{Legal/statistical area description (LSAD)}
+#'   \item{`cdsessn`}{Congressional session code}
+#'   \item{`mtfcc`}{MAF/TIGER Feature Class Code (MTFCC)}
+#'   \item{`funcstat`}{functional status}
+#'   \item{`aland`}{land area (square meters)}
+#'   \item{`awater`}{water area (square meters)}
+#'   \item{`intptlat`}{latitude of the internal point}
+#'   \item{`intptlon`}{longitude of the internal point}
+#'   \item{`label`}{Congressional District label}
+#'   \item{`name`}{Congressional District name}
+#'   \item{`geometry`}{Multipolygon with district boundary}
 #' }
 "md_congressional_districts"
 
@@ -144,21 +146,21 @@
 #'
 #' @format A data frame with 7 rows and 15 variables:
 #' \describe{
-#'   \item{\code{region}}{character Region ID}
-#'   \item{\code{division}}{character Division ID}
-#'   \item{\code{statefp}}{2-character state FIPS code}
-#'   \item{\code{statens}}{character State National Standard (NS) identifier using U.S. Geological Survey’s Geographic Names Information System (GNIS) code}
-#'   \item{\code{geoid}}{character GeoID}
-#'   \item{\code{stusps}}{character State U.S. Postal Service abbreviation}
-#'   \item{\code{name}}{character State name}
-#'   \item{\code{lsad}}{Legal/statistical area description (LSAD)}
-#'   \item{\code{mtfcc}}{MAF/TIGER Feature Class Code (MTFCC)}
-#'   \item{\code{funcstat}}{functional status}
-#'   \item{\code{aland}}{land area (square meters)}
-#'   \item{\code{awater}}{water area (square meters)}
-#'   \item{\code{intptlat}}{latitude of the internal point}
-#'   \item{\code{intptlon}}{longitude of the internal point}
-#'   \item{\code{geometry}}{list Geometry}
+#'   \item{`region`}{character Region ID}
+#'   \item{`division`}{character Division ID}
+#'   \item{`statefp`}{2-character state FIPS code}
+#'   \item{`statens`}{character State National Standard (NS) identifier using U.S. Geological Survey’s Geographic Names Information System (GNIS) code}
+#'   \item{`geoid`}{character GeoID}
+#'   \item{`stusps`}{character State U.S. Postal Service abbreviation}
+#'   \item{`name`}{character State name}
+#'   \item{`lsad`}{Legal/statistical area description (LSAD)}
+#'   \item{`mtfcc`}{MAF/TIGER Feature Class Code (MTFCC)}
+#'   \item{`funcstat`}{functional status}
+#'   \item{`aland`}{land area (square meters)}
+#'   \item{`awater`}{water area (square meters)}
+#'   \item{`intptlat`}{latitude of the internal point}
+#'   \item{`intptlon`}{longitude of the internal point}
+#'   \item{`geometry`}{list Geometry}
 #' }
 "us_states_near_md"
 
@@ -170,31 +172,31 @@
 #'
 #' @format A data frame with 14,970 rows and 9 variables:
 #' \describe{
-#'   \item{\code{ansicode}}{character ANSI code}
-#'   \item{\code{hydroid}}{character Hydroid}
-#'   \item{\code{fullname}}{character Full name}
-#'   \item{\code{mtfcc}}{character MAF/TIGER Feature Class Code}
-#'   \item{\code{aland}}{double Land area}
-#'   \item{\code{awater}}{double Water area}
-#'   \item{\code{intptlat}}{character Interior latitude point}
-#'   \item{\code{intptlon}}{character Interior longitude point}
-#'   \item{\code{geometry}}{list Multipolygon geometry}
+#'   \item{`ansicode`}{character ANSI code}
+#'   \item{`hydroid`}{character Hydroid}
+#'   \item{`fullname`}{character Full name}
+#'   \item{`mtfcc`}{character MAF/TIGER Feature Class Code}
+#'   \item{`aland`}{double Land area}
+#'   \item{`awater`}{double Water area}
+#'   \item{`intptlat`}{character Interior latitude point}
+#'   \item{`intptlon`}{character Interior longitude point}
+#'   \item{`geometry`}{list Multipolygon geometry}
 #' }
-#' @source \url{https://data.imap.maryland.gov/datasets/maryland-waterbodies-rivers-and-streams-detailed}
+#' @source <https://data.imap.maryland.gov/datasets/maryland-waterbodies-rivers-and-streams-detailed>
 "md_water"
 
 #' Maryland Real Property Assessments (fields reference)
 #'
 #' @format A data frame with 223 rows and 6 variables:
 #' \describe{
-#'   \item{\code{field_order}}{Field order}
-#'   \item{\code{field_name}}{Field name}
-#'   \item{\code{data_type}}{Data type}
-#'   \item{\code{mdp_field_name}}{Maryland Department of Planning (MDP) Field name}
-#'   \item{\code{api_field_name}}{Maryland Open Data portal API field name}
-#'   \item{\code{sdat_field_number}}{State Department of Assessments and Taxation (SDAT) field number}
+#'   \item{`field_order`}{Field order}
+#'   \item{`field_name`}{Field name}
+#'   \item{`data_type`}{Data type}
+#'   \item{`mdp_field_name`}{Maryland Department of Planning (MDP) Field name}
+#'   \item{`api_field_name`}{Maryland Open Data portal API field name}
+#'   \item{`sdat_field_number`}{State Department of Assessments and Taxation (SDAT) field number}
 #' }
-#' @source \url{https://opendata.maryland.gov/Business-and-Economy/Maryland-Real-Property-Assessments-Fields-Referenc/w8th-47fz/data}
+#' @source <https://opendata.maryland.gov/Business-and-Economy/Maryland-Real-Property-Assessments-Fields-Referenc/w8th-47fz/data>
 "real_property_cols"
 
 #' Maryland iMap Folder/Service Index
@@ -204,21 +206,21 @@
 #'
 #' @format A data frame with 1477 rows and 15 variables:
 #' \describe{
-#'   \item{\code{name}}{character Name}
-#'   \item{\code{nm}}{character Name with snake case}
-#'   \item{\code{index}}{character Index type}
-#'   \item{\code{type}}{character Service/layer type}
-#'   \item{\code{server_type}}{character Server type}
-#'   \item{\code{url}}{character Folder/service/layer URL}
-#'   \item{\code{parent}}{character Parent folder/service/layer}
-#'   \item{\code{id}}{integer Layer ID number}
-#'   \item{\code{parentLayerId}}{integer Parent layer ID number}
-#'   \item{\code{defaultVisibility}}{logical Layer default visibility}
-#'   \item{\code{minScale}}{double Minimum scale}
-#'   \item{\code{maxScale}}{integer Maximum scale}
-#'   \item{\code{geometryType}}{character Geometry type}
-#'   \item{\code{subLayerIds}}{list Sublayer ID numbers}
-#'   \item{\code{supportsDynamicLegends}}{logical Supports dynamic legends}
+#'   \item{`name`}{character Name}
+#'   \item{`nm`}{character Name with snake case}
+#'   \item{`index`}{character Index type}
+#'   \item{`type`}{character Service/layer type}
+#'   \item{`server_type`}{character Server type}
+#'   \item{`url`}{character Folder/service/layer URL}
+#'   \item{`parent`}{character Parent folder/service/layer}
+#'   \item{`id`}{integer Layer ID number}
+#'   \item{`parentLayerId`}{integer Parent layer ID number}
+#'   \item{`defaultVisibility`}{logical Layer default visibility}
+#'   \item{`minScale`}{double Minimum scale}
+#'   \item{`maxScale`}{integer Maximum scale}
+#'   \item{`geometryType`}{character Geometry type}
+#'   \item{`subLayerIds`}{list Sublayer ID numbers}
+#'   \item{`supportsDynamicLegends`}{logical Supports dynamic legends}
 #' }
 "md_imap_index"
 
@@ -229,17 +231,17 @@
 #'
 #' @format A data frame with 737 rows and 11 variables:
 #' \describe{
-#'   \item{\code{name}}{Resource name}
-#'   \item{\code{nm}}{Resource name (snake case)}
-#'   \item{\code{resource}}{Resource identifier}
-#'   \item{\code{description}}{Description}
-#'   \item{\code{url}}{Resource URL}
-#'   \item{\code{issued}}{Date issued}
-#'   \item{\code{modified}}{Date modified}
-#'   \item{\code{keyword}}{list of keywords}
-#'   \item{\code{identifier}}{API identifier}
-#'   \item{\code{theme}}{Data theme}
-#'   \item{\code{license}}{Data license}
+#'   \item{`name`}{Resource name}
+#'   \item{`nm`}{Resource name (snake case)}
+#'   \item{`resource`}{Resource identifier}
+#'   \item{`description`}{Description}
+#'   \item{`url`}{Resource URL}
+#'   \item{`issued`}{Date issued}
+#'   \item{`modified`}{Date modified}
+#'   \item{`keyword`}{list of keywords}
+#'   \item{`identifier`}{API identifier}
+#'   \item{`theme`}{Data theme}
+#'   \item{`license`}{Data license}
 #' }
 "md_open_data_index"
 
@@ -251,21 +253,21 @@
 #'
 #' @format A data frame with 112 rows and 15 variables:
 #' \describe{
-#'   \item{\code{zoning}}{Zoning (no hyphenation)}
-#'   \item{\code{zoning_alt}}{Zoning (hyphenation)}
-#'   \item{\code{name}}{Zoning district name}
-#'   \item{\code{category}}{Zoning district category}
-#'   \item{\code{district_type}}{Zoning district type}
-#'   \item{\code{jurisdiction}}{Zoning jurisdiction}
-#'   \item{\code{county}}{County}
-#'   \item{\code{description}}{Description}
-#'   \item{\code{year}}{Year active}
-#'   \item{\code{lot_size_restriction}}{Numeric value of lot size restriction (if provided)}
-#'   \item{\code{lot_size_units}}{Units for lot size restriction value}
-#'   \item{\code{article}}{Article (for reference to code or ordinance)}
-#'   \item{\code{page_num}}{Page number (for reference to code or ordinance)}
-#'   \item{\code{overlay}}{Overlay district}
-#'   \item{\code{repealed}}{Repealed zoning district name/type}
+#'   \item{`zoning`}{Zoning (no hyphenation)}
+#'   \item{`zoning_alt`}{Zoning (hyphenation)}
+#'   \item{`name`}{Zoning district name}
+#'   \item{`category`}{Zoning district category}
+#'   \item{`district_type`}{Zoning district type}
+#'   \item{`jurisdiction`}{Zoning jurisdiction}
+#'   \item{`county`}{County}
+#'   \item{`description`}{Description}
+#'   \item{`year`}{Year active}
+#'   \item{`lot_size_restriction`}{Numeric value of lot size restriction (if provided)}
+#'   \item{`lot_size_units`}{Units for lot size restriction value}
+#'   \item{`article`}{Article (for reference to code or ordinance)}
+#'   \item{`page_num`}{Page number (for reference to code or ordinance)}
+#'   \item{`overlay`}{Overlay district}
+#'   \item{`repealed`}{Repealed zoning district name/type}
 #' }
 "md_zoning_info"
 
@@ -275,63 +277,78 @@
 #'
 #' @format A data frame with 7 rows and 6 variables:
 #' \describe{
-#'   \item{\code{geoid}}{GeoID}
-#'   \item{\code{name}}{MPO Name}
-#'   \item{\code{abb}}{MPO abbreviation or acronym}
-#'   \item{\code{url}}{MPO website url}
-#'   \item{\code{states}}{States (multiple states separated by semi-colons)}
-#'   \item{\code{geometry}}{MULTIPOLYGON geometry for boundaries}
+#'   \item{`geoid`}{GeoID}
+#'   \item{`name`}{MPO Name}
+#'   \item{`abb`}{MPO abbreviation or acronym}
+#'   \item{`url`}{MPO website url}
+#'   \item{`states`}{States (multiple states separated by semi-colons)}
+#'   \item{`geometry`}{MULTIPOLYGON geometry for boundaries}
 #' }
 "md_mpos"
 
 #' Maryland Public School Enrollment (SY 2003-2022)
 #'
-#' Enrollment data from the Maryland State Department of Education
-#'  (MSDE). Raw CSV data files with the full state enrollment data are available
-#'  in the \code{inst/extdata} folder. The number of enrolled students includes
-#'  ungraded special education and pre-kindergarten students.
-#'  Variable definitions are based on the \href{https://reportcard.msde.maryland.gov/Definitions/Index}{definitions from the MSDE website}.
+#' Enrollment data from the Maryland State Department of Education (MSDE). Raw
+#' CSV data files with the full state enrollment data are available in the
+#' `inst/extdata` folder. The number of enrolled students includes ungraded
+#' special education and pre-kindergarten students. Grades coded as
+#' "Prekindergarten Age 4" in the MSDE data have been re-coded as
+#' "Prekindergarten" to facilitate comparison across years. LEA Names coded as
+#' "Baltimore City - Edison" have been re-coded as "Baltimore City", "Seed
+#' School LEA" as "SEED", and "All Public Schools" as "State".
+#'  Variable definitions are based on the [definitions from the MSDE website](https://reportcard.msde.maryland.gov/Definitions/Index).
 #'
-#' @format A data frame with 224,002 rows and 9 variables:
+#' @format A data frame with 219,741 rows and 10 variables:
 #' \describe{
-#'  \item{\code{year}}{School or academic year for enrollment count, e.g.
+#'  \item{`year`}{School or academic year for enrollment count, e.g.
 #'    2019 data is from the start of the 2019-2020 school year.}
-#'  \item{\code{school_number}}{School number as integer (0 indicates all schools)}
-#'  \item{\code{school_name}}{School name}
-#'  \item{\code{enrolled_count}}{Number of students registered to attend the school at the start of the year in the grade or grade range. Typically enrollment count is as of September 30.}
-#'  \item{\code{grade}}{Grades from Prekindergarden (PK) to Grade 12}
-#'  \item{\code{grade_range}}{all elementary school Grades, all middle school grades, all high school grades, or
-#'    all grades (total enrollment). May also be used as a label for grade.}
-#'   \item{\code{race}}{Race/ethnicity. Enrollment by race/ethnicity is only available for years since 2020.}
-#'   \item{\code{lss_number}}{Local school system number (previously known as a LEA Number).}
-#'   \item{\code{lss_name}}{Local school system name (previously known as a LEA Name).}
+#'  \item{`school_number`}{School number as integer (0 indicates all
+#'  schools)}
+#'  \item{`school_name`}{School name}
+#'  \item{`enrolled_count`}{Number of students registered to attend the
+#'  school at the start of the year in the grade or grade range as integer.
+#'  Typically enrollment count is as of September 30.}
+#'  \item{`grade`}{Grades from Prekindergarden (PK) to Grade 12}
+#'  \item{`grade_range`}{all elementary school Grades, all middle school
+#'  grades, all high school grades, or all grades (total enrollment). May also
+#'  be used as a label for grade.}
+#'   \item{`race`}{Race/ethnicity. Enrollment by race/ethnicity is only
+#'   available across all grades for years since 2020. "All" is used for data
+#'   prior to 2020.}
+#'   \item{`county`}{County name}
+#'   \item{`lss_number`}{Local school system number (previously known as a
+#'   LEA Number) as an integer. `NA` values are used for statewide data.}
+#'   \item{`lss_name`}{Local school system name (previously known as a LEA
+#'   Name). A value of "State" is used for statewide data.}
 #'  }
-#' @source \href{https://reportcard.msde.maryland.gov/Graphs/#/DataDownloads/datadownload}{MSDE Data Downloads}
+#' @source [MSDE Data Downloads](https://reportcard.msde.maryland.gov/Graphs/#/DataDownloads/datadownload)
 "msde_enrollment"
 
 #' Maryland Public Schools
 #'
 #' Combined iMap FeatureLayer for traditional public schools and charter
-#' schools. The school number very incomplete due to the iMap data using a
-#' different school name than the MSDE data for a little less than half of
-#' schools in the state.
+#' schools. The school number previously included in this dataset was incomplete
+#' due to the iMap data using a different school name than the MSDE data for a
+#' little less than half of schools in the state. As of February 2023, the
+#' school number column has been removed to ensure the data is accurate and to
+#' avoid confusion. For charter schools, the school_type column has been added
+#' based on the grade range. Data based on iMap data as of 2023 February 10.
 #'
-#' @format A data frame with 1,427 rows and 14 variables:
+#' @format A data frame with 1,427 rows and 13 variables:
 #' \describe{
-#'   \item{\code{school_name}}{School name}
-#'   \item{\code{address}}{Street address}
-#'   \item{\code{city}}{City name}
-#'   \item{\code{state}}{State}
-#'   \item{\code{zip}}{Zip code}
-#'   \item{\code{grades}}{Grades}
-#'   \item{\code{school_type}}{School type}
-#'   \item{\code{grade_band}}{Grade band}
-#'   \item{\code{lss_number}}{Local school system number}
-#'   \item{\code{psc_number}}{PSC number}
-#'   \item{\code{county}}{County name}
-#'   \item{\code{management_type}}{Management type}
-#'   \item{\code{school_number}}{School number (incomplete)}
-#'   \item{\code{geometry}}{POINT geometry}
+#'   \item{`school_name`}{School name}
+#'   \item{`address`}{Street address}
+#'   \item{`city`}{City name}
+#'   \item{`state`}{State}
+#'   \item{`zip`}{Zip code}
+#'   \item{`grades`}{Grades}
+#'   \item{`school_type`}{School type}
+#'   \item{`grade_band`}{Grade band}
+#'   \item{`psc_number`}{PSC number}
+#'   \item{`lss_number`}{Local school system number as integer}
+#'   \item{`county`}{County name}
+#'   \item{`management_type`}{Management type}
+#'   \item{`geometry`}{POINT geometry}
 #' }
 "md_schools"
 
@@ -345,13 +362,13 @@
 #'
 #' @format A data frame with 47 rows and 5 variables:
 #' \describe{
-#'   \item{\code{name}}{District name}
-#'   \item{\code{id}}{District number}
-#'   \item{\code{label}}{District label}
-#'   \item{\code{pop}}{Population from 2020 U.S. Census}
-#'   \item{\code{geometry}}{District boundary geometry}
+#'   \item{`name`}{District name}
+#'   \item{`id`}{District number}
+#'   \item{`label`}{District label}
+#'   \item{`pop`}{Population from 2020 U.S. Census}
+#'   \item{`geometry`}{District boundary geometry}
 #' }
-#' @source \href{https://planning.maryland.gov/Redistricting/Pages/2020/legiDist.aspx}{2022 Maryland Legislative Districts}
+#' @source [2022 Maryland Legislative Districts](https://planning.maryland.gov/Redistricting/Pages/2020/legiDist.aspx)
 "md_senate_districts_2022"
 
 #' Maryland House of Delegates Districts (2022)
@@ -364,14 +381,14 @@
 #'
 #' @format A data frame with 71 rows and 6 variables:
 #' \describe{
-#'   \item{\code{name}}{District name}
-#'   \item{\code{id}}{District number}
-#'   \item{\code{label}}{District label}
-#'   \item{\code{members}}{Number of Delegates for district}
-#'   \item{\code{pop}}{Population from 2020 U.S. Census}
-#'   \item{\code{geometry}}{District boundary geometry}
+#'   \item{`name`}{District name}
+#'   \item{`id`}{District number}
+#'   \item{`label`}{District label}
+#'   \item{`members`}{Number of Delegates for district}
+#'   \item{`pop`}{Population from 2020 U.S. Census}
+#'   \item{`geometry`}{District boundary geometry}
 #' }
-#' @source \href{https://planning.maryland.gov/Redistricting/Pages/2020/legiDist.aspx}{2022 Maryland Legislative Districts}
+#' @source [2022 Maryland Legislative Districts](https://planning.maryland.gov/Redistricting/Pages/2020/legiDist.aspx)
 "md_house_districts_2022"
 
 
@@ -383,16 +400,16 @@
 #'
 #' @format A data frame with 478 rows and 10 variables:
 #' \describe{
-#'   \item{\code{zcta5ce20}}{ZCTA identifier}
-#'   \item{\code{geoid20}}{ZCTA GeoID}
-#'   \item{\code{classfp20}}{FIPS class code}
-#'   \item{\code{mtfcc20}}{MAF/TIGER Feature Class Code (MTFCC)}
-#'   \item{\code{funcstat20}}{Functional status}
-#'   \item{\code{aland20}}{Land area (square meters)}
-#'   \item{\code{awater20}}{Water area (square meters)}
-#'   \item{\code{intptlat20}}{Latitude of the internal point}
-#'   \item{\code{intptlon20}}{Longitude of the internal point}
-#'   \item{\code{geometry}}{Multipolygon with the ZCTA boundary}
-#'}
+#'   \item{`zcta5ce20`}{ZCTA identifier}
+#'   \item{`geoid20`}{ZCTA GeoID}
+#'   \item{`classfp20`}{FIPS class code}
+#'   \item{`mtfcc20`}{MAF/TIGER Feature Class Code (MTFCC)}
+#'   \item{`funcstat20`}{Functional status}
+#'   \item{`aland20`}{Land area (square meters)}
+#'   \item{`awater20`}{Water area (square meters)}
+#'   \item{`intptlat20`}{Latitude of the internal point}
+#'   \item{`intptlon20`}{Longitude of the internal point}
+#'   \item{`geometry`}{Multipolygon with the ZCTA boundary}
+#' }
 #' @source \href{https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html}
 "md_zctas"
