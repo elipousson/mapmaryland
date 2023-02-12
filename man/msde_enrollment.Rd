@@ -22,11 +22,13 @@ be used as a label for grade.}
 \item{\code{race}}{Race/ethnicity. Enrollment by race/ethnicity is only
 available across all grades for years since 2020. "All" is used for data
 prior to 2020.}
-\item{\code{county}}{County name}
-\item{\code{lss_number}}{Local school system number (previously known as a
-LEA Number) as an integer. \code{NA} values are used for statewide data.}
-\item{\code{lss_name}}{Local school system name (previously known as a LEA
-Name). A value of "State" is used for statewide data.}
+\item{\code{date_created}}{Date record created.}
+\item{\code{lss_number}}{Local school system (LSS) number as integer. NA is used
+in place of a LSS number for statewide data. Older LEA numbers are combined
+with LSS numbers in this dataset.}
+\item{\code{lss_name}}{Local school system (LSS) names (typically same as county
+name). "State" is used in place of a LSS name for statewide data. Older LEA
+names are combined with LSS names in this dataset.}
 }
 }
 \source{
@@ -36,14 +38,10 @@ Name). A value of "State" is used for statewide data.}
 msde_enrollment
 }
 \description{
-Enrollment data from the Maryland State Department of Education (MSDE). Raw
-CSV data files with the full state enrollment data are available in the
-\code{inst/extdata} folder. The number of enrolled students includes ungraded
-special education and pre-kindergarten students. Grades coded as
-"Prekindergarten Age 4" in the MSDE data have been re-coded as
-"Prekindergarten" to facilitate comparison across years. LEA Names coded as
-"Baltimore City - Edison" have been re-coded as "Baltimore City", "Seed
-School LEA" as "SEED", and "All Public Schools" as "State".
-Variable definitions are based on the \href{https://reportcard.msde.maryland.gov/Definitions/Index}{definitions from the MSDE website}.
+Enrollment data from the Maryland State Department of Education (MSDE). This
+data is copied from the
+\href{https://github.com/elipousson/marylandedu}{marylandedu} R data package.
+Refer to that package for more detailed documentation. Variable definitions
+are based on the \href{https://reportcard.msde.maryland.gov/Definitions/Index}{definitions from the MSDE website}.
 }
 \keyword{datasets}

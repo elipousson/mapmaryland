@@ -12,7 +12,8 @@ A data frame with 24 rows and 18 variables:
 \item{\code{countyns}}{County GNIS code}
 \item{\code{geoid}}{Unique county FIPS code (concatenation of state and county FIPS codes)}
 \item{\code{name}}{County name}
-\item{\code{namelsad}}{Concatenated variable length geographic area name and legal/statistical area description (LSAD)}
+\item{\code{namelsad}}{Concatenated variable length geographic area name and
+legal/statistical area description (LSAD)}
 \item{\code{lsad}}{Legal/statistical area description (LSAD)}
 \item{\code{classfp}}{FIPS class code}
 \item{\code{mtfcc}}{MAF/TIGER Feature Class Code (MTFCC)}

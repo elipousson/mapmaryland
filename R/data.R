@@ -51,7 +51,8 @@
 #'   \item{`countyns`}{County GNIS code}
 #'   \item{`geoid`}{Unique county FIPS code (concatenation of state and county FIPS codes)}
 #'   \item{`name`}{County name}
-#'   \item{`namelsad`}{Concatenated variable length geographic area name and legal/statistical area description (LSAD)}
+#'   \item{`namelsad`}{Concatenated variable length geographic area name and
+#'   legal/statistical area description (LSAD)}
 #'   \item{`lsad`}{Legal/statistical area description (LSAD)}
 #'   \item{`classfp`}{FIPS class code}
 #'   \item{`mtfcc`}{MAF/TIGER Feature Class Code (MTFCC)}
@@ -288,15 +289,12 @@
 
 #' Maryland Public School Enrollment (SY 2003-2022)
 #'
-#' Enrollment data from the Maryland State Department of Education (MSDE). Raw
-#' CSV data files with the full state enrollment data are available in the
-#' `inst/extdata` folder. The number of enrolled students includes ungraded
-#' special education and pre-kindergarten students. Grades coded as
-#' "Prekindergarten Age 4" in the MSDE data have been re-coded as
-#' "Prekindergarten" to facilitate comparison across years. LEA Names coded as
-#' "Baltimore City - Edison" have been re-coded as "Baltimore City", "Seed
-#' School LEA" as "SEED", and "All Public Schools" as "State".
-#'  Variable definitions are based on the [definitions from the MSDE website](https://reportcard.msde.maryland.gov/Definitions/Index).
+#' Enrollment data from the Maryland State Department of Education (MSDE). This
+#' data is copied from the
+#' [marylandedu](https://github.com/elipousson/marylandedu) R data package.
+#' Refer to that package for more detailed documentation. Variable definitions
+#' are based on the [definitions from the MSDE
+#' website](https://reportcard.msde.maryland.gov/Definitions/Index).
 #'
 #' @format A data frame with 219,741 rows and 10 variables:
 #' \describe{
@@ -315,11 +313,13 @@
 #'   \item{`race`}{Race/ethnicity. Enrollment by race/ethnicity is only
 #'   available across all grades for years since 2020. "All" is used for data
 #'   prior to 2020.}
-#'   \item{`county`}{County name}
-#'   \item{`lss_number`}{Local school system number (previously known as a
-#'   LEA Number) as an integer. `NA` values are used for statewide data.}
-#'   \item{`lss_name`}{Local school system name (previously known as a LEA
-#'   Name). A value of "State" is used for statewide data.}
+#'   \item{`date_created`}{Date record created.}
+#'   \item{`lss_number`}{Local school system (LSS) number as integer. NA is used
+#'   in place of a LSS number for statewide data. Older LEA numbers are combined
+#'   with LSS numbers in this dataset.}
+#'   \item{`lss_name`}{Local school system (LSS) names (typically same as county
+#'   name). "State" is used in place of a LSS name for statewide data. Older LEA
+#'   names are combined with LSS names in this dataset.}
 #'  }
 #' @source [MSDE Data Downloads](https://reportcard.msde.maryland.gov/Graphs/#/DataDownloads/datadownload)
 "msde_enrollment"
