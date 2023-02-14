@@ -2,8 +2,7 @@
 #'
 #' Convert the coordinate reference system, convert invalid geometry to valid
 #' geometry with [sf::st_make_valid], and, optionally, erase water, and clean
-#' names with [janitor::clean_names]. [format_md_crash_data] works with a data
-#' frame of crash data from [get_md_crash_data]
+#' names with [janitor::clean_names].
 #'
 #' @param data A `sf` object or for ([format_md_crash_data] only) a data frame object.
 #' @param crs coordinate reference system. Defaults to
@@ -51,55 +50,4 @@ format_md_sf <- function(data,
     sf_col = sf_col,
     ...
   )
-}
-
-#' @name format_md_crash_data
-#' @rdname format_md_sf
-#' @param data Data frame with Maryland vehicular crash data; typically from `get_md_crash_data`
-#' @param drop_code If TRUE, drop all columns that end with "code"
-#' @export
-#' @importFrom rlang check_installed
-format_md_crash_data <- function(data, drop_code = TRUE) {
-  rlang::check_installed("dplyr")
-  rlang::check_installed("lubridate")
-
-  data <-
-    dplyr::mutate(
-      data,
-      crash_date = lubridate::ymd(acc_date),
-      crash_datetime = lubridate::as_datetime(paste0(acc_date, acc_time)),
-      dotw = lubridate::wday(crash_date, label = TRUE),
-      weekend = dplyr::if_else(dotw %in% c("Sat", "Sun"), "Y", "N"),
-      .before = year
-    )
-
-  data <-
-    dplyr::rowwise(data)
-
-  data <-
-    dplyr::mutate(
-      data,
-      ped_injury = dplyr::if_else(
-        grepl(pattern = "Pedestrian", x = paste(harm_event_desc1, harm_event_desc2)),
-        "Y", "N"
-      ),
-      fatal_injury = dplyr::if_else(
-        grepl(pattern = "Fatal", x = report_type, perl = TRUE),
-        "Y", "N"
-      ),
-      .before = "harm_event_desc1"
-    )
-
-  data <-
-    dplyr::rowwise(data)
-
-  data <-
-    dplyr::ungroup(data)
-
-  if (drop_code) {
-    data <-
-      dplyr::select(data, -dplyr::ends_with("code"))
-  }
-
-  return(data)
 }

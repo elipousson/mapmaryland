@@ -56,23 +56,6 @@ get_md_open_data <- function(resource = NULL,
   )
 }
 
-#' @rdname get_md_open_data
-#' @name get_md_crash_data
-#' @examples
-#' \dontrun{
-#' if (interactive()) {
-#'   get_md_crash_data(
-#'     where = "(year = '2020') AND (quarter = 'Q2')",
-#'     name_col = "county_desc",
-#'     name = "Cecil"
-#'   )
-#' }
-#' }
-#' @export
-get_md_crash_data <- function(...) {
-  get_md_open_data(resource = "maryland_statewide_vehicle_crashes", ...)
-}
-
 #' Get URL from Maryland Open Data Index
 #'
 #' @noRd

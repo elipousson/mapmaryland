@@ -25,6 +25,8 @@ Imports:
 Suggests: 
     dplyr,
     lubridate,
+    naniar,
+    stringr,
     testthat (>= 3.0.0)
 Remotes:
     elipousson/getdata,

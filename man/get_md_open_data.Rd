@@ -2,7 +2,6 @@
 % Please edit documentation in R/open_data.R
 \name{get_md_open_data}
 \alias{get_md_open_data}
-\alias{get_md_crash_data}
 \title{Get data from the Maryland Open Data Portal}
 \usage{
 get_md_open_data(
@@ -13,8 +12,6 @@ get_md_open_data(
   token = NULL,
   ...
 )
-
-get_md_crash_data(...)
 }
 \arguments{
 \item{resource}{Resource identifier code passed to "data" parameter of
@@ -41,12 +38,15 @@ data parameter.}
 for the open data portal.}
     \item{\code{source_type}}{Data source type; defaults to "socrata" which is currently
 the only supported option.}
-    \item{\code{select}}{SODA $select parameter. Set of columns to be returned, equivalent
-to a SELECT in SQL. \url{https://dev.socrata.com/docs/queries/select.html}}
-    \item{\code{where}}{SODA $where parameter. Filters the rows to be returned, equivalent
-to WHERE in SQL. \url{https://dev.socrata.com/docs/queries/where.html}}
-    \item{\code{query}}{SODA $query parameter. A full SoQL query string, all as one
-parameter. \url{https://dev.socrata.com/docs/queries/query.html}}
+    \item{\code{select}}{Names of of columns to return or transformed, equivalent to a
+SELECT in SQL. Passed to SODA $select parameter, see
+\url{https://dev.socrata.com/docs/queries/select.html} for more information.}
+    \item{\code{where}}{Condition to filters the rows to return, equivalent to WHERE in
+SQL. Passed to the SODA $where parameter, see
+\url{https://dev.socrata.com/docs/queries/where.html} for more information.}
+    \item{\code{query}}{A full SoQL query string, all as one
+parameter. Passed to the SODA $query parameter, see
+\url{https://dev.socrata.com/docs/queries/query.html} for more information.}
     \item{\code{location}}{sf object. If multiple areas are provided, they are unioned
 into a single sf object using \code{\link[sf:geos_combine]{sf::st_union()}}}
     \item{\code{dist}}{buffer distance in units. Optional.}
@@ -75,6 +75,9 @@ the source data.}
     \item{\code{clean_names}}{If \code{TRUE}, clean names provided to nm or created based on
 value of col using \link[janitor:clean_names]{janitor::clean_names}. If \code{FALSE}, use names as
 provided.}
+    \item{\code{quiet}}{If \code{TRUE}, suppress messages when downloading data. Defaults to
+\code{FALSE}.}
+    \item{\code{.name_repair}}{Defaults to "check_unique"}
   }}
 }
 \description{
@@ -84,15 +87,4 @@ but it defaults to the statewide open data portal
 \url{https://opendata.maryland.gov} The token type can be set with an option
 named "mapmaryland.open_data_token_type" but it defaults to
 "MARYLAND_OPEN_DATA_API_KEY".
-}
-\examples{
-\dontrun{
-if (interactive()) {
-  get_md_crash_data(
-    where = "(year = '2020') AND (quarter = 'Q2')",
-    name_col = "county_desc",
-    name = "Cecil"
-  )
-}
-}
 }
