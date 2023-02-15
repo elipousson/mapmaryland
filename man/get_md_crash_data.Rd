@@ -4,6 +4,7 @@
 \alias{get_md_crash_data}
 \alias{format_md_crash_data}
 \alias{format_md_crashes}
+\alias{format_md_crash_date}
 \alias{format_md_crashes_person}
 \title{Get and format Maryland crash data}
 \usage{
@@ -18,6 +19,8 @@ get_md_crash_data(
 format_md_crash_data(data, type = "crashes", drop_code = TRUE, ...)
 
 format_md_crashes(data)
+
+format_md_crash_date(data, cols = c("acc_date", "acc_time"))
 
 format_md_crashes_person(
   data,
@@ -39,6 +42,8 @@ filter results if type is "persons" or "vehicles".}
 \item{data}{Data frame with Maryland vehicular crash data; typically from \code{get_md_crash_data}}
 
 \item{drop_code}{If \code{TRUE} (default), drop all columns that end with "code"}
+
+\item{cols}{Column names to use with \code{\link[=format_md_crash_date]{format_md_crash_date()}}.}
 }
 \description{
 Get crash data using \code{\link[=get_md_open_data]{get_md_open_data()}}. \link{format_md_crash_data} works with

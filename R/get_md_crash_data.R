@@ -121,7 +121,7 @@ format_md_crash_data <- function(data,
     c("crashes", "crashes_person", "persons", "crashes_vehicle", "vehicles")
   )
 
-  data <-  switch(
+  data <- switch(
     "crashes" = format_md_crashes(data, ...),
     "crashes_person" = format_md_crashes_person(data, ...),
     "persons" = format_md_crashes_person(data, ...)
@@ -136,60 +136,78 @@ format_md_crash_data <- function(data,
 
 #' @name format_md_crashes
 #' @rdname get_md_crash_data
+#' @export
 format_md_crashes <- function(data) {
-  stopifnot(
-    rlang::has_name(
-      data,
-      c("acc_date", "acc_time",
-        "harm_event_desc1",
-        "harm_event_desc2",
-        "report_type")
+  rlang::check_installed("dplyr")
+
+  data <- format_md_crash_date(data)
+
+  if (!all(rlang::has_name(
+    data,
+    c("harm_event_desc1", "harm_event_desc2", "report_type")
+    ))) {
+    cli::cli_warn(
+      "Missing columns named harm_event_desc1, harm_event_desc2, and report_type."
     )
+    return(data)
+  }
+
+  dplyr::mutate(
+    data,
+    ped_injury = dplyr::if_else(
+      grepl(pattern = "Pedestrian", x = glue::glue("{harm_event_desc1}{harm_event_desc2}")),
+      "Y", "N"
+    ),
+    fatal_injury = dplyr::if_else(
+      grepl(pattern = "Fatal", x = report_type, perl = TRUE),
+      "Y", "N"
+    ),
+    .before = dplyr::all_of("harm_event_desc1")
   )
+}
+
+#' @name format_md_crash_date
+#' @rdname get_md_crash_data
+#' @param cols Column names to use with [format_md_crash_date()].
+#' @export
+format_md_crash_date <- function(data, cols = c("acc_date", "acc_time")) {
+  if (!rlang::has_name(data, cols[1])) {
+    cli::cli_warn(
+      "{.arg data} is missing a column named {.val {cols[1]}}."
+    )
+    return(data)
+  }
 
   rlang::check_installed("dplyr")
   rlang::check_installed("lubridate")
 
-  if (rlang::has_name(data, c("acc_date", "acc_time"))) {
-    data <-
-      dplyr::mutate(
-        data,
-        crash_date = lubridate::ymd(acc_date),
-        crash_datetime = lubridate::as_datetime(glue::glue("{acc_date}{acc_time}")),
-        dotw = lubridate::wday(crash_date, label = TRUE),
-        weekend = dplyr::if_else(dotw %in% c("Sat", "Sun"), "Y", "N"),
-        .before = year
-      )
-  } else {
-    cli::cli_warn("Missing columns named acc_date and acc_time.")
-  }
-
-  if (rlang::has_name(data, c("harm_event_desc1", "harm_event_desc2", "report_type"))) {
-
   data <-
     dplyr::mutate(
       data,
-      ped_injury = dplyr::if_else(
-        grepl(pattern = "Pedestrian", x = glue::glue("{harm_event_desc1}{harm_event_desc2}")),
-        "Y", "N"
-      ),
-      fatal_injury = dplyr::if_else(
-        grepl(pattern = "Fatal", x = report_type, perl = TRUE),
-        "Y", "N"
-      ),
-      .before = "harm_event_desc1"
+      crash_date = lubridate::ymd(acc_date),
+      dotw = lubridate::wday(crash_date, label = TRUE),
+      weekend = dplyr::if_else(dotw %in% c("Sat", "Sun"), "Y", "N"),
+      .before = year
     )
 
-  } else {
-    cli::cli_warn("Missing columns named harm_event_desc1, harm_event_desc2, and report_type.")
+  if (!rlang::has_name(data, cols[2])) {
+    cli::cli_warn(
+      "{.arg data} is missing a column named {.val {cols[2]}}."
+    )
+    return(data)
   }
 
-  data
+  dplyr::mutate(
+    data,
+    crash_datetime = lubridate::as_datetime(glue::glue("{acc_date}{acc_time}"))
+  )
+
 }
 
 
 #' @name format_md_crashes
 #' @rdname get_md_crash_data
+#' @export
 format_md_crashes_person <- function(data,
                                      start_year = 2022,
                                      end_year = 2022,
