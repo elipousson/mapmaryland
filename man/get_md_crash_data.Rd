@@ -15,7 +15,7 @@ get_md_crash_data(
   type = "crashes"
 )
 
-format_md_crash_data(data, type = "crashes", drop_code = TRUE)
+format_md_crash_data(data, type = "crashes", drop_code = TRUE, ...)
 
 format_md_crashes(data)
 
@@ -27,14 +27,8 @@ format_md_crashes_person(
 )
 }
 \arguments{
-\item{...}{
-  Arguments passed on to \code{\link[=get_md_open_data]{get_md_open_data}}
-  \describe{
-    \item{\code{geometry}}{If \code{TRUE} and coords are provided, return a
-\code{sf} object. Default \code{FALSE}.}
-    \item{\code{crs}}{Coordinate reference system of bounding box to return; defaults to
-\code{NULL} which maintains the crs of the input object.}
-  }}
+\item{...}{Passed to \code{\link[=get_md_open_data]{get_md_open_data()}} for \code{\link[=get_md_crash_data]{get_md_crash_data()}} or passed
+to specified formatting functions when used with \code{\link[=format_md_crash_data]{format_md_crash_data()}}.}
 
 \item{report_no}{Crash report numbers. Defaults to \code{NULL}. Optionally used to
 filter results if type is "persons" or "vehicles".}
@@ -44,12 +38,14 @@ filter results if type is "persons" or "vehicles".}
 
 \item{data}{Data frame with Maryland vehicular crash data; typically from \code{get_md_crash_data}}
 
-\item{drop_code}{If \code{TRUE}, drop all columns that end with "code"}
+\item{drop_code}{If \code{TRUE} (default), drop all columns that end with "code"}
 }
 \description{
 Get crash data using \code{\link[=get_md_open_data]{get_md_open_data()}}. \link{format_md_crash_data} works with
 a data frame of crash data from \code{\link[=get_md_crash_data]{get_md_crash_data()}} when type = "crashes".
 \code{\link[=format_md_crashes_person]{format_md_crashes_person()}} formats data when type = "persons".
+\code{\link[=format_md_crashes]{format_md_crashes()}} calls one or the other depending on the type
+parameter.
 }
 \examples{
 \dontrun{

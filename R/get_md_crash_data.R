@@ -3,12 +3,15 @@
 #'  Get crash data using [get_md_open_data()]. [format_md_crash_data] works with
 #'  a data frame of crash data from [get_md_crash_data()] when type = "crashes".
 #'  [format_md_crashes_person()] formats data when type = "persons".
+#'  [format_md_crashes()] calls one or the other depending on the type
+#'  parameter.
 #'
 #' @param type Supported options include "crashes" (default), "persons" (or
 #'   "crashes_person"), and "vehicles" (or "crashes_vehicle").
 #' @param report_no Crash report numbers. Defaults to `NULL`. Optionally used to
 #'   filter results if type is "persons" or "vehicles".
-#' @inheritDotParams get_md_open_data -resource
+#' @param ... Passed to [get_md_open_data()] for [get_md_crash_data()] or passed
+#'   to specified formatting functions when used with [format_md_crash_data()].
 #' @examples
 #' \dontrun{
 #' if (interactive()) {
@@ -103,12 +106,13 @@ get_md_crash_data <- function(location = NULL,
 #' @name format_md_crash_data
 #' @rdname get_md_crash_data
 #' @param data Data frame with Maryland vehicular crash data; typically from `get_md_crash_data`
-#' @param drop_code If `TRUE`, drop all columns that end with "code"
+#' @param drop_code If `TRUE` (default), drop all columns that end with "code"
 #' @export
 #' @importFrom rlang check_installed
 format_md_crash_data <- function(data,
                                  type = "crashes",
-                                 drop_code = TRUE) {
+                                 drop_code = TRUE,
+                                 ...) {
   rlang::check_installed("dplyr")
   rlang::check_installed("lubridate")
 
@@ -117,7 +121,11 @@ format_md_crash_data <- function(data,
     c("crashes", "crashes_person", "persons", "crashes_vehicle", "vehicles")
   )
 
-  data <- format_md_crashes(data)
+  data <-  switch(
+    "crashes" = format_md_crashes(data, ...),
+    "crashes_person" = format_md_crashes_person(data, ...),
+    "persons" = format_md_crashes_person(data, ...)
+  )
 
   if (drop_code) {
     data <- dplyr::select(data, -dplyr::ends_with("code"))
@@ -132,22 +140,31 @@ format_md_crashes <- function(data) {
   stopifnot(
     rlang::has_name(
       data,
-      c("acc_date", "acc_time", "harm_event_desc1", "harm_event_desc2", "report_type")
+      c("acc_date", "acc_time",
+        "harm_event_desc1",
+        "harm_event_desc2",
+        "report_type")
     )
   )
 
   rlang::check_installed("dplyr")
   rlang::check_installed("lubridate")
 
-  data <-
-    dplyr::mutate(
-      data,
-      crash_date = lubridate::ymd(acc_date),
-      crash_datetime = lubridate::as_datetime(glue::glue("{acc_date}{acc_time}")),
-      dotw = lubridate::wday(crash_date, label = TRUE),
-      weekend = dplyr::if_else(dotw %in% c("Sat", "Sun"), "Y", "N"),
-      .before = year
-    )
+  if (rlang::has_name(data, c("acc_date", "acc_time"))) {
+    data <-
+      dplyr::mutate(
+        data,
+        crash_date = lubridate::ymd(acc_date),
+        crash_datetime = lubridate::as_datetime(glue::glue("{acc_date}{acc_time}")),
+        dotw = lubridate::wday(crash_date, label = TRUE),
+        weekend = dplyr::if_else(dotw %in% c("Sat", "Sun"), "Y", "N"),
+        .before = year
+      )
+  } else {
+    cli::cli_warn("Missing columns named acc_date and acc_time.")
+  }
+
+  if (rlang::has_name(data, c("harm_event_desc1", "harm_event_desc2", "report_type"))) {
 
   data <-
     dplyr::mutate(
@@ -162,6 +179,10 @@ format_md_crashes <- function(data) {
       ),
       .before = "harm_event_desc1"
     )
+
+  } else {
+    cli::cli_warn("Missing columns named harm_event_desc1, harm_event_desc2, and report_type.")
+  }
 
   data
 }
