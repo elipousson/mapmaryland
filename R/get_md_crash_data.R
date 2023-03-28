@@ -6,6 +6,7 @@
 #'  [format_md_crashes()] calls one or the other depending on the type
 #'  parameter.
 #'
+#' @inheritParams get_md_open_data
 #' @param type Supported options include "crashes" (default), "persons" (or
 #'   "crashes_person"), and "vehicles" (or "crashes_vehicle").
 #' @param report_no Crash report numbers. Defaults to `NULL`. Optionally used to
@@ -207,6 +208,10 @@ format_md_crash_date <- function(data, cols = c("acc_date", "acc_time")) {
 
 #' @name format_md_crashes
 #' @rdname get_md_crash_data
+#' @param start_year,end_year Start and end year to use when checking validity
+#'   of birth dates.
+#' @param na_dates Character vector of invalid dates to replace with a
+#'   `NA_character_` value.
 #' @export
 format_md_crashes_person <- function(data,
                                      start_year = 2022,

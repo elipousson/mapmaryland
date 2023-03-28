@@ -20,7 +20,7 @@ A data frame with 478 rows and 10 variables:
 }
 }
 \source{
-\href{https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html}
+\url{https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html}
 }
 \usage{
 md_zctas

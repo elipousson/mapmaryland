@@ -4,8 +4,10 @@
 \alias{get_imap_data}
 \alias{get_cama_data}
 \alias{get_parcel_data}
+\alias{format_parcel_data}
 \alias{get_mht_data}
 \alias{get_water_data}
+\alias{get_imap_url}
 \title{Get data from Maryland iMap}
 \usage{
 get_imap_data(
@@ -30,6 +32,12 @@ get_parcel_data(
   ...
 )
 
+format_parcel_data(
+  data,
+  imap_addr_cols = list(bldg_num = "strtnum", street_dir_prefix = "strtdir", street_name
+    = "strtnam", street_suffix = "strttyp")
+)
+
 get_mht_data(
   location,
   type = "mihp",
@@ -43,22 +51,31 @@ get_water_data(
   crs = getOption("mapmaryland.crs", default = 3857),
   ...
 )
+
+get_imap_url(nm = NULL)
 }
 \arguments{
 \item{location}{A \code{sf}, \code{sfc}, or \code{bbox} object (or other object convertible
-with \link[sfext:as_sf]{sfext::as_bbox}. Required.}
+with \code{\link[sfext:as_sf]{sfext::as_bbox()}}. Required.}
 
-\item{nm}{Layer name identifier used to retrieve url from \link{md_imap_index}
-based on the snakecase "nm" column; Default: NULL.}
+\item{nm}{Layer name identifier used to retrieve url from \code{md_imap_index}
+based on the snakecase "nm" column; Default: \code{NULL}.}
 
-\item{crs}{Coordinate reference system to return.}
+\item{crs}{Coordinate reference system to return. Defaults to
+\code{getOption("mapmaryland.crs", default = 3857)}.}
 
-\item{...}{Additional parameters passed to \link[getdata:get_esri_data]{getdata::get_esri_data}}
+\item{...}{Additional parameters passed to \code{\link[getdata:get_esri_data]{getdata::get_esri_data()}}}
 
 \item{type}{Default and supported options vary by function. See details.}
 
 \item{block}{If block is \code{TRUE}, pass parcel data to
 \code{\link[getdata:format_address_data]{getdata::bind_block_col()}}. Defaults to \code{FALSE}.}
+
+\item{data}{Data to pass to \code{\link[getdata:format_address_data]{getdata::bind_block_col()}}.
+\code{\link[=format_parcel_data]{format_parcel_data()}} only.}
+
+\item{imap_addr_cols}{Named list with address column names for input data.
+Passed to corresponding parameters in \code{\link[getdata:format_address_data]{getdata::bind_block_col()}}}
 }
 \description{
 Get data from Maryland iMap including Computer Assisted Mass Appraisal
@@ -68,16 +85,24 @@ variety of water data.
 \details{
 Options for type parameter:
 \itemize{
-\item \link{get_cama_data}: Default: "core"; options: "bldg" (detailed building
+\item \code{\link[=get_cama_data]{get_cama_data()}}: Default: "core"; options: "bldg" (detailed building
 characteristics), "core", "land", "subarea" (building subarea).
-\item \link{get_water_data}: Default: "streams", options: "streams" (Rivers and
+\item \code{\link[=get_water_data]{get_water_data()}}: Default: "streams", options: "streams" (Rivers and
 streams generalized), "streams detailed" (Rivers and streams generalized),
 "federal watersheds", "8 digit watersheds", "12 digit watersheds", "navigable
 waterways", "ponds" (Lakes and ponds)
-\item \link{get_parcel_data}: Default "boundaries", options: "boundaries" (Parcel
+\item \code{\link[=get_parcel_data]{get_parcel_data()}}: Default "boundaries", options: "boundaries" (Parcel
 boundaries), "points" (Parcel points)
-\item \link{get_mht_data}: Default: "mihp"; options: "mihp" (Maryland Inventory of
+\item \code{\link[=get_mht_data]{get_mht_data()}}: Default: "mihp"; options: "mihp" (Maryland Inventory of
 Historic Properties), "nr" (National Register of Historic Places),
 "easements" (Preservation Easements held by the Maryland Historical Trust)
+}
+
+Helper functions:
+\itemize{
+\item \code{\link[=format_parcel_data]{format_parcel_data()}} is a wrapper for \code{\link[getdata:format_address_data]{getdata::bind_block_col()}} used by
+\code{\link[=get_parcel_data]{get_parcel_data()}}
+\item \code{\link[=get_imap_url]{get_imap_url()}} is a look-up function for the \code{md_imap_index} using the
+short "nm" column as a index.
 }
 }

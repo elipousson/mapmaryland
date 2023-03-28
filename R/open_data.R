@@ -11,6 +11,10 @@
 #'   [getdata::get_open_data]
 #' @param type Type of data to return. Supported options: "crashes", "road
 #'   closures", "bay pollution reduction"
+#' @param token Optional access token or API Key to pass to
+#'   [getdata::set_access_token()]. The token type variable is set by
+#'   `getOption("mapmaryland.open_data_token_type", default =
+#'   "MARYLAND_OPEN_DATA_API_KEY")`
 #' @inheritParams getdata::get_open_data
 #' @inheritDotParams getdata::get_open_data
 #' @export

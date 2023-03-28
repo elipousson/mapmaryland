@@ -44,6 +44,12 @@ filter results if type is "persons" or "vehicles".}
 \item{drop_code}{If \code{TRUE} (default), drop all columns that end with "code"}
 
 \item{cols}{Column names to use with \code{\link[=format_md_crash_date]{format_md_crash_date()}}.}
+
+\item{start_year, end_year}{Start and end year to use when checking validity
+of birth dates.}
+
+\item{na_dates}{Character vector of invalid dates to replace with a
+\code{NA_character_} value.}
 }
 \description{
 Get crash data using \code{\link[=get_md_open_data]{get_md_open_data()}}. \link{format_md_crash_data} works with

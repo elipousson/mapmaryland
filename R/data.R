@@ -411,5 +411,5 @@
 #'   \item{`intptlon20`}{Longitude of the internal point}
 #'   \item{`geometry`}{Multipolygon with the ZCTA boundary}
 #' }
-#' @source \href{https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html}
+#' @source <https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html>
 "md_zctas"

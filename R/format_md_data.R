@@ -1,17 +1,19 @@
 #' Format Maryland simple feature data
 #'
 #' Convert the coordinate reference system, convert invalid geometry to valid
-#' geometry with [sf::st_make_valid], and, optionally, erase water, and clean
-#' names with [janitor::clean_names].
+#' geometry with [sf::st_make_valid()], and, optionally, erase water, and clean
+#' names with [janitor::clean_names()].
 #'
-#' @param data A `sf` object or for ([format_md_crash_data] only) a data frame object.
+#' @param data A `sf` object or for ([format_md_crash_data()] only) a data.frame
+#'   object.
 #' @param crs coordinate reference system. Defaults to
-#'   getOption("mapmaryland.crs", default = 3857). This option can be set with
-#'   [set_mapmaryland_options].
+#'   `getOption("mapmaryland.crs", default = 3857)`. This option can be set with
+#'   [set_mapmaryland_options()].
 #' @param erase_water If `TRUE`, erase any geometry intersecting with
-#'   [md_water]; Default: `FALSE`. If TRUE, and erase_data is not `NULL`, [md_water]
+#'   [md_water]; Default: `FALSE`. If `TRUE`, and erase_data is not `NULL`, [md_water]
 #'   is combined and unioned with erase_data.
 #' @inheritParams getdata::format_sf_data
+#' @inheritParams getdata::format_data
 #' @return A modified version of the input simple feature data.
 #' @rdname format_md_sf
 #' @seealso [getdata::format_sf_data]

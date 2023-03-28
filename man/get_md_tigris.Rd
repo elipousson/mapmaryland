@@ -21,11 +21,11 @@ of the data sets available for download with {tigris}; Default: \code{NULL}}
 supported options.}
 
 \item{crs}{coordinate reference system. Defaults to
-getOption("mapmaryland.crs", default = 3857). This option can be set with
-\link{set_mapmaryland_options}.}
+\code{getOption("mapmaryland.crs", default = 3857)}. This option can be set with
+\code{\link[=set_mapmaryland_options]{set_mapmaryland_options()}}.}
 
 \item{erase_water}{If \code{TRUE}, erase any geometry intersecting with
-\link{md_water}; Default: \code{FALSE}. If TRUE, and erase_data is not \code{NULL}, \link{md_water}
+\link{md_water}; Default: \code{FALSE}. If \code{TRUE}, and erase_data is not \code{NULL}, \link{md_water}
 is combined and unioned with erase_data.}
 
 \item{...}{Additional parameters passed on to {tigris} functions.}

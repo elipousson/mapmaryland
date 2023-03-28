@@ -26,6 +26,10 @@ closures", "bay pollution reduction"}
 \item{geometry}{If \code{TRUE} and coords are provided, return a
 \code{sf} object. Default \code{FALSE}.}
 
+\item{token}{Optional access token or API Key to pass to
+\code{\link[getdata:set_access_token]{getdata::set_access_token()}}. The token type variable is set by
+\code{getOption("mapmaryland.open_data_token_type", default = "MARYLAND_OPEN_DATA_API_KEY")}}
+
 \item{...}{
   Arguments passed on to \code{\link[getdata:get_open_data]{getdata::get_open_data}}
   \describe{
