@@ -3,7 +3,7 @@
 \docType{data}
 \name{md_schools}
 \alias{md_schools}
-\title{Maryland Public Schools}
+\title{Maryland K-12 Schools (Public and Charter Schools)}
 \format{
 A data frame with 1,427 rows and 13 variables:
 \describe{
@@ -32,6 +32,10 @@ due to the iMap data using a different school name than the MSDE data for a
 little less than half of schools in the state. As of February 2023, the
 school number column has been removed to ensure the data is accurate and to
 avoid confusion. For charter schools, the school_type column has been added
-based on the grade range. Data based on iMap data as of 2023 February 10.
+based on the grade range. Data based on iMap data layers as of 2023 February
+10 for public schools
+\url{https://geodata.md.gov/imap/rest/services/Education/MD_EducationFacilities/FeatureServer/5}
+and charter schools
+\url{https://geodata.md.gov/imap/rest/services/Education/MD_EducationFacilities/FeatureServer/6}
 }
 \keyword{datasets}

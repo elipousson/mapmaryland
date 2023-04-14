@@ -324,7 +324,7 @@
 #' @source [MSDE Data Downloads](https://reportcard.msde.maryland.gov/Graphs/#/DataDownloads/datadownload)
 "msde_enrollment"
 
-#' Maryland Public Schools
+#' Maryland K-12 Schools (Public and Charter Schools)
 #'
 #' Combined iMap FeatureLayer for traditional public schools and charter
 #' schools. The school number previously included in this dataset was incomplete
@@ -332,7 +332,11 @@
 #' little less than half of schools in the state. As of February 2023, the
 #' school number column has been removed to ensure the data is accurate and to
 #' avoid confusion. For charter schools, the school_type column has been added
-#' based on the grade range. Data based on iMap data as of 2023 February 10.
+#' based on the grade range. Data based on iMap data layers as of 2023 February
+#' 10 for public schools
+#' <https://geodata.md.gov/imap/rest/services/Education/MD_EducationFacilities/FeatureServer/5>
+#' and charter schools
+#' <https://geodata.md.gov/imap/rest/services/Education/MD_EducationFacilities/FeatureServer/6>
 #'
 #' @format A data frame with 1,427 rows and 13 variables:
 #' \describe{
