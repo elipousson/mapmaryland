@@ -122,7 +122,7 @@ format_md_crash_data <- function(data,
     c("crashes", "crashes_person", "persons", "crashes_vehicle", "vehicles")
   )
 
-  data <- switch(
+  data <- switch(type,
     "crashes" = format_md_crashes(data, ...),
     "crashes_person" = format_md_crashes_person(data, ...),
     "persons" = format_md_crashes_person(data, ...)
@@ -143,12 +143,14 @@ format_md_crashes <- function(data) {
 
   data <- format_md_crash_date(data)
 
+  required_cols <- c("harm_event_desc1", "harm_event_desc2", "report_type")
+
   if (!all(rlang::has_name(
     data,
-    c("harm_event_desc1", "harm_event_desc2", "report_type")
+    required_cols
     ))) {
     cli::cli_warn(
-      "Missing columns named harm_event_desc1, harm_event_desc2, and report_type."
+      "One or more required columns {.val required_cols} are missing"
     )
     return(data)
   }
