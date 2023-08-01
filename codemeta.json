@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.0 Patched (2022-05-23 r82396)",
+  "runtimePlatform": "R version 4.3.0 (2023-04-21)",
   "author": [
     {
       "@type": "Person",
@@ -69,6 +69,30 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "naniar",
+      "name": "naniar",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=naniar"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "stringr",
+      "name": "stringr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=stringr"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
       "version": ">= 3.0.0",
@@ -108,6 +132,18 @@
     },
     "4": {
       "@type": "SoftwareApplication",
+      "identifier": "glue",
+      "name": "glue",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=glue"
+    },
+    "5": {
+      "@type": "SoftwareApplication",
       "identifier": "janitor",
       "name": "janitor",
       "provider": {
@@ -118,7 +154,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=janitor"
     },
-    "5": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "magrittr",
       "name": "magrittr",
@@ -130,7 +166,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=magrittr"
     },
-    "6": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "rlang",
       "name": "rlang",
@@ -142,7 +178,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=rlang"
     },
-    "7": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "sf",
       "name": "sf",
@@ -154,13 +190,13 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=sf"
     },
-    "8": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "sfext",
       "name": "sfext",
       "sameAs": "https://github.com/elipousson/sfext"
     },
-    "9": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "tigris",
       "name": "tigris",
@@ -174,7 +210,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "52601.165KB",
+  "fileSize": "42391.585KB",
   "releaseNotes": "https://github.com/elipousson/mapmaryland/blob/master/NEWS.md",
   "readme": "https://github.com/elipousson/mapmaryland/blob/main/README.md",
   "developmentStatus": "https://www.repostatus.org/#active",

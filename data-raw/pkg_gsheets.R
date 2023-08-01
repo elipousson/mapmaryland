@@ -1,4 +1,3 @@
-
 md_zoning_info <-
   googlesheets4::read_sheet(
     "https://docs.google.com/spreadsheets/d/1qu8s3W9tvtMPvqLNpzrxqybqPSnl67aBBItSWRgbdto/edit?usp=sharing"

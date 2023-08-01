@@ -21,7 +21,7 @@ utils::globalVariables(
 #'
 #' @noRd
 type2nm <- function(type = NULL, index = NULL, null.ok = TRUE) {
-  if (is.null(type) & !null.ok) {
+  if (is.null(type) && !null.ok) {
     stop("type is NULL and null.ok is FALSE.")
   }
 
@@ -77,7 +77,7 @@ set_mapmaryland_options <- function(crs = NULL, overwrite = TRUE) {
   option_nm <- paste0(pkg, ".", names(option))
   existing_option <- getOption(option_nm)
 
-  if (is.null(existing_option) | overwrite) {
+  if (is.null(existing_option) || overwrite) {
     cli::cli_alert_success(
       "{.var {option_nm}} set to {.val {as.character(option)}}."
     )

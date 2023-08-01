@@ -104,7 +104,7 @@ get_parcel_data <- function(location,
       ...
     )
 
-  if (!block | !all(rlang::has_name(data, c("strtnum", "strtdir", "strtnam", "strttyp")))) {
+  if (!block || !all(rlang::has_name(data, c("strtnum", "strtdir", "strtnam", "strttyp")))) {
     return(data)
   }
 
@@ -120,11 +120,11 @@ get_parcel_data <- function(location,
 #' @export
 format_parcel_data <- function(data,
                                imap_addr_cols = list(
-  bldg_num = "strtnum",
-  street_dir_prefix = "strtdir",
-  street_name = "strtnam",
-  street_suffix = "strttyp"
-)) {
+                                 bldg_num = "strtnum",
+                                 street_dir_prefix = "strtdir",
+                                 street_name = "strtnam",
+                                 street_suffix = "strttyp"
+                               )) {
   getdata::bind_block_col(
     data,
     bldg_num = imap_addr_cols$bldg_num,

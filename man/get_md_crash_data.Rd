@@ -30,16 +30,22 @@ format_md_crashes_person(
 )
 }
 \arguments{
+\item{location}{A \code{sf} or \code{sfc} object covering the location to return crash
+data.}
+
 \item{...}{Passed to \code{\link[=get_md_open_data]{get_md_open_data()}} for \code{\link[=get_md_crash_data]{get_md_crash_data()}} or passed
 to specified formatting functions when used with \code{\link[=format_md_crash_data]{format_md_crash_data()}}.}
 
 \item{report_no}{Crash report numbers. Defaults to \code{NULL}. Optionally used to
 filter results if type is "persons" or "vehicles".}
 
+\item{where}{A query parameter passed to \code{\link[=get_md_open_data]{get_md_open_data()}}}
+
 \item{type}{Supported options include "crashes" (default), "persons" (or
 "crashes_person"), and "vehicles" (or "crashes_vehicle").}
 
-\item{data}{Data frame with Maryland vehicular crash data; typically from \code{get_md_crash_data}}
+\item{data}{Data frame with Maryland vehicular crash data; typically from
+\code{get_md_crash_data}}
 
 \item{drop_code}{If \code{TRUE} (default), drop all columns that end with "code"}
 

@@ -1,4 +1,3 @@
-
 real_property_cols <-
   getdata::get_socrata_data(
     data = "w8th-47fz",

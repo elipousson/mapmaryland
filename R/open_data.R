@@ -25,7 +25,7 @@ get_md_open_data <- function(resource = NULL,
                              geometry = FALSE,
                              token = NULL,
                              ...) {
-  if (!is.null(type) & is.null(resource)) {
+  if (!is.null(type) && is.null(resource)) {
     resource <-
       type2nm(type, index = "md_open_data")
   }
