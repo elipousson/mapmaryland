@@ -1,4 +1,4 @@
-# mapmaryland (development version)
+# mapmaryland 0.2.0
 
 - Update `md_imap_index` and `md_arcgis_index` reference data (2023-08-22)
 - Add `cache_imap_data()` function (2023-08-22)
