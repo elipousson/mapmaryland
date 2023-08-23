@@ -1,4 +1,10 @@
-<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+# mapmaryland (development version)
+
+- Update `md_imap_index` and `md_arcgis_index` reference data (2023-08-22)
+- Add `cache_imap_data()` function (2023-08-22)
+- Add `md_house_districts_2022` and `md_senate_districts_2022` (2022-07-05) and `md_zcta` data (2022-10-26)
+- Update `msde_enrollment` and `md_schools` data (2023-02-10)
+- Minor updates/fixes to `get_md_crash_data()`, `format_md_crash_data()`, and `get_imap_data()`
 
 # mapmaryland 0.1.0.9000 (2022-06-13)
 

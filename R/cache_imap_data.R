@@ -9,6 +9,7 @@
 #' @inheritParams getdata::cache_location_data
 #' @export
 #' @importFrom getdata cache_location_data
+#' @importFrom rlang caller_env %||%
 cache_imap_data <- function(data = NULL,
                             nm = NULL,
                             ...,

@@ -9,9 +9,9 @@
 #' or corrections can be submitted using comments on this open Google Sheet:
 #' <https://docs.google.com/spreadsheets/d/1c829bZdNqvbpoizulBU_XE5jVeNNck2kHkS-smpQ52s/edit?usp=sharing>
 #'
-#' Data last updated from Google Sheet on February 10, 2023.
+#' Data last updated from Google Sheet on August 22, 2023.
 #'
-#' @format A data frame with 84 rows and 13 variables:
+#' @format A data frame with 90 rows and 13 variables:
 #' \describe{
 #'   \item{`name`}{character Source name}
 #'   \item{`operator.abb`}{character Operator abbreviation}
@@ -203,17 +203,18 @@
 #' Maryland iMap Folder/Service Index
 #'
 #' Created using esriIndex function (in process of being developed for esri2sf
-#' package).
+#' package). Updated August 22, 2023.
 #'
-#' @format A data frame with 1477 rows and 15 variables:
+#' @format A data frame with 1,505 rows and 16 variables:
 #' \describe{
 #'   \item{`name`}{character Name}
 #'   \item{`nm`}{character Name with snake case}
-#'   \item{`index`}{character Index type}
 #'   \item{`type`}{character Service/layer type}
-#'   \item{`server_type`}{character Server type}
 #'   \item{`url`}{character Folder/service/layer URL}
-#'   \item{`parent`}{character Parent folder/service/layer}
+#'   \item{`urlType`}{character Index type}
+#'   \item{`folderPath`}{Folder path}
+#'   \item{`serviceName`}{character Service/layer type}
+#'   \item{`serviceType`}{character Service/layer type}
 #'   \item{`id`}{integer Layer ID number}
 #'   \item{`parentLayerId`}{integer Parent layer ID number}
 #'   \item{`defaultVisibility`}{logical Layer default visibility}

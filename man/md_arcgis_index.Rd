@@ -5,7 +5,7 @@
 \alias{md_arcgis_index}
 \title{Maryland ArcGIS REST API Services Index}
 \format{
-A data frame with 84 rows and 13 variables:
+A data frame with 90 rows and 13 variables:
 \describe{
 \item{\code{name}}{character Source name}
 \item{\code{operator.abb}}{character Operator abbreviation}
@@ -39,6 +39,6 @@ Comments, additions,
 or corrections can be submitted using comments on this open Google Sheet:
 \url{https://docs.google.com/spreadsheets/d/1c829bZdNqvbpoizulBU_XE5jVeNNck2kHkS-smpQ52s/edit?usp=sharing}
 
-Data last updated from Google Sheet on February 10, 2023.
+Data last updated from Google Sheet on August 22, 2023.
 }
 \keyword{datasets}

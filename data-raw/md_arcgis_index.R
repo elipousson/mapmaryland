@@ -9,8 +9,7 @@ md_arcgis_index <-
 
 usethis::use_data(md_arcgis_index, overwrite = TRUE)
 
-md_imap_index <-
-  esriIndex(
+md_imap_index <- esri2sf::esriIndex(
     url = "https://geodata.md.gov/imap/rest/services",
     recurse = TRUE
   )
@@ -19,23 +18,12 @@ md_imap_index <-
   dplyr::arrange(md_imap_index, url) %>%
   dplyr::distinct(url, .keep_all = TRUE) %>%
   dplyr::mutate(
-    server_type = dplyr::case_when(
-      stringr::str_detect(url, "FeatureServer") ~ "FeatureServer",
-      stringr::str_detect(url, "MapServer") ~ "MapServer",
-      stringr::str_detect(url, "ImageServer") ~ "ImageServer",
-      stringr::str_detect(url, "GeocodeServer") ~ "GeocodeServer",
-      stringr::str_detect(url, "GeometryServer") ~ "GeometryServer",
-      stringr::str_detect(url, "GPServer") ~ "GPServer"
-    ),
-    .after = "type"
-  ) %>%
-  dplyr::mutate(
     nm = dplyr::case_when(
-      (server_type == "FeatureServer") & !is.na(geometryType) ~ janitor::make_clean_names(name),
-      (server_type == "MapServer") & !is.na(geometryType) ~ janitor::make_clean_names(glue::glue("{name} map")),
-      !is.na(geometryType) ~ janitor::make_clean_names(glue::glue("{name} {server_type}")),
-      index == "service" ~ janitor::make_clean_names(glue::glue("{name} {type}")),
-      TRUE ~ janitor::make_clean_names(glue::glue("{name} {index}"))
+      (serviceType == "FeatureServer") & !is.na(geometryType) ~ janitor::make_clean_names(name),
+      (serviceType == "MapServer") & !is.na(geometryType) ~ janitor::make_clean_names(glue::glue("{name} map")),
+      !is.na(geometryType) ~ janitor::make_clean_names(glue::glue("{name} {serviceType}")),
+      urlType == "service" ~ janitor::make_clean_names(glue::glue("{name} {type}")),
+      TRUE ~ janitor::make_clean_names(glue::glue("{name} {urlType}"))
     ),
     nm = stringr::str_remove(nm, "_2$"),
     .after = "name"

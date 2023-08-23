@@ -5,15 +5,16 @@
 \alias{md_imap_index}
 \title{Maryland iMap Folder/Service Index}
 \format{
-A data frame with 1477 rows and 15 variables:
+A data frame with 1,505 rows and 16 variables:
 \describe{
 \item{\code{name}}{character Name}
 \item{\code{nm}}{character Name with snake case}
-\item{\code{index}}{character Index type}
 \item{\code{type}}{character Service/layer type}
-\item{\code{server_type}}{character Server type}
 \item{\code{url}}{character Folder/service/layer URL}
-\item{\code{parent}}{character Parent folder/service/layer}
+\item{\code{urlType}}{character Index type}
+\item{\code{folderPath}}{Folder path}
+\item{\code{serviceName}}{character Service/layer type}
+\item{\code{serviceType}}{character Service/layer type}
 \item{\code{id}}{integer Layer ID number}
 \item{\code{parentLayerId}}{integer Parent layer ID number}
 \item{\code{defaultVisibility}}{logical Layer default visibility}
@@ -29,6 +30,6 @@ md_imap_index
 }
 \description{
 Created using esriIndex function (in process of being developed for esri2sf
-package).
+package). Updated August 22, 2023.
 }
 \keyword{datasets}
