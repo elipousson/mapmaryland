@@ -81,7 +81,8 @@ value of col using \link[janitor:clean_names]{janitor::clean_names}. If \code{FA
 provided.}
     \item{\code{quiet}}{If \code{TRUE}, suppress messages when downloading data. Defaults to
 \code{FALSE}.}
-    \item{\code{.name_repair}}{Defaults to "check_unique"}
+    \item{\code{.name_repair}}{One of "unique", "universal", or "check_unique". See
+\code{\link[vctrs:vec_as_names]{vctrs::vec_as_names()}} for the meaning of these options.}
   }}
 }
 \description{
