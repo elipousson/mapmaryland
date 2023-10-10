@@ -1,5 +1,7 @@
-library(overedge)
+library(getdata)
+library(sfext)
 library(dplyr)
+
 state_fips <- 24
 pkg_crs <- 3857
 pkg_state_abb <- "MD"
@@ -35,8 +37,7 @@ md_streams <-
 
 # NOTE: md_streams is no longer being exported
 
-url <-
-  get_imap_url("county_boundaries_detailed")
+url <- get_imap_url("county_boundaries_detailed")
 
 md_counties_detailed <-
   read_sf_url(url = url) %>%
@@ -94,3 +95,25 @@ md_mpos <-
 md_mpos <- sf::st_transform(as_sf(dplyr::ungroup(md_mpos)), crs = 3857)
 
 usethis::use_data(md_mpos, overwrite = TRUE)
+
+url <- "https://geodata.md.gov/imap/rest/services/BusinessEconomy/MD_IncentiveZones/FeatureServer/2"
+
+md_arts_districts <- esri2sf::esri2sf(url, crs = 3857)
+
+md_arts_districts <- md_arts_districts |>
+  dplyr::select(
+    name = sitename,
+    desc = sitedesc,
+    org_name = orgname,
+    org_url = website,
+    org_phone = phonenumbe,
+    org_address = streetaddr,
+    org_city = city,
+    org_county = county,
+    zipcode = zip,
+    lon = longitude,
+    lat = latitude,
+  ) |>
+  sfext::rename_sf_col()
+
+usethis::use_data(md_arts_districts, overwrite = TRUE)

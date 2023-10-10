@@ -418,3 +418,32 @@
 #' }
 #' @source <https://www.census.gov/programs-surveys/geography/guidance/geo-areas/zctas.html>
 "md_zctas"
+
+
+#' Maryland Arts & Entertainment Districts
+#'
+#' The Maryland State Arts Council sponsors Arts & Entertainment Districts as a
+#' way to stimulate the economy and improve quality of life. This legislation
+#' enables local jurisdictions, municipalities, counties, or a combination
+#' thereof, to apply for state designations for the Arts and Entertainment
+#' Districts within their boundaries and offer tax incentives as provided by
+#' law. More information from the Maryland State Arts Council:
+#' <https://msac.org/programs/arts-entertainment-districts>
+#'
+#' @format A data frame with 29 rows and 12 variables:
+#' \describe{
+#'   \item{`name`}{District name}
+#'   \item{`desc`}{District description}
+#'   \item{`org_name`}{Organization name}
+#'   \item{`org_url`}{Organization website URL}
+#'   \item{`org_phone`}{Organization phone number}
+#'   \item{`org_address`}{Organization street address}
+#'   \item{`org_city`}{Organization city}
+#'   \item{`org_county`}{Organization county}
+#'   \item{`zipcode`}{Organization zipcode}
+#'   \item{`lon`}{Longitude}
+#'   \item{`lat`}{Latitude}
+#'   \item{`geometry`}{MULTIPOLYGON geometry with boundaries}
+#'}
+#' @source <https://geodata.md.gov/imap/rest/services/BusinessEconomy/MD_IncentiveZones/FeatureServer/2>
+"md_arts_districts"
