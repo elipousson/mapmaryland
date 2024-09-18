@@ -9,9 +9,9 @@
 #' or corrections can be submitted using comments on this open Google Sheet:
 #' <https://docs.google.com/spreadsheets/d/1c829bZdNqvbpoizulBU_XE5jVeNNck2kHkS-smpQ52s/edit?usp=sharing>
 #'
-#' Data last updated from Google Sheet on August 22, 2023.
+#' Data last updated from Google Sheet 2024-09-18.
 #'
-#' @format A data frame with 90 rows and 13 variables:
+#' @format A data frame with 95 rows and 13 variables:
 #' \describe{
 #'   \item{`name`}{character Source name}
 #'   \item{`operator.abb`}{character Operator abbreviation}
@@ -202,10 +202,9 @@
 
 #' Maryland iMap Folder/Service Index
 #'
-#' Created using esriIndex function (in process of being developed for esri2sf
-#' package). Updated August 22, 2023.
+#' Created using esriIndex function from the esri2sf package. Updated 2024-09-18.
 #'
-#' @format A data frame with 1,505 rows and 16 variables:
+#' @format A data frame with 1,524 rows and 16 variables:
 #' \describe{
 #'   \item{`name`}{character Name}
 #'   \item{`nm`}{character Name with snake case}

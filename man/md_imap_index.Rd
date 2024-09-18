@@ -5,7 +5,7 @@
 \alias{md_imap_index}
 \title{Maryland iMap Folder/Service Index}
 \format{
-A data frame with 1,505 rows and 16 variables:
+A data frame with 1,524 rows and 16 variables:
 \describe{
 \item{\code{name}}{character Name}
 \item{\code{nm}}{character Name with snake case}
@@ -29,7 +29,6 @@ A data frame with 1,505 rows and 16 variables:
 md_imap_index
 }
 \description{
-Created using esriIndex function (in process of being developed for esri2sf
-package). Updated August 22, 2023.
+Created using esriIndex function from the esri2sf package. Updated 2024-09-18.
 }
 \keyword{datasets}
