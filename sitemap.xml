@@ -1,102 +1,36 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/404.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/index.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/cache_imap_data.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/format_md_sf.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/get_imap_data.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/get_md_crash_data.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/get_md_open_data.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/get_md_tigris.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/mapmaryland-package.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_arcgis_index.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_arts_districts.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_census_places.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_congressional_districts.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_counties.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_counties_detailed.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_house_districts_2022.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_imap_index.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_mpos.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_open_data_index.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_schools.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_senate_districts_2022.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_water.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_zctas.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/md_zoning_info.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/msde_enrollment.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/real_property_cols.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/set_mapmaryland_options.html</loc>
-  </url>
-  <url>
-    <loc>https://elipousson.github.io/mapmaryland/reference/us_states_near_md.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://elipousson.github.io/mapmaryland/404.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/LICENSE-text.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/LICENSE.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/authors.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/index.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/news/index.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/cache_imap_data.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/format_md_sf.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/get_imap_data.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/get_md_crash_data.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/get_md_open_data.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/get_md_tigris.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/index.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/mapmaryland-package.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_arcgis_index.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_arts_districts.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_census_places.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_congressional_districts.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_counties.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_counties_detailed.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_house_districts_2022.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_imap_index.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_mpos.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_open_data_index.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_schools.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_senate_districts_2022.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_water.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_zctas.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/md_zoning_info.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/msde_enrollment.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/real_property_cols.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/set_mapmaryland_options.html</loc></url>
+<url><loc>https://elipousson.github.io/mapmaryland/reference/us_states_near_md.html</loc></url>
 </urlset>
+
