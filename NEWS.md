@@ -1,4 +1,4 @@
-# mapmaryland (development)
+# mapmaryland (development version)
 
 - Update `md_imap_index` and `md_arcgis_index` reference data (2024-09-18)
 
