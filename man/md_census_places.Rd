@@ -32,6 +32,6 @@ md_census_places
 }
 \description{
 Census Designated Places (CDPs) in the state of Maryland downloaded using the
-\link[tigris:places]{tigris::places} function.
+\link[tigris:places]{tigris::places} function. Updated 2024-10-29.
 }
 \keyword{datasets}

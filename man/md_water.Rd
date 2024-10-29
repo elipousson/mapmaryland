@@ -27,6 +27,6 @@ md_water
 \description{
 Detailed multipolygon data for streams, lakes, and other water in the state
 of Maryland downloaded from the U.S. Census Bureau with the
-\link[tigris:area_water]{tigris::area_water} function.
+\link[tigris:area_water]{tigris::area_water} function. Updated 2024-10-29.
 }
 \keyword{datasets}

@@ -28,6 +28,6 @@ A data frame with 7 rows and 15 variables:
 us_states_near_md
 }
 \description{
-U.S. states bordering Maryland or in close proximity.
+U.S. states bordering Maryland or in close proximity. Updated 2024-10-29.
 }
 \keyword{datasets}

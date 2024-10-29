@@ -29,6 +29,6 @@ md_congressional_districts
 }
 \description{
 U.S. Congressional Districts boundaries downloaded from the U.S. Census Bureau with the
-\link[tigris:congressional_districts]{tigris::congressional_districts} function.
+\link[tigris:congressional_districts]{tigris::congressional_districts} function. Updated 2024-10-29.
 }
 \keyword{datasets}

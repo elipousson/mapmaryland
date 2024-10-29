@@ -43,6 +43,6 @@ Carroll County, Anne Arundel County, Howard County, Queen Anne's County, and
 Harford County. Counties in the DC-VA-MD-WV Metropolitan Statistical Area
 (MSA) include Montgomery, Frederick, Prince George's, Charles, and Calvert
 counties. Regions are based on this resource from Visit Maryland
-\url{https://www.visitmaryland.org/info/maryland-regions}
+\url{https://www.visitmaryland.org/info/maryland-regions}. Updated 2024-10-29.
 }
 \keyword{datasets}

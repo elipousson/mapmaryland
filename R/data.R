@@ -42,7 +42,7 @@
 #' Harford County. Counties in the DC-VA-MD-WV Metropolitan Statistical Area
 #' (MSA) include Montgomery, Frederick, Prince George's, Charles, and Calvert
 #' counties. Regions are based on this resource from Visit Maryland
-#' <https://www.visitmaryland.org/info/maryland-regions>
+#' <https://www.visitmaryland.org/info/maryland-regions>. Updated 2024-10-29.
 #'
 #' @format A data frame with 24 rows and 18 variables:
 #' \describe{
@@ -90,7 +90,7 @@
 #' Maryland Census-designated places
 #'
 #' Census Designated Places (CDPs) in the state of Maryland downloaded using the
-#' [tigris::places] function.
+#' [tigris::places] function. Updated 2024-10-29.
 #'
 #' @format A data frame with 536 rows and 17 variables:
 #' \describe{
@@ -119,7 +119,7 @@
 #' Maryland U.S. Congressional Districts
 #'
 #' U.S. Congressional Districts boundaries downloaded from the U.S. Census Bureau with the
-#' [tigris::congressional_districts] function.
+#' [tigris::congressional_districts] function. Updated 2024-10-29.
 #'
 #' @format A data frame with 8 rows and 13 variables:
 #' \describe{
@@ -143,7 +143,7 @@
 
 #' U.S. States (near Maryland)
 #'
-#' U.S. states bordering Maryland or in close proximity.
+#' U.S. states bordering Maryland or in close proximity. Updated 2024-10-29.
 #'
 #' @format A data frame with 7 rows and 15 variables:
 #' \describe{
@@ -169,7 +169,7 @@
 #'
 #' Detailed multipolygon data for streams, lakes, and other water in the state
 #' of Maryland downloaded from the U.S. Census Bureau with the
-#' [tigris::area_water] function.
+#' [tigris::area_water] function. Updated 2024-10-29.
 #'
 #' @format A data frame with 14,970 rows and 9 variables:
 #' \describe{
@@ -400,7 +400,7 @@
 #'
 #' ZIP Code Tabulation Areas (ZCTAs) are generalized areal representations of
 #' United States Postal Service (USPS) ZIP Code service areas downloaded using
-#' the [tigris::zctas()] function.
+#' the [tigris::zctas()] function. Updated 2024-10-29.
 #'
 #' @format A data frame with 478 rows and 10 variables:
 #' \describe{

@@ -28,6 +28,6 @@ md_zctas
 \description{
 ZIP Code Tabulation Areas (ZCTAs) are generalized areal representations of
 United States Postal Service (USPS) ZIP Code service areas downloaded using
-the \code{\link[tigris:zctas]{tigris::zctas()}} function.
+the \code{\link[tigris:zctas]{tigris::zctas()}} function. Updated 2024-10-29.
 }
 \keyword{datasets}
