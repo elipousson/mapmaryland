@@ -23,6 +23,7 @@ Imports:
     sf,
     sfext
 Suggests: 
+    arcgislayers,
     dplyr,
     lubridate,
     naniar,

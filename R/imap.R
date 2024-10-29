@@ -43,8 +43,9 @@ get_imap_data <- function(location = NULL,
                           ...) {
   url <- get_imap_url(nm)
 
-  data <-
-    getdata::get_esri_data(
+  check_installed("arcgislayers")
+
+  data <- getdata::get_esri_data(
       location = location,
       url = url,
       crs = crs,
