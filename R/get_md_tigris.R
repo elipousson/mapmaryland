@@ -32,48 +32,48 @@
 #' @return A simple feature object matching the type provided.
 #' @rdname get_md_tigris
 #' @export
-#' @importFrom tigris state_legislative_districts county_subdivisions block_groups blocks pumas voting_districts roads primary_secondary_roads area_water linear_water landmarks zctas
 #' @importFrom janitor clean_names
-get_md_tigris <- function(name = NULL, type = "counties", crs = getOption("mapmaryland.crs", default = 3857), erase_water = FALSE, ...) {
-  pkg_data <-
-    c("counties", "census places", "congressional districts", "water")
+get_md_tigris <- function(name = NULL,
+                          type = "counties",
+                          crs = getOption("mapmaryland.crs", default = 3857),
+                          erase_water = FALSE,
+                          ...) {
+  check_installed("tigris")
+  pkg_data <- c("counties", "census places", "congressional districts", "water")
 
-  api_data <-
-    c(
-      "legislative districts", "senate district", "voting districts",
-      "tracts", "block groups", "blocks", "pumas", "zctas",
-      "roads", "primary secondary roads", "area water", "linear water", "landmarks"
-    )
+  api_data <- c(
+    "legislative districts", "senate district", "voting districts",
+    "tracts", "block groups", "blocks", "pumas", "zctas",
+    "roads", "primary secondary roads", "area water", "linear water", "landmarks"
+  )
 
-  type <-
-    match.arg(
-      tolower(type),
-      c("county", pkg_data, api_data)
-    )
+  type <- match.arg(
+    tolower(type),
+    c("county", pkg_data, api_data)
+  )
 
   state <- "MD"
 
-  data <-
-    switch(type,
-      "county" = md_counties,
-      "counties" = md_counties,
-      "census places" = md_census_places,
-      "congressional districts" = md_congressional_districts,
-      "water" = md_water,
-      "legislative districts" = tigris::state_legislative_districts(state = state, house = "lower", ...),
-      "senate districts" = tigris::state_legislative_districts(state = state, house = "upper", ...),
-      "county subdivisions" = tigris::county_subdivisions(state = state, ...),
-      "block groups" = tigris::block_groups(state = state, ...),
-      "blocks" = tigris::blocks(state = state, ...),
-      "pumas" = tigris::pumas(state = state, ...),
-      "voting districts" = tigris::voting_districts(state = state, ...),
-      "roads" = tigris::roads(state = state, ...),
-      "primary secondary roads" = tigris::primary_secondary_roads(state = state, ...),
-      "area water" = tigris::area_water(state = state, ...),
-      "linear water" = tigris::linear_water(state = state, ...),
-      "landmarks" = tigris::landmarks(state = state, ...),
-      "zctas" = tigris::zctas(state = state, ...)
-    )
+  data <- switch(type,
+    "county" = mapmaryland::md_counties,
+    "counties" = mapmaryland::md_counties,
+    "census places" = mapmaryland::md_census_places,
+    "congressional districts" = mapmaryland::md_congressional_districts,
+    "water" = mapmaryland::md_water,
+    "legislative districts" = tigris::state_legislative_districts(state = state, house = "lower", ...),
+    "senate districts" = tigris::state_legislative_districts(state = state, house = "upper", ...),
+    "county subdivisions" = tigris::county_subdivisions(state = state, ...),
+    "block groups" = tigris::block_groups(state = state, ...),
+    "blocks" = tigris::blocks(state = state, ...),
+    "pumas" = tigris::pumas(state = state, ...),
+    "voting districts" = tigris::voting_districts(state = state, ...),
+    "roads" = tigris::roads(state = state, ...),
+    "primary secondary roads" = tigris::primary_secondary_roads(state = state, ...),
+    "area water" = tigris::area_water(state = state, ...),
+    "linear water" = tigris::linear_water(state = state, ...),
+    "landmarks" = tigris::landmarks(state = state, ...),
+    "zctas" = tigris::zctas(state = state, ...)
+  )
 
   if (type %in% api_data) {
     data <- janitor::clean_names(data)
