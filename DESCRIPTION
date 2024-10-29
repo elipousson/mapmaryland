@@ -21,14 +21,14 @@ Imports:
     magrittr,
     rlang,
     sf,
-    sfext,
-    tigris
+    sfext
 Suggests: 
     dplyr,
     lubridate,
     naniar,
     stringr,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    tigris
 Remotes:
     elipousson/getdata,
     elipousson/sfext
