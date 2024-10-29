@@ -1,13 +1,14 @@
-#' Use package data or the {tigris} package to get Maryland data from the U.S. Census Bureau
+#' Use package data or the \{tigris\} package to get Maryland data from the U.S.
+#' Census Bureau
 #'
 #' Get package data with Maryland counties, U.S. Congressional District, or
 #' Census designated places by name or GeoID or use the tigris package to
 #' download state data.
 #'
-#' @details Use {mapmaryland} packaged data or use tigris U.S. Census Bureau
+#' @details Use \{mapmaryland\} packaged data or use tigris U.S. Census Bureau
 #'   API:
 #'
-#'   Supported options that access data included with the {mapmaryland} package
+#'   Supported options that access data included with the \{mapmaryland\} package
 #'   include "counties", "census places", "congressional districts",
 #'   "legislative districts", and "water".
 #'
@@ -23,11 +24,11 @@
 #'
 #' @param name Name matching a value in the namelsad, namelsad, or geoid columns
 #'   of [md_counties], [md_census_places], [md_congressional_districts], or one
-#'   of the data sets available for download with {tigris}; Default: `NULL`
+#'   of the data sets available for download with \{tigris\}; Default: `NULL`
 #' @param type Type of data to return, Default: "counties"; See details for
 #'   supported options.
 #' @inheritParams format_md_sf
-#' @param ... Additional parameters passed on to {tigris} functions.
+#' @param ... Additional parameters passed on to \{tigris\} functions.
 #' @return A simple feature object matching the type provided.
 #' @rdname get_md_tigris
 #' @export

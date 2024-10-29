@@ -2,7 +2,8 @@
 % Please edit documentation in R/get_md_tigris.R
 \name{get_md_tigris}
 \alias{get_md_tigris}
-\title{Use package data or the {tigris} package to get Maryland data from the U.S. Census Bureau}
+\title{Use package data or the \{tigris\} package to get Maryland data from the U.S.
+Census Bureau}
 \usage{
 get_md_tigris(
   name = NULL,
@@ -15,7 +16,7 @@ get_md_tigris(
 \arguments{
 \item{name}{Name matching a value in the namelsad, namelsad, or geoid columns
 of \link{md_counties}, \link{md_census_places}, \link{md_congressional_districts}, or one
-of the data sets available for download with {tigris}; Default: \code{NULL}}
+of the data sets available for download with \{tigris\}; Default: \code{NULL}}
 
 \item{type}{Type of data to return, Default: "counties"; See details for
 supported options.}
@@ -28,7 +29,7 @@ supported options.}
 \link{md_water}; Default: \code{FALSE}. If \code{TRUE}, and erase_data is not \code{NULL}, \link{md_water}
 is combined and unioned with erase_data.}
 
-\item{...}{Additional parameters passed on to {tigris} functions.}
+\item{...}{Additional parameters passed on to \{tigris\} functions.}
 }
 \value{
 A simple feature object matching the type provided.
@@ -39,10 +40,10 @@ Census designated places by name or GeoID or use the tigris package to
 download state data.
 }
 \details{
-Use {mapmaryland} packaged data or use tigris U.S. Census Bureau
+Use \{mapmaryland\} packaged data or use tigris U.S. Census Bureau
 API:
 
-Supported options that access data included with the {mapmaryland} package
+Supported options that access data included with the \{mapmaryland\} package
 include "counties", "census places", "congressional districts",
 "legislative districts", and "water".
 
