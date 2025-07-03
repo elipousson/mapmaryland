@@ -22,8 +22,13 @@ md_open_data_index <- md_open_data_index %>%
     name = title,
     url = landingPage
   ) %>%
-  dplyr::select(-c(accessLevel, `@type`, contactPoint, publisher, distribution)) %>%
-  dplyr::filter(!stringr::str_detect(name, "iMAP"), !stringr::str_detect(description, "iMAP")) %>%
+  dplyr::select(
+    -c(accessLevel, `@type`, contactPoint, publisher, distribution)
+  ) %>%
+  dplyr::filter(
+    !stringr::str_detect(name, "iMAP"),
+    !stringr::str_detect(description, "iMAP")
+  ) %>%
   janitor::clean_names() %>%
   dplyr::mutate(
     nm = janitor::make_clean_names(name),

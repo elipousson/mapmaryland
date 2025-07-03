@@ -91,7 +91,18 @@ esriIndex <- function(url, parent = NULL, recurse = FALSE, ...) {
         )
     }
 
-    layerIndex <- subset(index, type %in% c("MapServer", "FeatureServer", "ImageServer", "GeocodeServer", "GeometryServer", "GPServer"))
+    layerIndex <- subset(
+      index,
+      type %in%
+        c(
+          "MapServer",
+          "FeatureServer",
+          "ImageServer",
+          "GeocodeServer",
+          "GeometryServer",
+          "GPServer"
+        )
+    )
 
     if (nrow(layerIndex) > 0) {
       layerIndex <-
@@ -168,7 +179,14 @@ esriLayers <- function(url, parent = NULL, ...) {
 #' @importFrom httr2 request req_url_query req_perform resp_body_json resp_body_xml
 #' @importFrom xml2 as_list
 #' @importFrom dplyr bind_rows
-esriCatalog <- function(url, format = "json", token = "", option = NULL, outSR = NULL, ...) {
+esriCatalog <- function(
+  url,
+  format = "json",
+  token = "",
+  option = NULL,
+  outSR = NULL,
+  ...
+) {
   format <- match.arg(format, c("json", "html", "kmz", "sitemap", "geositemap"))
   req <- httr2::request(url)
   req <- httr2::req_url_query(req = req, f = format, token = token)

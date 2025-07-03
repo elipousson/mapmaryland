@@ -21,7 +21,10 @@ md_streams_detailed <-
     type = layer
   ) %>%
   sf::st_transform(pkg_crs) %>%
-  sf::st_join(dplyr::select(md_counties, countyfp, county = name), largest = TRUE) %>%
+  sf::st_join(
+    dplyr::select(md_counties, countyfp, county = name),
+    largest = TRUE
+  ) %>%
   rename_sf_col()
 
 # NOTE: md_streams_detailed is no longer being exported
@@ -32,7 +35,10 @@ url <-
 md_streams <-
   read_sf_url(url = url) %>%
   sf::st_transform(pkg_crs) %>%
-  sf::st_join(dplyr::select(md_counties, countyfp, county = name), largest = TRUE) %>%
+  sf::st_join(
+    dplyr::select(md_counties, countyfp, county = name),
+    largest = TRUE
+  ) %>%
   rename_sf_col()
 
 # NOTE: md_streams is no longer being exported
@@ -54,7 +60,9 @@ md_counties_detailed <-
   dplyr::left_join(
     dplyr::select(
       sf::st_drop_geometry(md_counties),
-      countyfp, geoid, namelsad
+      countyfp,
+      geoid,
+      namelsad
     ),
     by = "countyfp"
   )
@@ -87,8 +95,12 @@ md_mpos <-
     states = stringr::str_remove_all(states, ";N/A")
   ) %>%
   dplyr::select(
-    name, abb,
-    geoid = id, url, states, geometry
+    name,
+    abb,
+    geoid = id,
+    url,
+    states,
+    geometry
   ) %>%
   dplyr::ungroup()
 

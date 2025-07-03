@@ -1,8 +1,14 @@
 .onLoad <- function(libname, pkgname) {
   utils::data(
     list = c(
-      "md_counties", "md_census_places", "md_congressional_districts", "md_water",
-      "md_arcgis_index", "md_imap_index", "md_open_data_index", "msde_enrollment"
+      "md_counties",
+      "md_census_places",
+      "md_congressional_districts",
+      "md_water",
+      "md_arcgis_index",
+      "md_imap_index",
+      "md_open_data_index",
+      "msde_enrollment"
     ),
     package = pkgname,
     envir = parent.env(environment())
@@ -10,10 +16,19 @@
 }
 
 utils::globalVariables(
-  c( # Variables for format_md_crash_data
-    "acc_date", "acc_time", "crash_date", "dotw",
-    "harm_event_desc1", "harm_event_desc2", "report_type", "year",
-    "age_at_crash", "date_of_birth", "geometry"
+  c(
+    # Variables for format_md_crash_data
+    "acc_date",
+    "acc_time",
+    "crash_date",
+    "dotw",
+    "harm_event_desc1",
+    "harm_event_desc2",
+    "report_type",
+    "year",
+    "age_at_crash",
+    "date_of_birth",
+    "geometry"
   )
 )
 

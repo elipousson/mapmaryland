@@ -10,28 +10,30 @@
 #' @export
 #' @importFrom getdata cache_location_data
 #' @importFrom rlang caller_env %||%
-cache_imap_data <- function(data = NULL,
-                            nm = NULL,
-                            ...,
-                            location = NULL,
-                            name = NULL,
-                            label = NULL,
-                            fileext = "gpkg",
-                            filename = NULL,
-                            path = NULL,
-                            prefix = NULL,
-                            postfix = NULL,
-                            cache = TRUE,
-                            pkg = "getdata",
-                            create = TRUE,
-                            overwrite = FALSE,
-                            call = caller_env()) {
-
-  data <- data %||% get_imap_data(
-    location = location,
-    nm = nm,
-    ...
-  )
+cache_imap_data <- function(
+  data = NULL,
+  nm = NULL,
+  ...,
+  location = NULL,
+  name = NULL,
+  label = NULL,
+  fileext = "gpkg",
+  filename = NULL,
+  path = NULL,
+  prefix = NULL,
+  postfix = NULL,
+  cache = TRUE,
+  pkg = "getdata",
+  create = TRUE,
+  overwrite = FALSE,
+  call = caller_env()
+) {
+  data <- data %||%
+    get_imap_data(
+      location = location,
+      nm = nm,
+      ...
+    )
 
   getdata::cache_location_data(
     data = data,

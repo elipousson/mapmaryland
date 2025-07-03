@@ -10,7 +10,8 @@ options(tigris_use_cache = TRUE)
 # https://github.com/r-spatial/sf/issues/1341#issuecomment-1120284345
 escape_crs <- function(x) {
   sf::st_crs(x)$wkt <- gsub(
-    "°|º", "\\\u00b0",
+    "°|º",
+    "\\\u00b0",
     sf::st_crs(x)$wkt
   )
 
@@ -127,7 +128,6 @@ usethis::use_data(us_states_near_md, overwrite = TRUE)
 #   escape_crs()
 #
 # usethis::use_data(md_senate_districts, overwrite = TRUE)
-
 
 # md_legislative_districts <-
 #   tigris::state_legislative_districts(state = pkg_state_abb, house = "lower") %>%
