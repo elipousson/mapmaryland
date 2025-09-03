@@ -33,18 +33,30 @@
 #' @rdname get_md_tigris
 #' @export
 #' @importFrom janitor clean_names
-get_md_tigris <- function(name = NULL,
-                          type = "counties",
-                          crs = getOption("mapmaryland.crs", default = 3857),
-                          erase_water = FALSE,
-                          ...) {
+get_md_tigris <- function(
+  name = NULL,
+  type = "counties",
+  crs = getOption("mapmaryland.crs", default = 3857),
+  erase_water = FALSE,
+  ...
+) {
   check_installed("tigris")
   pkg_data <- c("counties", "census places", "congressional districts", "water")
 
   api_data <- c(
-    "legislative districts", "senate district", "voting districts",
-    "tracts", "block groups", "blocks", "pumas", "zctas",
-    "roads", "primary secondary roads", "area water", "linear water", "landmarks"
+    "legislative districts",
+    "senate district",
+    "voting districts",
+    "tracts",
+    "block groups",
+    "blocks",
+    "pumas",
+    "zctas",
+    "roads",
+    "primary secondary roads",
+    "area water",
+    "linear water",
+    "landmarks"
   )
 
   type <- match.arg(
@@ -54,21 +66,33 @@ get_md_tigris <- function(name = NULL,
 
   state <- "MD"
 
-  data <- switch(type,
+  data <- switch(
+    type,
     "county" = mapmaryland::md_counties,
     "counties" = mapmaryland::md_counties,
     "census places" = mapmaryland::md_census_places,
     "congressional districts" = mapmaryland::md_congressional_districts,
     "water" = mapmaryland::md_water,
-    "legislative districts" = tigris::state_legislative_districts(state = state, house = "lower", ...),
-    "senate districts" = tigris::state_legislative_districts(state = state, house = "upper", ...),
+    "legislative districts" = tigris::state_legislative_districts(
+      state = state,
+      house = "lower",
+      ...
+    ),
+    "senate districts" = tigris::state_legislative_districts(
+      state = state,
+      house = "upper",
+      ...
+    ),
     "county subdivisions" = tigris::county_subdivisions(state = state, ...),
     "block groups" = tigris::block_groups(state = state, ...),
     "blocks" = tigris::blocks(state = state, ...),
     "pumas" = tigris::pumas(state = state, ...),
     "voting districts" = tigris::voting_districts(state = state, ...),
     "roads" = tigris::roads(state = state, ...),
-    "primary secondary roads" = tigris::primary_secondary_roads(state = state, ...),
+    "primary secondary roads" = tigris::primary_secondary_roads(
+      state = state,
+      ...
+    ),
     "area water" = tigris::area_water(state = state, ...),
     "linear water" = tigris::linear_water(state = state, ...),
     "landmarks" = tigris::landmarks(state = state, ...),
@@ -83,7 +107,12 @@ get_md_tigris <- function(name = NULL,
     data <- data[lookup_tigris_name(name, data), ]
   }
 
-  data <- format_md_sf(data, crs = crs, erase_water = erase_water, clean_names = FALSE)
+  data <- format_md_sf(
+    data,
+    crs = crs,
+    erase_water = erase_water,
+    clean_names = FALSE
+  )
 
   return(data)
 }
@@ -94,7 +123,9 @@ lookup_tigris_name <- function(name, data = NULL) {
     tolower(name)
 
   lookup <-
-    ((tolower(data[["name"]]) %in% name) | (tolower(data[["namelsad"]]) %in% name) | (data[["geoid"]] %in% name))
+    ((tolower(data[["name"]]) %in% name) |
+      (tolower(data[["namelsad"]]) %in% name) |
+      (data[["geoid"]] %in% name))
 
   return(lookup)
 }

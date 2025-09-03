@@ -6,7 +6,10 @@ msde_enrollment <- marylandedu::msde_enrollment
 usethis::use_data(msde_enrollment, overwrite = TRUE)
 
 public_schools_imap <-
-  mapmaryland::get_imap_data(nm = "pre_k_thru_12_education_public_schools", crs = 3857)
+  mapmaryland::get_imap_data(
+    nm = "pre_k_thru_12_education_public_schools",
+    crs = 3857
+  )
 
 public_schools <-
   public_schools_imap %>%
@@ -36,8 +39,14 @@ public_schools <-
     grades = str_replace(grades, "SpecEdPK", "PK"),
     grades = str_replace(grades, "^k", "K"),
     grades = case_when(
-      str_detect(grades, "^(PreK|Prek|prek|Pre-K|pre-K|pk|PreSchoo|HS)") ~ str_replace(grades, "^(PreK|Prek|prek|Pre-K|pre-K|pk|PreSchoo|HS)", "PK"),
-      grades %in% c("Sp.Ed", "Sp. Ed.", "Sp.", "", "0", "Outdoor") ~ NA_character_,
+      str_detect(grades, "^(PreK|Prek|prek|Pre-K|pre-K|pk|PreSchoo|HS)") ~
+        str_replace(
+          grades,
+          "^(PreK|Prek|prek|Pre-K|pre-K|pk|PreSchoo|HS)",
+          "PK"
+        ),
+      grades %in% c("Sp.Ed", "Sp. Ed.", "Sp.", "", "0", "Outdoor") ~
+        NA_character_,
       TRUE ~ grades
     ),
     grades = str_remove_all(grades, "[:space:]"),
@@ -78,7 +87,10 @@ public_schools <-
   select(-objectid)
 
 charter_schools_imap <-
-  mapmaryland::get_imap_data(nm = "k_thru_12_education_charter_schools", crs = 3857)
+  mapmaryland::get_imap_data(
+    nm = "k_thru_12_education_charter_schools",
+    crs = 3857
+  )
 
 charter_schools <- charter_schools_imap %>%
   getdata::rename_with_xwalk(

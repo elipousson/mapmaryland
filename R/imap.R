@@ -37,20 +37,22 @@
 #' @export
 #' @importFrom getdata get_esri_data
 #' @importFrom sfext rename_sf_col
-get_imap_data <- function(location = NULL,
-                          nm = NULL,
-                          crs = getOption("mapmaryland.crs", default = 3857),
-                          ...) {
+get_imap_data <- function(
+  location = NULL,
+  nm = NULL,
+  crs = getOption("mapmaryland.crs", default = 3857),
+  ...
+) {
   url <- get_imap_url(nm)
 
   check_installed("arcgislayers")
 
   data <- getdata::get_esri_data(
-      location = location,
-      url = url,
-      crs = crs,
-      ...
-    )
+    location = location,
+    url = url,
+    crs = crs,
+    ...
+  )
 
   if (!inherits(data, "sf")) {
     return(data)
@@ -62,10 +64,12 @@ get_imap_data <- function(location = NULL,
 #' @name get_cama_data
 #' @rdname get_imap_data
 #' @export
-get_cama_data <- function(location,
-                          type = "core",
-                          crs = getOption("mapmaryland.crs", default = 3857),
-                          ...) {
+get_cama_data <- function(
+  location,
+  type = "core",
+  crs = getOption("mapmaryland.crs", default = 3857),
+  ...
+) {
   nm <-
     type2nm(
       type = type,
@@ -86,11 +90,13 @@ get_cama_data <- function(location,
 #'   [getdata::bind_block_col()]. Defaults to `FALSE`.
 #' @export
 #' @importFrom getdata bind_block_col
-get_parcel_data <- function(location,
-                            type = "boundaries",
-                            crs = getOption("mapmaryland.crs", default = 3857),
-                            block = FALSE,
-                            ...) {
+get_parcel_data <- function(
+  location,
+  type = "boundaries",
+  crs = getOption("mapmaryland.crs", default = 3857),
+  block = FALSE,
+  ...
+) {
   nm <-
     type2nm(
       type = type,
@@ -105,7 +111,10 @@ get_parcel_data <- function(location,
       ...
     )
 
-  if (!block || !all(rlang::has_name(data, c("strtnum", "strtdir", "strtnam", "strttyp")))) {
+  if (
+    !block ||
+      !all(rlang::has_name(data, c("strtnum", "strtdir", "strtnam", "strttyp")))
+  ) {
     return(data)
   }
 
@@ -119,13 +128,15 @@ get_parcel_data <- function(location,
 #' @param imap_addr_cols Named list with address column names for input data.
 #'   Passed to corresponding parameters in [getdata::bind_block_col()]
 #' @export
-format_parcel_data <- function(data,
-                               imap_addr_cols = list(
-                                 bldg_num = "strtnum",
-                                 street_dir_prefix = "strtdir",
-                                 street_name = "strtnam",
-                                 street_suffix = "strttyp"
-                               )) {
+format_parcel_data <- function(
+  data,
+  imap_addr_cols = list(
+    bldg_num = "strtnum",
+    street_dir_prefix = "strtdir",
+    street_name = "strtnam",
+    street_suffix = "strttyp"
+  )
+) {
   getdata::bind_block_col(
     data,
     bldg_num = imap_addr_cols$bldg_num,
@@ -139,10 +150,12 @@ format_parcel_data <- function(data,
 #' @name get_mht_data
 #' @rdname get_imap_data
 #' @export
-get_mht_data <- function(location,
-                         type = "mihp",
-                         crs = getOption("mapmaryland.crs", default = 3857),
-                         ...) {
+get_mht_data <- function(
+  location,
+  type = "mihp",
+  crs = getOption("mapmaryland.crs", default = 3857),
+  ...
+) {
   nm <-
     type2nm(
       type = type,
@@ -160,10 +173,12 @@ get_mht_data <- function(location,
 #' @name get_water_data
 #' @rdname get_imap_data
 #' @export
-get_water_data <- function(location,
-                           type = "streams",
-                           crs = getOption("mapmaryland.crs", default = 3857),
-                           ...) {
+get_water_data <- function(
+  location,
+  type = "streams",
+  crs = getOption("mapmaryland.crs", default = 3857),
+  ...
+) {
   nm <-
     type2nm(
       type = type,

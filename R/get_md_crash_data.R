@@ -28,11 +28,13 @@
 #' @export
 #' @importFrom rlang list2 exec
 #' @importFrom glue glue
-get_md_crash_data <- function(location = NULL,
-                              ...,
-                              report_no = NULL,
-                              where = NULL,
-                              type = "crashes") {
+get_md_crash_data <- function(
+  location = NULL,
+  ...,
+  report_no = NULL,
+  where = NULL,
+  type = "crashes"
+) {
   type <- match.arg(
     type,
     c("crashes", "crashes_person", "persons", "crashes_vehicle", "vehicles")
@@ -52,7 +54,8 @@ get_md_crash_data <- function(location = NULL,
     location <- NULL
   }
 
-  resource <- switch(type,
+  resource <- switch(
+    type,
     "crashes" = "maryland_statewide_vehicle_crashes",
     "crashes_person" = "maryland_statewide_vehicle_crashes_person_details_anonymized",
     "persons" = "maryland_statewide_vehicle_crashes_person_details_anonymized",
@@ -68,7 +71,9 @@ get_md_crash_data <- function(location = NULL,
       split(report_no, ceiling(seq_along(report_no) / 50)),
       function(report_no_group) {
         report_no_group <- paste0(
-          "'", paste0(report_no_group, collapse = "','"), "'"
+          "'",
+          paste0(report_no_group, collapse = "','"),
+          "'"
         )
 
         where <- paste0(
@@ -111,10 +116,12 @@ get_md_crash_data <- function(location = NULL,
 #' @param drop_code If `TRUE` (default), drop all columns that end with "code"
 #' @export
 #' @importFrom rlang check_installed
-format_md_crash_data <- function(data,
-                                 type = "crashes",
-                                 drop_code = TRUE,
-                                 ...) {
+format_md_crash_data <- function(
+  data,
+  type = "crashes",
+  drop_code = TRUE,
+  ...
+) {
   rlang::check_installed("dplyr")
   rlang::check_installed("lubridate")
 
@@ -123,7 +130,8 @@ format_md_crash_data <- function(data,
     c("crashes", "crashes_person", "persons", "crashes_vehicle", "vehicles")
   )
 
-  data <- switch(type,
+  data <- switch(
+    type,
     "crashes" = format_md_crashes(data, ...),
     "crashes_person" = format_md_crashes_person(data, ...),
     "persons" = format_md_crashes_person(data, ...)
@@ -146,10 +154,12 @@ format_md_crashes <- function(data) {
 
   required_cols <- c("harm_event_desc1", "harm_event_desc2", "report_type")
 
-  if (!all(rlang::has_name(
-    data,
-    required_cols
-  ))) {
+  if (
+    !all(rlang::has_name(
+      data,
+      required_cols
+    ))
+  ) {
     cli::cli_warn(
       "One or more required columns {.val required_cols} are missing"
     )
@@ -168,7 +178,8 @@ format_md_crashes <- function(data) {
     ),
     fatal_injury = dplyr::if_else(
       grepl(pattern = "Fatal", x = report_type, perl = TRUE),
-      "Y", "N"
+      "Y",
+      "N"
     ),
     .before = dplyr::all_of("harm_event_desc1")
   )
@@ -219,10 +230,12 @@ format_md_crash_date <- function(data, cols = c("acc_date", "acc_time")) {
 #' @param na_dates Character vector of invalid dates to replace with a
 #'   `NA_character_` value.
 #' @export
-format_md_crashes_person <- function(data,
-                                     start_year = 2022,
-                                     end_year = 2022,
-                                     na_dates = c("1/1/1900", "19000101", "19001111", "19001212", "19200202")) {
+format_md_crashes_person <- function(
+  data,
+  start_year = 2022,
+  end_year = 2022,
+  na_dates = c("1/1/1900", "19000101", "19001111", "19001212", "19200202")
+) {
   rlang::check_installed("dplyr")
   rlang::check_installed("lubridate")
   rlang::check_installed("naniar")
@@ -240,7 +253,8 @@ format_md_crashes_person <- function(data,
     date_of_birth = stringr::str_replace_all(date_of_birth, "-", " "),
     date_of_birth = stringr::str_remove(date_of_birth, "[:space:]00:00:00"),
     date_of_birth = dplyr::case_when(
-      stringr::str_detect(date_of_birth, "[:alpha:]") ~ lubridate::dmy(date_of_birth),
+      stringr::str_detect(date_of_birth, "[:alpha:]") ~
+        lubridate::dmy(date_of_birth),
       TRUE ~ lubridate::ymd(date_of_birth)
     ),
     date_of_birth = dplyr::if_else(
@@ -251,7 +265,8 @@ format_md_crashes_person <- function(data,
     age_at_crash = floor(
       lubridate::int_length(
         lubridate::interval(date_of_birth, acc_date)
-      ) / 31557600
+      ) /
+        31557600
     ),
     age_at_crash = dplyr::if_else(
       age_at_crash > (start_year - 100),

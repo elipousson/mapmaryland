@@ -21,15 +21,17 @@
 #' @importFrom sfext st_filter_ext check_sf
 #' @importFrom sf st_union st_combine
 #' @importFrom getdata format_sf_data
-format_md_sf <- function(data,
-                         crs = getOption("mapmaryland.crs", default = 3857),
-                         erase_water = FALSE,
-                         erase_data = NULL,
-                         clean_names = TRUE,
-                         dTolerance = NULL,
-                         smooth = FALSE,
-                         sf_col = "geometry",
-                         ...) {
+format_md_sf <- function(
+  data,
+  crs = getOption("mapmaryland.crs", default = 3857),
+  erase_water = FALSE,
+  erase_data = NULL,
+  clean_names = TRUE,
+  dTolerance = NULL,
+  smooth = FALSE,
+  sf_col = "geometry",
+  ...
+) {
   if (erase_water) {
     water <- sfext::st_filter_ext(md_water, data)
 

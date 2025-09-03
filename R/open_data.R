@@ -19,12 +19,14 @@
 #' @inheritDotParams getdata::get_open_data
 #' @export
 #' @importFrom getdata get_access_token get_open_data
-get_md_open_data <- function(resource = NULL,
-                             type = NULL,
-                             crs = getOption("mapmaryland.crs", default = 3857),
-                             geometry = FALSE,
-                             token = NULL,
-                             ...) {
+get_md_open_data <- function(
+  resource = NULL,
+  type = NULL,
+  crs = getOption("mapmaryland.crs", default = 3857),
+  geometry = FALSE,
+  token = NULL,
+  ...
+) {
   if (!is.null(type) && is.null(resource)) {
     resource <-
       type2nm(type, index = "md_open_data")
