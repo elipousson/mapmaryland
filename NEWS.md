@@ -1,6 +1,6 @@
 # mapmaryland (development version)
 
-- Update `md_imap_index` and `md_arcgis_index` reference data (2024-09-18)
+- Update `md_imap_index` and `md_arcgis_index` reference data (2024-09-18; 2025-09-03).
 - Move `{tigris}` to Suggests.
 
 # mapmaryland 0.2.0
@@ -33,5 +33,3 @@
 - test: add tests for `get_cama_data()` and `get_parcel_data()`
 - refactor: add overedge as a dependency
 - feat: update `md_arcgis_index` to ensure consistency of service_url data
-
-
